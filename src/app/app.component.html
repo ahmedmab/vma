@@ -1,0 +1,34 @@
+<header>
+  <div>
+   <a><h1> <i class="fas fa-running"></i></h1><h1> Sport Calcul</h1></a> 
+  </div>
+</header>
+
+<div class="container">
+  
+  <br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" routerLink='info'><i class="fas fa-info-circle"></i><span> à propos de VMA </span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" routerLink='calcul'><i class="fas fa-calculator"></i><span> Calculer VMA</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" routerLink='trainer-plan'><i class="fas fa-running"></i><span> S'entrainer avec VMA</span></a>
+    </li>
+  </ul>
+
+  <div class="container contenu">
+<router-outlet></router-outlet>
+
+  </div>
+
+<footer>
+  <hr>
+<p>Copyright &copy;	2021 | created with <i class="far fa-heart"></i>+<i class="fas fa-coffee"></i> by Ahmed MABROUKI</p> 
+<p></p>
+
+</footer>
+
