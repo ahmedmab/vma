@@ -1,6 +1,153 @@
 <div class="container box">
-    <p>vma-trainer works!</p>
+    <p>Saisir votre VMA et vous pourrez préparer votre entrainement en fonction de l'intensité voulue: </p>
+    <span><input type="text" class="form-control form-control-sm" [(ngModel)]="vma"><p>Km/h</p></span><button class="btn btn-sm btn-info" (click)="calcul()">Calculer</button><button class="btn btn-sm btn-info">Rénitialiser</button>
+    <hr>
+    <div>
+        <div>
+            <h2>Travail intermittent</h2>
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">V / 100m</th>
+                    <th scope="col">V / 1000m</th>
+                    <th scope="col">distance / 30"</th>
+                    <th scope="col">vitesse</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">115%</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>{{vma115}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">110%</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>{{vma110}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">105%</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">100%</th>
+                    <td>@mdo</td>
+                    <td>Larry the Bird</td>
+                    <td>Thornton</td>
+                    <td>{{vma100}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">95%</th>
+                    <td>Larry the Bird</td>
+                    <td>Thornton</td>
+                    <td>@twitter</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">90%</th>
+                    <td>@mdo</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">85%</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">80%</th>
+                    <td>Larry the Bird</td>
+                    <td>Thornton</td>
+                    <td>@twitter</td>
+                    <td>@mdo</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+
+        <div>
+            <h2>Temps par distance</h2>
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry the Bird</td>
+                    <td>Thornton</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+
+        <div>
+            <h2>Distance par temps</h2>
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">90%</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">85%</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">80%</th>
+                    <td>Larry the Bird</td>
+                    <td>Thornton</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
     <div class="save-pdf">
         <button class="btn btn-outline-danger"><span>Enregistrer PDF </span><i class="far fa-arrow-alt-circle-down"></i></button>
     </div>
 </div>
+
+
+

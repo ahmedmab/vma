@@ -16,7 +16,6 @@ export class VmaCalculComponent implements OnInit {
   }
   getVal(select){
 this.value = select
-console.warn(select)
   }
 
   calcul(){
