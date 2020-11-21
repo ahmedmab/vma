@@ -3,146 +3,442 @@
     <span><input type="text" class="form-control form-control-sm" [(ngModel)]="vma"><p>Km/h</p></span><button class="btn btn-sm btn-info" (click)="calcul()">Calculer</button><button class="btn btn-sm btn-info">Rénitialiser</button>
     <hr>
     <div>
+      <!--temps par distance-->
         <div>
             <h2>Travail intermittent</h2>
             <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">V / 100m</th>
-                    <th scope="col">V / 1000m</th>
-                    <th scope="col">distance / 30"</th>
+                    <th scope="col">%</th>
                     <th scope="col">vitesse</th>
+                    <th scope="col">100m</th>
+                    <th scope="col">200m</th>
+                    <th scope="col">300m</th>
+                    <th scope="col">400m</th>
+                    <th scope="col">500m</th>
+                    <th scope="col">800m</th>
+                    <th scope="col">1000m</th>
+                    <th scope="col">1200m</th>
+                    <th scope="col">1500m</th>
+                    <th scope="col">2000m</th>
+                    <th scope="col">3000m</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th scope="row">115%</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
                     <td>{{vma115}}</td>
+                    <td>{{vma_100 / 115 * 100 |number: '1.0-1'}}  {{second}}</td>
+                    <td>Otto</td>
+                    <td>{{vma_30s * 30 * 115  / 100 |number: '1.0-1'}} {{metre}}</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
                   </tr>
                   <tr>
                     <th scope="row">110%</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
                     <td>{{vma110}}</td>
+                    <td>{{vma_100 / 110 * 100 |number: '1.0-1'}} {{second}}</td>
+                    <td>Otto</td>
+                    <td>{{vma_30s * 30 * 110  / 100 |number: '1.0-1'}} {{metre}}</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+
                   </tr>
                   <tr>
                     <th scope="row">105%</th>
-                    <td>Jacob</td>
+                    <td>{{vma105}}</td>
+                    <td>{{vma_100 / 105 * 100 |number: '1.0-1'}} {{second}}</td>
                     <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>@mdo</td>
+                    <td>{{vma_30s * 30 * 105  / 100 |number: '1.0-1'}} {{metre}}</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+           
                   </tr>
                   <tr>
                     <th scope="row">100%</th>
-                    <td>@mdo</td>
-                    <td>Larry the Bird</td>
-                    <td>Thornton</td>
                     <td>{{vma100}}</td>
+                    <td>{{vma_100 / 100 * 100 |number: '1.0-1'}} {{second}}</td>
+                    <td>Larry the Bird</td>
+                    <td>{{vma_30s * 30 * 100  / 100 |number: '1.0-1'}} {{metre}}</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+              
                   </tr>
                   <tr>
                     <th scope="row">95%</th>
-                    <td>Larry the Bird</td>
+                    <td>{{vma95}}</td>
+                    <td>{{vma_100 / 95 * 100 |number: '1.0-1'}} {{second}}</td>
                     <td>Thornton</td>
-                    <td>@twitter</td>
-                    <td>@mdo</td>
+                    <td>{{vma_30s * 30 * 95  / 100 |number: '1.0-1'}} {{metre}}</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                 
                   </tr>
                   <tr>
                     <th scope="row">90%</th>
-                    <td>@mdo</td>
+                    <td>{{vma90}}</td>
+                    <td>{{vma_100 / 90 * 100 |number: '1.0-1'}} {{second}}</td>
                     <td>Mark</td>
+                    <td>{{vma_30s * 30 * 90  / 100 |number: '1.0-1'}} {{metre}}</td>
                     <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                
                   </tr>
                   <tr>
                     <th scope="row">85%</th>
-                    <td>Jacob</td>
+                    <td>{{vma85}}</td>
+                    <td>{{vma_100 / 85 * 100 |number: '1.0-1'}} {{second}}</td>
                     <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>@mdo</td>
+                    <td>{{vma_30s * 30 * 85  / 100 |number: '1.0-1'}} {{metre}}</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                
                   </tr>
                   <tr>
                     <th scope="row">80%</th>
-                    <td>Larry the Bird</td>
+                    <td>{{vma80}}</td>
+                    <td>{{vma_100 / 80 * 100 |number: '1.0-1'}} {{second}}</td>
                     <td>Thornton</td>
-                    <td>@twitter</td>
-                    <td>@mdo</td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
-
-        <div>
-            <h2>Temps par distance</h2>
-            <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
+                    <td>{{vma_30s * 30 * 80  / 100 |number: '1.0-1'}} {{metre}}</td>
                     <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>Thornton</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
-
-        <div>
-            <h2>Distance par temps</h2>
-            <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">90%</th>
-                    <td>Mark</td>
                     <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                  
                   </tr>
                   <tr>
-                    <th scope="row">85%</th>
-                    <td>Jacob</td>
+                    <th scope="row">75%</th>
+                    <td>{{vma75}}</td>
+                    <td>{{vma_100 / 75 * 100 |number: '1.0-1'}} {{second}}</td>
                     <td>Thornton</td>
-                    <td>@fat</td>
+                    <td>{{vma_30s * 30 * 75  / 100 |number: '1.0-1'}} {{metre}}</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                   
                   </tr>
                   <tr>
-                    <th scope="row">80%</th>
-                    <td>Larry the Bird</td>
+                    <th scope="row">70%</th>
+                    <td>{{vma70}}</td>
+                    <td>{{vma_100 / 70 * 100 |number: '1.0-1'}} {{second}}</td>
                     <td>Thornton</td>
-                    <td>@twitter</td>
+                    <td>{{vma_30s * 30 * 70  / 100 |number: '1.0-1'}} {{metre}}</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                 
+                  </tr>
+                  <tr>
+                    <th scope="row">65%</th>
+                    <td>{{vma65}}</td>
+                    <td>{{vma_100 / 65 * 100 |number: '1.0-1'}} {{second}}</td>
+                    <td>Thornton</td>
+                    <td>{{vma_30s * 30 * 65  / 100 |number: '1.0-1'}} {{metre}}</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                   
+                  </tr>
+                  <tr>
+                    <th scope="row">60%</th>
+                    <td>{{vma60}}</td>
+                    <td>{{vma_100 / 60 * 100 |number: '1.0-1'}} {{second}}</td>
+                    <td>Thornton</td>
+                    <td>{{vma_30s * 30 * 60  / 100 |number: '1.0-1'}} {{metre}}</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
                   </tr>
                 </tbody>
               </table>
         </div>
+<!--distance par temps-->
+<div>
+  <h2>Travail intermittent</h2>
+  <table class="table table-bordered">
+      <thead>
+        <tr>
+            <th scope="col">%</th>
+             <th scope="col">vitesse</th>
+             <th scope="col">30 s</th>
+             <th scope="col">45 s</th>
+             <th scope="col">1 min</th>
+              <th scope="col">1 min 15 s</th>
+              <th scope="col">1 min 30 s</th>
+              <th scope="col">2 min</th>
+              <th scope="col">2 min 30 s</th>
+              <th scope="col">3 min</th>
+              <th scope="col">4 min</th>
+              <th scope="col">5 min</th>
+              <th scope="col">10 min</th>
+              <th scope="col">15 min</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">115%</th>
+          <td>{{vma115}}</td>
+          <td>{{vma_30s * 30 * 115  / 100 |number: '1.0-1'}} {{metre}}</td>
+          <td>Otto</td>
+          <td>Otto</td>
+          <td>Otto</td>
+          <td>Otto</td>
+          <td>Otto</td>
+          <td>Otto</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">110%</th>
+          <td>{{vma110}}</td>
+          <td>{{vma_30s * 30 * 110  / 100 |number: '1.0-1'}} {{metre}}</td>
+          <td>Otto</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+        </tr>
+        <tr>
+          <th scope="row">105%</th>
+          <td>{{vma105}}</td>
+          <td>{{vma_30s * 30 * 105  / 100 |number: '1.0-1'}} {{metre}}</td>
+          <td>Thornton</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+    
+        </tr>
+        <tr>
+          <th scope="row">100%</th>
+          <td>{{vma100}}</td>
+          <td>{{vma_30s * 30 * 100  / 100 |number: '1.0-1'}} {{metre}}</td>
+          <td>Larry the Bird</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+        </tr>
+        <tr>
+          <th scope="row">95%</th>
+          <td>{{vma95}}</td>
+          <td>{{vma_30s * 30 * 95  / 100 |number: '1.0-1'}} {{metre}}</td>
+          <td>Thornton</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+        </tr>
+        <tr>
+          <th scope="row">90%</th>
+          <td>{{vma90}}</td>
+          <td>{{vma_30s * 30 * 90  / 100 |number: '1.0-1'}} {{metre}}</td>
+          <td>Mark</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+        </tr>
+        <tr>
+          <th scope="row">85%</th>
+          <td>{{vma85}}</td>
+          <td>{{vma_30s * 30 * 85  / 100 |number: '1.0-1'}} {{metre}}</td>
+          <td>Thornton</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+        </tr>
+        <tr>
+          <th scope="row">80%</th>
+          <td>{{vma80}}</td>
+          <td>{{vma_30s * 30 * 80  / 100 |number: '1.0-1'}} {{metre}}</td>
+          <td>Thornton</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+        </tr>
+        <tr>
+          <th scope="row">75%</th>
+          <td>{{vma75}}</td>
+          <td>{{vma_30s * 30 * 75  / 100 |number: '1.0-1'}} {{metre}}</td>
+          <td>Thornton</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+        </tr>
+        <tr>
+          <th scope="row">70%</th>
+          <td>{{vma70}}</td>
+          <td>{{vma_30s * 30 * 70  / 100 |number: '1.0-1'}} {{metre}}</td>
+          <td>Thornton</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+        </tr>
+        <tr>
+          <th scope="row">65%</th>
+          <td>{{vma65}}</td>
+          <td>{{vma_30s * 30 * 65  / 100 |number: '1.0-1'}} {{metre}}</td>
+          <td>Thornton</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+        </tr>
+        <tr>
+          <th scope="row">60%</th>
+          <td>{{vma60}}</td>
+          <td>{{vma_30s * 30 * 60  / 100 |number: '1.0-1'}} {{metre}}</td>
+           <td>Thornton</td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<!--pdf-->
     </div>
     <div class="save-pdf">
         <button class="btn btn-outline-danger"><span>Enregistrer PDF </span><i class="far fa-arrow-alt-circle-down"></i></button>
