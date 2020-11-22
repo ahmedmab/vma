@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { VmaInfoComponent } from './vma-info/vma-info.component';
 import { VmaCalculComponent } from './vma-calcul/vma-calcul.component';
 import { VmaTrainerComponent } from './vma-trainer/vma-trainer.component';
-import { MinutesecondPipe } from './minutesecond.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +13,6 @@ import { MinutesecondPipe } from './minutesecond.pipe';
     VmaInfoComponent,
     VmaCalculComponent,
     VmaTrainerComponent,
-    MinutesecondPipe
   ],
   imports: [
     BrowserModule,

@@ -57,7 +57,6 @@ this.vma115 = (this.vma*115)/100 + " km/h"
     // suppressions des chiffres après la virgule
     STemps = (Math.round(STemps * 10) )/ 10;
   
-  
     var MyMinut = (STemps - ( STemps % 60) ) / 60;
     if (MyMinut > 0) {result = result + MyMinut + " mn " };
     var MySecond = (Math.round((STemps % 60)*10)) / 10 ;
