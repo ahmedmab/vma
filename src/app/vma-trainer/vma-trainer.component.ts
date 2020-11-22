@@ -26,7 +26,6 @@ vma_100
 second
 minut
 metre 
-
   constructor() { }
 
   ngOnInit(): void {
@@ -51,7 +50,19 @@ this.vma100 = this.vma + " km/h"
 this.vma105 = (this.vma*105)/100 + " km/h"
 this.vma110 = (this.vma*110)/100 + " km/h"
 this.vma115 = (this.vma*115)/100 + " km/h"
- console.warn(this.vma_30s)
   }
+
+   MyTime(STemps) {
+    var result = "";
+    // suppressions des chiffres après la virgule
+    STemps = (Math.round(STemps * 10) )/ 10;
+  
+  
+    var MyMinut = (STemps - ( STemps % 60) ) / 60;
+    if (MyMinut > 0) {result = result + MyMinut + " mn " };
+    var MySecond = (Math.round((STemps % 60)*10)) / 10 ;
+    if (MySecond > 0) {result = result + MySecond + " s" };
+    return result }
+  
 
 }
