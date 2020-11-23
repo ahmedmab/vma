@@ -1,0 +1,18 @@
+
+button:disabled{
+    background-color: rgb(1, 196, 27);
+    font-weight: bolder;
+    color: white;
+}
+.ajouter{
+    margin-left: 1rem;
+}
+.media{
+    display: flex;
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .media {
+      flex-direction: column;
+    }
+  }

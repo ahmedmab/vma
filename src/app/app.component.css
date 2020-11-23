@@ -1,3 +1,10 @@
+html{
+    height: 100vh;
+}
+body{
+    height: 100%;
+    display: flex;
+}
 
 .header{
     width: 100vw;
@@ -17,12 +24,10 @@
 
 footer{
     text-align: center;
-    width: 100vw;
-    height: 10%;
+    margin-top: auto;
     padding: .2rem;
-    margin: 0%;
-    color: gray;
-    position: fixed;
-    bottom: 0;
-    left: 0em;
+    color: white;
+    background-color: #333;
+    
+    
 }

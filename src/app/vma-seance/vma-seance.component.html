@@ -1,0 +1,23 @@
+<h2>Préparer votre séance d'entrainement</h2>
+<div class="seanc container">
+<form><h4>série numero {{serie}} :</h4> 
+    <label for="">nombre de repetition: </label><input type="text" size="2">
+    <br>
+<div class="media">
+   
+    <div>
+    <select>
+        <option value="60" selected>60 %</option>
+        <option value="70">70 %</option>
+    </select>
+   <input type="text" placeholder="VMA">
+</div>
+<div>
+    <button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="!avec">distance</button><button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="avec">durée</button>
+    <input class="inputype" type="text"  size="2">{{inputype}}
+    <button  class="btn btn-dark btn-sm ajouter" (click)="submit()">Ajouter</button>
+  </div>
+</div>
+    </form>
+
+</div>

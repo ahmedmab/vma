@@ -1,10 +1,25 @@
+<div>
 <header>
   <div class="header">
    <a><h1> <i class="fas fa-running"></i></h1><h1> Sport Calcul</h1></a> 
   </div>
  
 </header>
-
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+    </div>
+  </div>
+</nav>
+</div>
 <div class="main">
     <div class="container">
       
@@ -18,7 +33,10 @@
           <a class="nav-link active" data-toggle="tab" routerLink='calcul'><i class="fas fa-calculator"></i><span> Calculer VMA</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" routerLink='trainer-plan'><i class="fas fa-running"></i><span> S'entrainer avec VMA</span></a>
+          <a class="nav-link" data-toggle="tab" routerLink='trainer-plan'><i class="fas fa-running"></i><span> Tableaux de VMA</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" routerLink='seance'><i class="fas fa-running"></i><span> S'entrainer avec VMA</span></a>
         </li>
       </ul>
 
@@ -26,12 +44,10 @@
       <router-outlet></router-outlet>
 
       </div>
-    </div>
-</div>
-<footer>
-  <hr>
-<p>Copyright &copy;	2020 | created with <i class="far fa-heart"></i>+<i class="fas fa-coffee"></i> by Ahmed MABROUKI</p> 
-<p></p>
 
-</footer>
+    </div>
+  </div>
+  
+
+
 

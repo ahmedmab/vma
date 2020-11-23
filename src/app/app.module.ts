@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { VmaInfoComponent } from './vma-info/vma-info.component';
 import { VmaCalculComponent } from './vma-calcul/vma-calcul.component';
 import { VmaTrainerComponent } from './vma-trainer/vma-trainer.component';
+import { VmaSeanceComponent } from './vma-seance/vma-seance.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { VmaTrainerComponent } from './vma-trainer/vma-trainer.component';
     VmaInfoComponent,
     VmaCalculComponent,
     VmaTrainerComponent,
+    VmaSeanceComponent,
   ],
   imports: [
     BrowserModule,
