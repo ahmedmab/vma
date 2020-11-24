@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vma-seance.component.css']
 })
 export class VmaSeanceComponent implements OnInit {
+  OnInit(){
+  }
 serie:number
 avec:boolean = true
-inputype:string
+inputype:string = ' seconds'
   constructor() { }
 
   ngOnInit(): void {

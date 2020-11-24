@@ -4,12 +4,37 @@ button:disabled{
     font-weight: bolder;
     color: white;
 }
-.ajouter{
-    margin-left: 1rem;
-}
+
 .media{
     display: flex;
+    padding: .5rem;
 }
+
+.media *{
+    height: 2rem;
+}
+.media button{
+    margin-bottom: 5px;
+}
+.seanc{
+    width: 80%;
+}
+.flex-ajout{
+    display: flex;
+    flex-basis: 60%;
+    width: 10rem;
+    height: 2rem;
+    vertical-align: middle;
+}
+.btn-ajouter{
+    text-align: center;
+    font-weight: bold;
+    margin-left: auto;
+    width: 30%;
+
+}
+
+
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     .media {

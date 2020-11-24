@@ -7,16 +7,32 @@
    
     <div>
     <select>
-        <option value="60" selected>60 %</option>
+        <option value="60">60 %</option>
         <option value="70">70 %</option>
+        <option value="70">75 %</option>
+        <option value="70">80 %</option>
+        <option value="70">85 %</option>
+        <option value="70">90 %</option>
+        <option value="70">95 %</option>
+        <option value="70" selected>100 %</option>
+        <option value="70">105 %</option>
+        <option value="70">110 %</option>
+        <option value="70">115 %</option>
+        <option value="70">120 %</option>
+
     </select>
    <input type="text" placeholder="VMA">
 </div>
-<div>
+<div class="flex-ajout">
+    <div class="btn-togle">
     <button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="!avec">distance</button><button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="avec">durée</button>
+    </div>
+    <div class="inpt">
     <input class="inputype" type="text"  size="2">{{inputype}}
-    <button  class="btn btn-dark btn-sm ajouter" (click)="submit()">Ajouter</button>
-  </div>
+    </div>
+    <div class="box-ajouter"></div>
+       <div  class="btn btn-outline-dark btn-ajouter " (click)="submit()">Ajouter</div>
+     </div>
 </div>
     </form>
 
