@@ -7,7 +7,7 @@
      </div>
     <div class="item2">
    
-    <select (change)="selectVal($event.target.value)">
+    <select name="percent" ngModel>
         <option value="60">60 %</option>
         <option value="70">70 %</option>
         <option value="75">75 %</option>
@@ -42,15 +42,16 @@
 </div> 
     </form>
 
-    <div class="seance" *ngFor= "let seri of seriGrp">
-      <h3>Seance d'entrainement</h3>  
-      <h4>serie : {{num}}</h4>
+    <h3>Seance d'entrainement</h3>  
+
+    <div class="seance" *ngFor= "let seri of seriGrp index as i">
+      <h4>serie : {{i+1}}</h4>
         <table>
             <tr>
                 <th>rep</th>
                 <td>{{seri.rep}}</td>
                 <th>VMA</th>
-                <td>{{seri.vmaVal}}</td>
+                <td>{{seri.percent}} de{{seri.vmaVal}}</td>
                 <th>dis ou tmp</th>
                 <td>{{seri.param}}</td>
             </tr>

@@ -10,12 +10,9 @@ percent:number
 vmaVal:number
 param:number
 rep:number
-num:number=1
 avec:boolean = true
 inputype:string = ' seconds'
-serieObj = {
-  
-}
+num:number=1
 seriGrp:any[]=[]
 
   constructor() { }
@@ -27,16 +24,12 @@ seriGrp:any[]=[]
     this.avec = !this.avec
     this.avec ? this.inputype = ' seconds' : this.inputype = ' métres'
   }
-  selectVal(per){
-    this.percent = per
-    console.log(per)
-  }
+ 
   submit(f){
     this.seriGrp.push(f)
     this.num++
     console.warn(f)
 
-    console.log(this.seriGrp)
   }
 
 }
