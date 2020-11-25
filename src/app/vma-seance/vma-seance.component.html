@@ -1,39 +1,60 @@
 <h2>Préparer votre séance d'entrainement</h2>
 <div class="seanc container">
-<form><h4>série numero {{serie}} :</h4> 
-    <label for="">nombre de repetition: </label><input type="text" size="2">
-    <br>
-<div class="media">
+<form #myForm="ngForm" (ngSubmit)="submit(myForm.value)" ><h4>série numero {{num}} :</h4> 
+ <div class="box">  
+    <div class="item1">
+    <label for="">Nb de répetition: </label><input type="text" size="2" name="rep" ngModel>
+     </div>
+    <div class="item2">
    
-    <div>
-    <select>
+    <select (change)="selectVal($event.target.value)">
         <option value="60">60 %</option>
         <option value="70">70 %</option>
-        <option value="70">75 %</option>
-        <option value="70">80 %</option>
-        <option value="70">85 %</option>
-        <option value="70">90 %</option>
-        <option value="70">95 %</option>
-        <option value="70" selected>100 %</option>
-        <option value="70">105 %</option>
-        <option value="70">110 %</option>
-        <option value="70">115 %</option>
-        <option value="70">120 %</option>
+        <option value="75">75 %</option>
+        <option value="80">80 %</option>
+        <option value="85">85 %</option>
+        <option value="90">90 %</option>
+        <option value="95">95 %</option>
+        <option value="100" selected>100 %</option>
+        <option value="105">105 %</option>
+        <option value="110">110 %</option>
+        <option value="115">115 %</option>
+        <option value="120">120 %</option>
 
     </select>
-   <input type="text" placeholder="VMA">
-</div>
-<div class="flex-ajout">
+   <input type="text" placeholder="VMA" name="vmaVal" ngModel>
+  </div>    
+ <div class="item3">
+
     <div class="btn-togle">
     <button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="!avec">distance</button><button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="avec">durée</button>
     </div>
-    <div class="inpt">
-    <input class="inputype" type="text"  size="2">{{inputype}}
+
+ </div>
+
+ <div class="item4">
+    <input class="inputype" type="text"  size="2" name="param" ngModel>{{inputype}}
     </div>
-    <div class="box-ajouter"></div>
-       <div  class="btn btn-outline-dark btn-ajouter " (click)="submit()">Ajouter</div>
-     </div>
-</div>
+
+    <div class="item5">
+    <button  class="btn btn-outline-dark btn-sm " type="submit">Ajouter</button>
+    </div>
+</div> 
     </form>
+
+    <div class="seance" *ngFor= "let seri of seriGrp">
+      <h3>Seance d'entrainement</h3>  
+      <h4>serie : {{num}}</h4>
+        <table>
+            <tr>
+                <th>rep</th>
+                <td>{{seri.rep}}</td>
+                <th>VMA</th>
+                <td>{{seri.vmaVal}}</td>
+                <th>dis ou tmp</th>
+                <td>{{seri.param}}</td>
+            </tr>
+        </table>
+    </div>
 
 </div>

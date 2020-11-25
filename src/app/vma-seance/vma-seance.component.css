@@ -1,38 +1,29 @@
-
+.seanc{
+    width: 100%;
+    background-color: tomato;
+}
 button:disabled{
     background-color: rgb(1, 196, 27);
     font-weight: bolder;
     color: white;
 }
-
-.media{
-    display: flex;
-    padding: .5rem;
-}
-
-.media *{
-    height: 2rem;
-}
-.media button{
-    margin-bottom: 5px;
-}
-.seanc{
-    width: 80%;
-}
-.flex-ajout{
-    display: flex;
-    flex-basis: 60%;
-    width: 10rem;
-    height: 2rem;
-    vertical-align: middle;
-}
-.btn-ajouter{
+.box{
+    display:flex;
+    flex-basis: 100%;
     text-align: center;
-    font-weight: bold;
-    margin-left: auto;
-    width: 30%;
-
+    background-color: yellow;
 }
+.box select, .box input{
+height: 2rem;
+margin-right: .4rem;
+}
+.item5{
+    margin-left: auto;
+}
+button[type="submit"]{
+    width: 10rem;
+}
+
 
 
 @media only screen and (max-width: 768px) {
