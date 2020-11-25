@@ -43,8 +43,10 @@
     </form>
 
     <h3>Seance d'entrainement</h3>  
-
-    <div class="seance" *ngFor= "let seri of seriGrp index as i">
+ 
+<div class="seance" *ngFor= "let seri of seriGrp index as i">
+    <div class="card">
+        <div class="card-body">
       <h4>serie : {{i+1}}</h4>
         <table>
             <tr>
@@ -57,5 +59,7 @@
             </tr>
         </table>
     </div>
-
+      <span class="delet" (click)="delet(i)"><i class="fas fa-times"></i></span>
+   </div>
+  </div>
 </div>

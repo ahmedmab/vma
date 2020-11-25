@@ -31,5 +31,9 @@ seriGrp:any[]=[]
     console.warn(f)
 
   }
+  delet(index){
+this.seriGrp.splice(index,1)
+console.log(this.seriGrp)
+  }
 
 }

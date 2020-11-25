@@ -1,6 +1,5 @@
 .seanc{
     width: 100%;
-    background-color: tomato;
 }
 button:disabled{
     background-color: rgb(1, 196, 27);
@@ -11,7 +10,6 @@ button:disabled{
     display:flex;
     flex-basis: 100%;
     text-align: center;
-    background-color: yellow;
 }
 .box select, .box input{
 height: 2rem;
@@ -22,6 +20,18 @@ margin-right: .4rem;
 }
 button[type="submit"]{
     width: 10rem;
+}
+.card{
+    width: 80%;
+    margin: 1rem;
+}
+.delet{
+position: absolute;
+right: .8rem;
+top: .4rem;
+font-size: 1.2rem;
+color: tomato;
+cursor: pointer;
 }
 
 
