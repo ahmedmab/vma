@@ -1,9 +1,9 @@
 <h2>Préparer votre séance d'entrainement</h2>
 <div class="seanc container">
-<form #myForm="ngForm" (ngSubmit)="submit(myForm.value)" ><h4>série numero {{num}} :</h4> 
+<form #myForm="ngForm" (ngSubmit)="submit(myForm.value)" ><h4>série NB: {{num}}</h4> 
  <div class="box">  
     <div class="item1">
-    <label for="">Nb de répetition: </label><input type="text" size="2" name="rep" ngModel>
+    <label for=""><p>NB de répetition:</p></label><input type="text" size="2" name="rep" ngModel>
      </div>
     <div class="item2">
    
@@ -15,7 +15,7 @@
         <option value="85">85 %</option>
         <option value="90">90 %</option>
         <option value="95">95 %</option>
-        <option value="100" selected>100 %</option>
+        <option value="100">100 %</option>
         <option value="105">105 %</option>
         <option value="110">110 %</option>
         <option value="115">115 %</option>
@@ -45,9 +45,9 @@
     <h3>Seance d'entrainement</h3>  
  
 <div class="seance" *ngFor= "let seri of seriGrp index as i">
-    <div class="card">
-        <div class="card-body">
-      <h4>serie : {{i+1}}</h4>
+    <div class="serie-card">
+        <div class="serie-card-body">
+      <h4 class="serie">serie : {{i+1}}</h4>
         <table>
             <tr>
                 <th>rep</th>

@@ -9,11 +9,14 @@ button:disabled{
 .box{
     display:flex;
     flex-basis: 100%;
-    text-align: center;
+    margin: 20px auto;
+}
+.item1, .item2, .item3 .btn-togle{
+    display: flex;
 }
 .box select, .box input{
 height: 2rem;
-margin-right: .4rem;
+margin-right: 10px;
 }
 .item5{
     margin-left: auto;
@@ -21,9 +24,24 @@ margin-right: .4rem;
 button[type="submit"]{
     width: 10rem;
 }
-.card{
-    width: 80%;
-    margin: 1rem;
+.seance{
+    width: 100%;
+}
+.serie-card{
+    width: 90%;
+    height: 100px;
+    margin: .3rem auto;
+    background: #fff;
+  border-radius: 15px 0 0 15px;
+  display: inline-block;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.16), 0 2px 5px rgba(0,0,0,0.23);
+}
+.serie{
+    padding: .5rem;
+    background-color: #eeeeee;
+    border-radius: 15px 0 0 0;
+
 }
 .delet{
 position: absolute;
@@ -38,7 +56,12 @@ cursor: pointer;
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
-    .media {
-      flex-direction: column;
+    .box {
+        flex-direction: column;
+
     }
+    h2,h3,h4{
+        font-size: 4vw;
+    }
+    
   }
