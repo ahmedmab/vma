@@ -41,12 +41,14 @@
     </div>
 </div> 
     </form>
+
     <div class="seance-head">
     <h3>Seance d'entrainement</h3>  
     <p>VMA : {{myForm.value.vmaVal}}</p>
     <p>recuperation inter serie : <input type="text" placeholder="minuts" [(ngModel)]="min">'<input type="text" placeholder="seconds" [(ngModel)]="sec"></p>
     </div>
-<div class="seance" *ngFor= "let seri of seriGrp index as i">
+    <div class="seance" *ngFor= "let seri of seriGrp index as i">
+
     <span class="badge badge-light">Rec : {{ min}}', {{ sec}}"</span>
     <div class="serie-card">
         <div class="serie-card-body">
@@ -76,9 +78,10 @@
                 </tr>
               </tbody>
         </table>
+    
     </div>
-    </div>
-      <span class="delet" (click)="delet(i)"><i class="fas fa-times"></i></span>
-   </div>
+</div>
+<span class="delet" (click)="delet(i)"><i class="fas fa-times"></i></span>
+</div>
   </div>
 </div>
