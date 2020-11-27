@@ -14,6 +14,8 @@ avec:boolean = true
 inputype:string = ' seconds'
 num:number=1
 seriGrp:any[]=[]
+min:number 
+sec:number
 
   constructor() { }
 

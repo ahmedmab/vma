@@ -41,23 +41,42 @@
     </div>
 </div> 
     </form>
-
+    <div class="seance-head">
     <h3>Seance d'entrainement</h3>  
- 
+    <p>VMA : {{myForm.value.vmaVal}}</p>
+    <p>recuperation inter serie : <input type="text" placeholder="minuts" [(ngModel)]="min">'<input type="text" placeholder="seconds" [(ngModel)]="sec"></p>
+    </div>
 <div class="seance" *ngFor= "let seri of seriGrp index as i">
+    <span class="badge badge-light">Rec : {{ min}}', {{ sec}}"</span>
     <div class="serie-card">
         <div class="serie-card-body">
       <h4 class="serie">serie : {{i+1}}</h4>
-        <table>
-            <tr>
-                <th>rep</th>
-                <td>{{seri.rep}}</td>
-                <th>VMA</th>
-                <td>{{seri.percent}} de{{seri.vmaVal}}</td>
-                <th>dis ou tmp</th>
-                <td>{{seri.param}}</td>
-            </tr>
+      <div>
+        <table class="table">
+            <thead>
+                <tr>
+                 <th style="color: #333;">{{myForm.value.percent}}% de la VMA :{{myForm.value.vmaVal}} Km/h</th>
+                  <th scope="col" colspan="2" style="text-align: center; word-spacing: 2rem; font-size: large;">{{seri.rep}} * {{seri.param}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">vitesse :</th>
+                  <td>{{myForm.value.vmaVal * myForm.value.percent / 100}} Km/h</td>
+                </tr>
+                <tr>
+                  <th scope="row">volume de travail : </th>
+                  <td>{{seri.rep * seri.param}}</td>
+                  
+                </tr>
+                <tr>
+                  <th scope="row">récupération :</th>
+                  <td>{{(seri.param * 2/3).toFixed(2)}} s</td>
+                  
+                </tr>
+              </tbody>
         </table>
+    </div>
     </div>
       <span class="delet" (click)="delet(i)"><i class="fas fa-times"></i></span>
    </div>

@@ -24,24 +24,28 @@ margin-right: 10px;
 button[type="submit"]{
     width: 10rem;
 }
+
 .seance{
     width: 100%;
 }
+
 .serie-card{
-    width: 90%;
-    height: 100px;
+    width: 80%;
+    height: fit-content;
     margin: .3rem auto;
-    background: #fff;
   border-radius: 15px 0 0 15px;
-  display: inline-block;
-  position: relative;
   box-shadow: 0 2px 5px rgba(0,0,0,0.16), 0 2px 5px rgba(0,0,0,0.23);
+  background-color: #f1f1e8;
+
 }
 .serie{
     padding: .5rem;
-    background-color: #eeeeee;
     border-radius: 15px 0 0 0;
 
+}
+.serie div{
+    padding: 1rem;
+    margin: 0 auto;
 }
 .delet{
 position: absolute;
@@ -50,6 +54,20 @@ top: .4rem;
 font-size: 1.2rem;
 color: tomato;
 cursor: pointer;
+}
+.table{
+    background-color: white;
+
+}
+.table th{
+    color: orangered;
+}
+.table td{
+    color: #625261;
+    font-weight: bold;
+}
+.badge{
+    display: block;
 }
 
 
@@ -63,5 +81,11 @@ cursor: pointer;
     h2,h3,h4{
         font-size: 4vw;
     }
-    
+
+    .serie-card{
+        width: 100%;
+    }
+    button[type="submit"]{
+        width: 70vw;
+    }
   }
