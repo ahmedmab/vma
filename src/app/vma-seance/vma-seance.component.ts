@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { jsPDF } from 'jspdf';
+import 'jspdf-autotable';
+
 
 @Component({
   selector: 'app-vma-seance',
@@ -16,6 +19,8 @@ num:number=1
 seriGrp:any[]=[]
 min:number 
 sec:number
+tableau:any[]=[]
+
 
   constructor() { }
 
@@ -31,6 +36,7 @@ sec:number
     this.seriGrp.push(f)
     this.num++
     console.warn(f)
+    this.tableau.push(this.num)
 
   }
   delet(index){
@@ -38,4 +44,40 @@ this.seriGrp.splice(index,1)
 console.log(this.seriGrp)
   }
 
+     // data pour le document PDF
+
+  title = `Seance d'entrainment VMA`;
+
+  head = [['Serie', '', '', '']]
+
+  data = [
+    [' 4 * 200 m'],
+    ['Volume de travail', 'Norway', 7.594, 'Oslo'],
+    ['vitesse', 'Denmark', 7.555, 'Copenhagen'],
+    ['Récupération', 'Iceland', 7.495, 'Reykjavík'],
+   
+  ]
+
+  convertoPdf() {
+    var doc = new jsPDF();
+
+    doc.setFontSize(18);
+    doc.text(`Seance d'entrainment VMA`, 11, 8);
+    doc.setFontSize(11);
+    doc.setTextColor(100);
+
+
+    (doc as any).autoTable({
+      head: this.head,
+      body: this.data,
+      theme: 'grid',
+      
+    })
+
+    // Open PDF document in new tab
+    doc.output('dataurlnewwindow')
+console.log(this.tableau.length - 1)
+    // Download PDF document  
+    //doc.save('table.pdf');
+  }
 }

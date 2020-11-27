@@ -20,7 +20,7 @@ import { VmaSeanceComponent } from './vma-seance/vma-seance.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
