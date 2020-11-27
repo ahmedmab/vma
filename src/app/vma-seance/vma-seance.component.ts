@@ -36,7 +36,6 @@ tableau:any[]=[]
     this.seriGrp.push(f)
     this.num++
     console.warn(f)
-    this.tableau.push(this.num)
 
   }
   delet(index){
@@ -48,16 +47,6 @@ console.log(this.seriGrp)
 
   title = `Seance d'entrainment VMA`;
 
-  head = [['Serie', '', '', '']]
-
-  data = [
-    [' 4 * 200 m'],
-    ['Volume de travail', 'Norway', 7.594, 'Oslo'],
-    ['vitesse', 'Denmark', 7.555, 'Copenhagen'],
-    ['Récupération', 'Iceland', 7.495, 'Reykjavík'],
-   
-  ]
-
   convertoPdf() {
     var doc = new jsPDF();
 
@@ -66,17 +55,10 @@ console.log(this.seriGrp)
     doc.setFontSize(11);
     doc.setTextColor(100);
 
-
-    (doc as any).autoTable({
-      head: this.head,
-      body: this.data,
-      theme: 'grid',
-      
-    })
+    (doc as any).autoTable({html:"#my-table"});
 
     // Open PDF document in new tab
     doc.output('dataurlnewwindow')
-console.log(this.tableau.length - 1)
     // Download PDF document  
     //doc.save('table.pdf');
   }
