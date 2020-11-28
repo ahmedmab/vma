@@ -19,7 +19,10 @@ num:number=1
 seriGrp:any[]=[]
 min:number 
 sec:number
-tableau:any[]=[]
+seriForPdf={
+  head:[],
+  body:[]
+}
 
 
   constructor() { }
@@ -34,8 +37,11 @@ tableau:any[]=[]
  
   submit(f){
     this.seriGrp.push(f)
+    this.seriForPdf.head.push(['Serie : '+ this.num])
+    this.seriForPdf.body.push(['VMA',f['vmaVal']])
     this.num++
-    console.warn(f)
+
+    console.warn(this.seriForPdf)
 
   }
   delet(index){
@@ -55,7 +61,22 @@ console.log(this.seriGrp)
     doc.setFontSize(11);
     doc.setTextColor(100);
 
-    (doc as any).autoTable({html:"#my-table"});
+    for(let i=0; i< this.seriForPdf.head.length ; i++){
+     const addCard = ()=>{
+       const chead:any[]= [this.seriForPdf.head[i]]
+       const cbody:any[]= [this.seriForPdf.body[i]];
+     
+
+      (doc as any).autoTable({
+        head: chead,
+        body: cbody,
+    
+      });
+     }
+      
+     addCard();
+
+    }
 
     // Open PDF document in new tab
     doc.output('dataurlnewwindow')
