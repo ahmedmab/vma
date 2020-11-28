@@ -19,10 +19,10 @@ num:number=1
 seriGrp:any[]=[]
 min:number 
 sec:number
-seriForPdf={
-  head:[],
-  body:[]
-}
+
+ tables:any[]= []
+ 
+
 
 
   constructor() { }
@@ -37,12 +37,7 @@ seriForPdf={
  
   submit(f){
     this.seriGrp.push(f)
-    this.seriForPdf.head.push(['Serie : '+ this.num, ''])
-    this.seriForPdf.body.push(['VMA', f.vmaVal])
     this.num++
-
-    console.warn(this.seriGrp[0].vmaVal)
-
   }
   delet(index){
 this.seriGrp.splice(index,1)
@@ -53,34 +48,38 @@ console.log(this.seriGrp)
 
   title = `Seance d'entrainment VMA`;
 
-  convertoPdf() {
-    var doc = new jsPDF();
+  convertoPdf(){
+    let seri=1;
+    this.seriGrp.forEach(el=>{
+      console.log(el)
 
-    doc.setFontSize(18);
-    doc.text(`Seance d'entrainment VMA`, 11, 8);
+    })
+    var doc = new jsPDF('portrait', 'px', 'a4');
+
+    doc.setFontSize(20);
+    doc.text(`Seance d'entrainment VMA`, 120, 20);
     doc.setFontSize(11);
     doc.setTextColor(100);
 
-    for(let i=0; i< this.seriForPdf.head.length ; i++){
-     const addCard = ()=>{
-       const chead:any[]= [this.seriForPdf.head[i]]
-       const cbody:any[]= [this.seriForPdf.body[i]];
-     
-
-      (doc as any).autoTable({
-        head: chead,
-        body: cbody,
-    
-      });
-     }
+    this.seriGrp.forEach(element =>{
       
-     addCard();
+    (doc as any).autoTable({
 
-    }
+      head: [['serie'+ seri++, '']],
 
+      body: [
+             [element.percent, element.vmaVal + " Km/h"],
+             ['Vitesse', element.vmaVal*element.percent/100 + " Km/h"],
+             ['Volume de Travail', element.rep*element.param],
+             ['Récuperation', element.param*2/3]
+            ],
+
+    });
+  })
     // Open PDF document in new tab
     doc.output('dataurlnewwindow')
     // Download PDF document  
-    //doc.save('table.pdf');
-  }
+    doc.save('séance-VMA.pdf');
+    }
+  
 }
