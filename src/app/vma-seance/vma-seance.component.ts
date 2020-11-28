@@ -37,11 +37,11 @@ seriForPdf={
  
   submit(f){
     this.seriGrp.push(f)
-    this.seriForPdf.head.push(['Serie : '+ this.num])
-    this.seriForPdf.body.push(['VMA',f['vmaVal']])
+    this.seriForPdf.head.push(['Serie : '+ this.num, ''])
+    this.seriForPdf.body.push(['VMA', f.vmaVal])
     this.num++
 
-    console.warn(this.seriForPdf)
+    console.warn(this.seriGrp[0].vmaVal)
 
   }
   delet(index){
