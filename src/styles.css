@@ -7,6 +7,14 @@ body{
     display: flex;
     flex-direction: column;
 }
+.header{
+    width: 100vw;
+    margin-bottom: auto;
+    padding: 1rem 2rem 1rem 3rem;
+    background-color: #ec5858;
+    color:white;
+    box-shadow: 0px 2px 6px -1px grey;
+}
 footer{
     text-align: center;
     margin-top: auto;
