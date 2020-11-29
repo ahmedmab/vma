@@ -15,6 +15,9 @@ body{
     color:white;
     box-shadow: 0px 2px 6px -1px grey;
 }
+.header h1{
+    display: inline;
+}
 footer{
     text-align: center;
     margin-top: auto;
