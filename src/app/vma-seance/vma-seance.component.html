@@ -58,7 +58,7 @@
             <thead>
                 <tr>
                  <th style="color: #333;">{{myForm.value.percent}}% de la VMA :{{myForm.value.vmaVal}} Km/h</th>
-                  <th scope="col" colspan="2" style="text-align: center; word-spacing: 2rem; font-size: large;">{{seri.rep}} * {{seri.param}}</th>
+                  <th scope="col" colspan="2" style="text-align: center; word-spacing: 2rem; font-size: large;">{{seri.rep}} * {{seri.param}} {{mOrS[i]}}</th>
                 </tr>
               </thead>
               <tbody>
@@ -73,7 +73,7 @@
                 </tr>
                 <tr>
                   <th scope="row">récupération :</th>
-                  <td>{{(seri.param * 2/3).toFixed(2)}} s</td>
+                  <td>{{MyTime((seri.param * 2/3).toFixed(2))}} s</td>
                   
                 </tr>
               </tbody>
@@ -87,6 +87,6 @@
 </div>
 <!--pdf-->
 <div class="save-pdf" (click)="convertoPdf()">
-    <button class="btn btn-outline-danger"><span>Enregistrer PDF </span><i class="far fa-arrow-alt-circle-down"></i></button>
+    <button class="btn btn-outline-danger"><span>Telecharger PDF </span><i class="far fa-arrow-alt-circle-down"></i></button>
 </div>
 

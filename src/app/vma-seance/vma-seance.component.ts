@@ -19,8 +19,8 @@ num:number=1
 seriGrp:any[]=[]
 min:number 
 sec:number
-
- tables:any[]= []
+cardType:string
+ mOrS:any[]= []
  
 
 
@@ -37,19 +37,32 @@ sec:number
  
   submit(f){
     this.seriGrp.push(f)
+    this.inputype == ' métres' && f.param>0 ? this.cardType = 'm' : this.inputype == ' seconds' && f.param>0 ? this.cardType = 's': this.cardType = ''
+    this.mOrS.push(this.cardType)
     this.num++
   }
   delet(index){
 this.seriGrp.splice(index,1)
 console.log(this.seriGrp)
   }
+  //convertir les seconds en min et sec
+  MyTime(STemps) {
+    var result = "";
+    // suppressions des chiffres après la virgule
+    STemps = (Math.round(STemps * 10) )/ 10;
+  
+    var MyMinut = (STemps - ( STemps % 60) ) / 60;
+    if (MyMinut > 0) {result = result + MyMinut + " mn " };
+    var MySecond = (Math.round((STemps % 60)*10)) / 10 ;
+    if (MySecond > 0) {result = result + MySecond + " s" };
+    return result }
 
      // data pour le document PDF
 
   title = `Seance d'entrainment VMA`;
 
   convertoPdf(){
-    let seri=1;
+    let j=1;
     this.seriGrp.forEach(el=>{
       console.log(el)
 
@@ -65,13 +78,13 @@ console.log(this.seriGrp)
       
     (doc as any).autoTable({
 
-      head: [['serie'+ seri++, '']],
+      head: [['serie'+ j++, '']],
 
       body: [
              [element.percent, element.vmaVal + " Km/h"],
              ['Vitesse', element.vmaVal*element.percent/100 + " Km/h"],
              ['Volume de Travail', element.rep*element.param],
-             ['Récuperation', element.param*2/3]
+             ['Récuperation', this.MyTime(element.param*2/3)]
             ],
 
     });
