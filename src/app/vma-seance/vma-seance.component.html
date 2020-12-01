@@ -5,6 +5,18 @@
     <div class="item1">
     <label for=""><p>NB de répetition:</p></label><input type="text" size="2" name="rep" ngModel>
      </div>
+     <div class="item3">
+
+      <div class="btn-togle">
+      <button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="!avec">distance</button>
+      <button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="avec">durée</button>
+      </div>
+  
+   </div>
+  
+   <div class="item4">
+      <input class="inputype" type="text"  size="2" name="param" ngModel><span>{{inputype}}</span>
+      </div>
     <div class="item2">
    
     <select name="percent" ngModel>
@@ -24,17 +36,7 @@
     </select>
    <input type="text" placeholder="VMA" name="vmaVal" ngModel>
   </div>    
- <div class="item3">
-
-    <div class="btn-togle">
-    <button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="!avec">distance</button><button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="avec">durée</button>
-    </div>
-
- </div>
-
- <div class="item4">
-    <input class="inputype" type="text"  size="2" name="param" ngModel>{{inputype}}
-    </div>
+ 
 
     <div class="item5">
     <button  class="btn btn-outline-dark btn-sm " type="submit">Ajouter</button>
@@ -42,10 +44,11 @@
 </div> 
     </form>
 
-    <div class="seance-head" >
-    <h3>Seance d'entrainement</h3>  
+    <div class="seance-head"  >
+    <h3 >Seance d'entrainement</h3>  
     <p>VMA : {{myForm.value.vmaVal}}</p>
-    <p>recuperation inter serie : <input type="text" placeholder="minuts" [(ngModel)]="min">'<input type="text" placeholder="seconds" [(ngModel)]="sec"></p>
+    <div class="recEntreSeri"><p>récuperation entre les series :</p><input type="text" placeholder="minuts" [(ngModel)]="min">'
+      <input type="text" placeholder="seconds" [(ngModel)]="sec"></div>
     </div>
     <div class="seance" *ngFor= "let seri of seriGrp index as i">
 
@@ -65,16 +68,21 @@
                 <tr>
                   <th scope="row">vitesse :</th>
                   <td>{{myForm.value.vmaVal * myForm.value.percent / 100}} Km/h</td>
+                  <th scope="row">vitesse :</th>
+                  <td>{{myForm.value.vmaVal * myForm.value.percent / 100}} Km/h</td>
                 </tr>
                 <tr>
                   <th scope="row">volume de travail : </th>
                   <td>{{seri.rep * seri.param}}</td>
+                  <th scope="row">vitesse :</th>
+                  <td>{{myForm.value.vmaVal * myForm.value.percent / 100}} Km/h</td>
                   
                 </tr>
                 <tr>
                   <th scope="row">récupération :</th>
                   <td>{{MyTime((seri.param * 2/3).toFixed(2))}} s</td>
-                  
+                  <th scope="row">récupération :</th>
+                  <td>{{setRec(seri.param)}}</td>
                 </tr>
               </tbody>
         </table>
@@ -89,4 +97,5 @@
 <div class="save-pdf" (click)="convertoPdf()">
     <button class="btn btn-outline-danger"><span>Telecharger PDF </span><i class="far fa-arrow-alt-circle-down"></i></button>
 </div>
+
 

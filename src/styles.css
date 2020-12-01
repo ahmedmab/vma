@@ -18,6 +18,9 @@ body{
 .header h1{
     display: inline;
 }
+main{
+    padding: 3rem 1rem;
+}
 footer{
     text-align: center;
     margin-top: auto;

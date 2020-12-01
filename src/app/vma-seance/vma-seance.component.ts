@@ -3,6 +3,7 @@ import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
 
 
+
 @Component({
   selector: 'app-vma-seance',
   templateUrl: './vma-seance.component.html',
@@ -16,6 +17,7 @@ rep:number
 avec:boolean = true
 inputype:string = ' seconds'
 num:number=1
+recuperation
 seriGrp:any[]=[]
 min:number 
 sec:number
@@ -30,6 +32,12 @@ cardType:string
   ngOnInit(): void {
 
   }
+  setRec(efort){
+    let result;
+   efort < 60 ? result = this.param:  result = this.param/2
+    return result
+  }
+
   togle(){
     this.avec = !this.avec
     this.avec ? this.inputype = ' seconds' : this.inputype = ' métres'
@@ -40,6 +48,8 @@ cardType:string
     this.inputype == ' métres' && f.param>0 ? this.cardType = 'm' : this.inputype == ' seconds' && f.param>0 ? this.cardType = 's': this.cardType = ''
     this.mOrS.push(this.cardType)
     this.num++
+
+    console.warn(this.setRec(this.param))
   }
   delet(index){
 this.seriGrp.splice(index,1)
@@ -71,6 +81,7 @@ console.log(this.seriGrp)
 
     doc.setFontSize(20);
     doc.text(`Seance d'entrainment VMA`, 120, 20);
+
     doc.setFontSize(11);
     doc.setTextColor(100);
 
@@ -89,10 +100,14 @@ console.log(this.seriGrp)
 
     });
   })
+
+
     // Open PDF document in new tab
     doc.output('dataurlnewwindow')
     // Download PDF document  
     doc.save('séance-VMA.pdf');
     }
+
+   
   
 }

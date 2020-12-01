@@ -18,6 +18,18 @@ button:disabled{
 height: 2rem;
 margin-right: 10px;
 }
+.item4{
+    width: 7rem;
+}
+.item4 input{
+    margin-right: 0%;
+}
+.item4 span{
+    width: 4rem; 
+    font-size: small; 
+    padding: 0%; 
+    margin-right: 5px;
+}
 .item5{
     margin-left: auto;
 }
@@ -28,7 +40,10 @@ button[type="submit"]{
 .seance{
     width: 100%;
 }
-
+.recEntreSeri {
+display: flex;
+flex-direction: row;
+}
 .serie-card{
     width: 80%;
     height: fit-content;
@@ -52,7 +67,7 @@ position: absolute;
 right: .8rem;
 top: .4rem;
 font-size: 1.2rem;
-color: tomato;
+color: rgb(243, 43, 60);
 cursor: pointer;
 }
 .table{
@@ -70,7 +85,14 @@ cursor: pointer;
     display: block;
 }
 
-
+.save-pdf{
+    width: 100%;
+    display: flex;
+}
+.save-pdf button {
+    width: 10rem;
+    margin-left: auto;
+}
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
@@ -78,6 +100,9 @@ cursor: pointer;
         flex-direction: column;
 
     }
+    .recEntreSeri {
+        flex-direction: column;
+        }
     h2,h3,h4{
         font-size: 4vw;
     }
