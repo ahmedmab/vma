@@ -52,7 +52,7 @@
     </div>
     <div class="seance" *ngFor= "let seri of seriGrp index as i">
 
-    <span class="badge badge-light">Rec : {{ min}}', {{ sec}}"</span>
+    <span class="badge badge-light">Recupération entre series : {{ min}}', {{ sec}}"</span>
     <div class="serie-card" >
         <div class="serie-card-body">
       <h4 class="serie">serie : {{i+1}}</h4>
@@ -60,14 +60,14 @@
         <table class="table" id="my-table">
             <thead>
                 <tr>
-                 <th style="color: #333;">{{myForm.value.percent}}% de la VMA :{{myForm.value.vmaVal}} Km/h</th>
-                  <th scope="col" colspan="2" style="text-align: center; word-spacing: 2rem; font-size: large;">{{seri.rep}} * {{seri.param}} {{mOrS[i]}}</th>
+                 <th style="color: #333;">{{seri.percent}}% de la VMA :{{seri.vmaVal}} Km/h</th>
+                  <th scope="col" colspan="2" style="text-align: center; word-spacing: 2rem; font-size: large;">{{seri.rep}} * {{seri.param}}{{mOrS[i]}}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">vitesse :</th>
-                  <td>{{myForm.value.vmaVal * myForm.value.percent / 100}} Km/h</td>
+                  <td>{{seri.vmaVal * seri.percent / 100}} Km/h</td>
                   <th scope="row">vitesse :</th>
                   <td>{{myForm.value.vmaVal * myForm.value.percent / 100}} Km/h</td>
                 </tr>
@@ -82,7 +82,7 @@
                   <th scope="row">récupération :</th>
                   <td>{{MyTime((seri.param * 2/3).toFixed(2))}} s</td>
                   <th scope="row">récupération :</th>
-                  <td>{{setRec(seri.param)}}</td>
+                  <td>{{setRec(seri.param, mOrS[i])}}</td>
                 </tr>
               </tbody>
         </table>

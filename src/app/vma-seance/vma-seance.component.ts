@@ -33,9 +33,19 @@ cardType:string
 
   }
  
-  setRec(efort){
+  setRec(efort:number, type:string){
     let result;
-   efort < 60 ? result = this.param :  result = this.param/2
+    if (type == 'm') {
+      
+        if (efort > 100){result = 'cas de plus 100';}
+        else if (efort < 100){result = 'cas de moins 100';}
+        else {result = 'egal a 100';}
+          
+      }
+    
+    else {
+      result = 'faut calculer rec avec le temps';
+    }
     return result
   }
 
@@ -50,7 +60,8 @@ cardType:string
     this.mOrS.push(this.cardType)
     this.num++
 
-    console.warn(this.setRec(this.param))
+    console.warn(f)
+    console.warn(this.seriGrp)
   }
   delet(index){
 this.seriGrp.splice(index,1)
