@@ -44,7 +44,7 @@
 </div> 
     </form>
 
-    <div class="seance-head"  >
+    <div class="seance-head" >
     <h3 >Seance d'entrainement</h3>  
     <p>VMA : {{myForm.value.vmaVal}}</p>
     <div class="recEntreSeri"><p>récuperation entre les series :</p><input type="text" placeholder="minuts" [(ngModel)]="min">'
@@ -53,11 +53,11 @@
     <div class="seance" *ngFor= "let seri of seriGrp index as i">
 
     <span class="badge badge-light">Rec : {{ min}}', {{ sec}}"</span>
-    <div class="serie-card">
+    <div class="serie-card" >
         <div class="serie-card-body">
       <h4 class="serie">serie : {{i+1}}</h4>
       <div>
-        <table class="table">
+        <table class="table" id="my-table">
             <thead>
                 <tr>
                  <th style="color: #333;">{{myForm.value.percent}}% de la VMA :{{myForm.value.vmaVal}} Km/h</th>
@@ -94,8 +94,9 @@
   </div>
 </div>
 <!--pdf-->
-<div class="save-pdf" (click)="convertoPdf()">
-    <button class="btn btn-outline-danger"><span>Telecharger PDF </span><i class="far fa-arrow-alt-circle-down"></i></button>
+<div id="editor"></div>
+<div class="save-pdf">
+    <button class="btn btn-outline-danger" (click)="convertoPdf()"><span>Telecharger PDF </span><i class="far fa-arrow-alt-circle-down"></i></button>
 </div>
 
 

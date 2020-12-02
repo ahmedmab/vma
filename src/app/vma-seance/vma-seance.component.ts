@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
 
@@ -32,9 +32,10 @@ cardType:string
   ngOnInit(): void {
 
   }
+ 
   setRec(efort){
     let result;
-   efort < 60 ? result = this.param:  result = this.param/2
+   efort < 60 ? result = this.param :  result = this.param/2
     return result
   }
 
@@ -86,21 +87,41 @@ console.log(this.seriGrp)
     doc.setTextColor(100);
 
     this.seriGrp.forEach(element =>{
+    
+     
+      (doc as any).autoTable({
+        margin: {top: 50},
+               
+        theme : 'striped',
+        styles: {
+          fontSize: 10,
+          font: 'helvetica',
+          cellPadding: 2,
+          minCellHeight: 2,
+      },
       
-    (doc as any).autoTable({
-
-      head: [['serie'+ j++, '']],
-
-      body: [
-             [element.percent, element.vmaVal + " Km/h"],
-             ['Vitesse', element.vmaVal*element.percent/100 + " Km/h"],
-             ['Volume de Travail', element.rep*element.param],
-             ['Récuperation', this.MyTime(element.param*2/3)]
-            ],
-
-    });
-  })
-
+      headStyles: {
+        fillColor: [255, 255, 255],
+        textColor: [0, 0, 10],
+        fontSize: 18,
+        fontStyle: 'italic',
+        padding: 0,
+    },
+    columnStyles: {
+      0: {fontStyle: 'bold'},
+      1: {halign: 'center'},
+    },
+        head: [['serie '+ j++, '']],
+  
+        body: [
+               [{ content: element.percent + " %" +" "+ element.vmaVal + " Km/h", colSpan: 2, styles: { halign: 'center',fontSize: 13, fontStyle: 'bold'} }],
+               ['Vitesse :', element.vmaVal*element.percent/100 + " Km/h"],
+               ['Volume de Travail :', element.rep*element.param],
+               ['Récuperation :', this.MyTime(element.param*2/3)]
+              ],
+  
+         });
+      })
 
     // Open PDF document in new tab
     doc.output('dataurlnewwindow')
