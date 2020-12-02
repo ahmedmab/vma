@@ -96,7 +96,7 @@ console.log(this.seriGrp)
     var doc = new jsPDF('portrait', 'px', 'a4');
 
     doc.setFontSize(20);
-    doc.text(`Seance d'entrainment VMA`, 120, 20);
+    doc.text(`Seance d'entrainment VMA`, doc.internal.pageSize.getWidth()/2, 20, {align:"center"});
 
     doc.setFontSize(11);
     doc.setTextColor(100);
@@ -138,6 +138,11 @@ console.log(this.seriGrp)
          });
       })
 
+      doc.setFontSize(15);
+      doc.setTextColor(20);
+
+    let finalY = (doc as any).lastAutoTable.finalY + 20; // The y position on the page
+    doc.text(`Volume totale : ${this.volumeTotale}`, doc.internal.pageSize.getWidth()/2, finalY, {align:"center"})
     // Open PDF document in new tab
     doc.output('dataurlnewwindow')
     // Download PDF document  
