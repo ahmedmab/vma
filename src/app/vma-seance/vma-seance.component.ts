@@ -23,6 +23,7 @@ min:number
 sec:number
 cardType:string
  mOrS:any[]= []
+ volumeTotale:number=0
  
 
 
@@ -59,9 +60,12 @@ cardType:string
     this.inputype == ' métres' && f.param>0 ? this.cardType = 'm' : this.inputype == ' seconds' && f.param>0 ? this.cardType = 's': this.cardType = ''
     this.mOrS.push(this.cardType)
     this.num++
+    this.volumeTotale += parseInt(this.seriGrp[this.num-2].param, 10) * parseInt(this.seriGrp[this.num-2].rep, 10)
+    
+    console.warn(typeof(this.seriGrp[this.num-2].rep))
+    console.warn(typeof(parseInt(this.seriGrp[this.num-2].param, 10)))
+    console.warn(this.volumeTotale)
 
-    console.warn(f)
-    console.warn(this.seriGrp)
   }
   delet(index){
 this.seriGrp.splice(index,1)

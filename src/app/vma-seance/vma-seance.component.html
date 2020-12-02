@@ -67,22 +67,13 @@
               <tbody>
                 <tr>
                   <th scope="row">vitesse :</th>
-                  <td>{{seri.vmaVal * seri.percent / 100}} Km/h</td>
-                  <th scope="row">vitesse :</th>
                   <td>{{myForm.value.vmaVal * myForm.value.percent / 100}} Km/h</td>
-                </tr>
-                <tr>
-                  <th scope="row">volume de travail : </th>
-                  <td>{{seri.rep * seri.param}}</td>
-                  <th scope="row">vitesse :</th>
-                  <td>{{myForm.value.vmaVal * myForm.value.percent / 100}} Km/h</td>
-                  
-                </tr>
-                <tr>
-                  <th scope="row">récupération :</th>
-                  <td>{{MyTime((seri.param * 2/3).toFixed(2))}} s</td>
                   <th scope="row">récupération :</th>
                   <td>{{setRec(seri.param, mOrS[i])}}</td>
+                </tr>
+                <tr>
+                  <th scope="row" colspan="2">volume de travail : </th>
+                  <td>{{seri.rep * seri.param}}</td>
                 </tr>
               </tbody>
         </table>
@@ -93,6 +84,7 @@
 </div>
   </div>
 </div>
+<h3>Volume Totale : {{volumeTotale}}</h3>
 <!--pdf-->
 <div id="editor"></div>
 <div class="save-pdf">
