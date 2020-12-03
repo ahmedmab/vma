@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { VmaCalculComponent } from './vma-calcul/vma-calcul.component';
 
 const routes: Routes = [
-  {path: 'info', component: VmaInfoComponent},
+  {path: '/', component: VmaInfoComponent},
   {path: 'calcul', component: VmaCalculComponent},
   {path: 'trainer-plan', component: VmaTrainerComponent},
   {path: 'seance', component: VmaSeanceComponent}
