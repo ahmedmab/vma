@@ -2,19 +2,29 @@
     width: 100%;
     padding: 1rem;
 }
-h2{
-    padding-left: 1rem;
-    color: #734046;
-    font-weight: bold;
-
+.box-section1{
+    width: 100%;
+    padding: 1rem 0%;
 }
 
 .section1{
+    width: 70%;
+    margin: auto;
     font-weight: bold;
     padding: 1rem;
-    margin-bottom: 4px;
-    background-color: lightcoral;
+    background-color: #f05454;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.16), 0 2px 5px rgba(0,0,0,0.23);
 
+
+}
+.section1 p{
+    margin-bottom: 4px;
+    margin-top: 2px;
+}
+.section1 h4{
+    color: white;
+    font-weight: bold;
 }
 .section2{
     border:1px lightgrey solid;
@@ -43,30 +53,38 @@ button:disabled{
     flex-basis: 100%;
     margin: 20px auto;
 }
-.item1, .item2, .item3 .btn-togle{
+.item1, .item2, .item3{
     display: flex;
+    flex-direction: column;
 }
 .box select, .box input{
 height: 2rem;
-margin-right: 10px;
 }
-.item4{
-    width: 7rem;
+.input-param{
+    width: 100%;
 }
-.item4 input{
-    margin-right: 0%;
+.btn-togle, .item5{
+    display: flex;
+    flex-direction: row;
 }
-.item4 span{
-    width: 4rem; 
-    font-size: small; 
-    padding: 0%; 
-    margin-right: 5px;
+.btn-togle button{
+    width: 50%;
+    }
+.input3{
+    width: 10rem;
 }
-.item5{
-    margin-left: auto;
+.item2 p{
+    text-align: center;
+}
+
+.item5 .btn{
+    margin-right: .5rem;
+    margin-top: 1rem;
 }
 button[type="submit"]{
     width: 10rem;
+    margin-left: auto;
+
 }
 
 .seance{
@@ -144,7 +162,7 @@ cursor: pointer;
         width: 100%;
     }
     button[type="submit"]{
-        width: 70vw;
+        width: 100%;
     }
   }
   h2,h3,h4{

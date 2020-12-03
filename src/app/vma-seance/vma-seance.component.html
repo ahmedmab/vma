@@ -1,25 +1,26 @@
-<h2>Préparer votre séance d'entrainement</h2>
 <div class="seanc container">
+ <div class="box-section1">
   <div class="section section1">
-    <form #myForm="ngForm" (ngSubmit)="submit(myForm.value)" ><h4>série NB: {{num}}</h4> 
+    <form #myForm="ngForm" (ngSubmit)="submit(myForm.value)" ><h4>Préparer votre série: {{num}}</h4> 
  <div class="box">  
     <div class="item1">
-    <label for=""><p>NB de répetition:</p></label><input type="text" size="2" name="rep" ngModel>
+    <p>NB de répetition:</p><input type="text" size="2" name="rep" ngModel>
      </div>
      <div class="item3">
 
       <div class="btn-togle">
-      <button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="!avec">distance</button>
-      <button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="avec">durée</button>
+      <button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="!avec">distance (m)</button>
+      <button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="avec">durée (s)</button>
       </div>
-  
+      <div class="input-param">
+        <input class="inputype" type="text"  [placeholder]="inputype" name="param" ngModel>
+        </div>
    </div>
   
-   <div class="item4">
-      <input class="inputype" type="text"  size="2" name="param" ngModel><span>{{inputype}}</span>
-      </div>
-    <div class="item2">
    
+    <div class="item2">
+   <p>allure</p>
+   <div>
     <select name="percent" ngModel>
         <option value="60">60 %</option>
         <option value="70">70 %</option>
@@ -35,16 +36,23 @@
         <option value="120">120 %</option>
 
     </select>
-   <input type="text" placeholder="VMA" name="vmaVal" ngModel>
+  </div>
+   
   </div>    
- 
-
-    <div class="item5">
-    <button  class="btn btn-outline-dark btn-sm " type="submit">Ajouter</button>
-    </div>
+<div class="item2">
+  <p>VMA</p>
+<input type="text" placeholder="VMA" name="vmaVal" ngModel>
 </div> 
+
+</div> 
+<div class="item5">
+  <button  class="btn btn-warning btn-sm " type="submit">Ajouter</button>
+  <div class="btn btn-light btn-sm " (click)="renitialiser()">Rénitialiser</div>
+
+  </div>
     </form>
   </div>
+</div> 
   <div class="section section2">
     <div class="seance-head" >
     <h3 class="titre titre-seance">Seance d'entrainement</h3>  

@@ -67,9 +67,15 @@ cardType:string
     console.warn(this.volumeTotale)
 
   }
+  renitialiser(){
+    this.seriGrp = []
+    this.num = 1
+  }
   delet(index){
 this.seriGrp.splice(index,1)
 console.log(this.seriGrp)
+this.num --
+
   }
   //convertir les seconds en min et sec
   MyTime(STemps) {

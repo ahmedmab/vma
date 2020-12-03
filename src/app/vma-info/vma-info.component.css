@@ -1,3 +1,10 @@
 h2,h3,h4{
     margin: 1rem .5rem;
 }
+article{
+    width: 100%;
+}
+.ex{
+    width: 70%;
+    margin: auto;
+}
