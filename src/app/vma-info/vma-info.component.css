@@ -1,8 +1,13 @@
+.box{
+    width: 100%;
+}
 h2,h3,h4{
     margin: 1rem .5rem;
 }
 article{
     width: 100%;
+    padding: 1rem 2rem;
+
 }
 .ex{
     width: 70%;

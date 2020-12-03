@@ -1,4 +1,4 @@
-
+<div class="conteneur">
   <select class="custom-select" (change)="getVal($event.target.value)">
     <option selected>selectioner le test</option>
     <option value="1">Test de demi-cooper</option>
@@ -8,9 +8,10 @@
 
   <div *ngIf="value ==1">
     <div class="box">
-      
-        <label for="demi">Distance parcourue en 6 minutes de course à pied : </label>
-        <input type="text" id="demi" size="2" autofocus [(ngModel)]="distance"><span> mètres</span>
+      <div class="subox">
+        <div><label for="demi">Distance parcourue en 6 minutes de course à pied : </label></div>
+        <div><input type="text" id="demi" size="2" autofocus [(ngModel)]="distance"><span> mètres</span></div>
+      </div>
         <br>
       <button class="btn btn-danger" type="button" (click)="calcul()">Calculer</button>
       <div class="result">
@@ -24,9 +25,10 @@
 
   <div *ngIf="value ==2">
     <div class="box">
-      
-      <label for="demi">Palier obtenu au test navette : </label>
-      <input type="text" id="demi" size="2" autofocus [(ngModel)]="palier">
+      <div class="subox">
+      <div><label for="demi">Palier obtenu au test navette : </label></div>
+       <div><input type="text" id="demi" size="2" autofocus [(ngModel)]="palier"></div>
+    </div>
       <br>
     <button class="btn btn-danger" type="button" (click)="calculNavet()">Calculer</button>
     <div class="result">
@@ -36,4 +38,5 @@
   </div>
     </div>
 
+ </div>
 </div>

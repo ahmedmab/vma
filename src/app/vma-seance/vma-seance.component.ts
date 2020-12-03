@@ -18,9 +18,9 @@ avec:boolean = true
 inputype:string = ' seconds'
 num:number=1
 recuperation
-seriGrp:any[]=[]
-min:number 
+min:number
 sec:number
+seriGrp:any[]=[]
 cardType:string
  mOrS:any[]= []
  volumeTotale:number=0

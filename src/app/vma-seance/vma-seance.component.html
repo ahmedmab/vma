@@ -9,8 +9,8 @@
      <div class="item3">
 
       <div class="btn-togle">
-      <button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="!avec">distance (m)</button>
-      <button class="btn btn-outline-secondary btn-sm" (click)="togle()" [disabled]="avec">durée (s)</button>
+      <button class="btn btn-secondary btn-sm" (click)="togle()" [disabled]="!avec">distance</button>
+      <button class="btn btn-secondary btn-sm" (click)="togle()" [disabled]="avec">durée</button>
       </div>
       <div class="input-param">
         <input class="inputype" type="text"  [placeholder]="inputype" name="param" ngModel>
@@ -56,10 +56,9 @@
   <div class="section section2">
     <div class="seance-head" >
     <h3 class="titre titre-seance">Seance d'entrainement</h3>  
-    <p>VMA : {{myForm.value.vmaVal}}</p>
-    <div class="recEntreSeri"><p>récuperation entre les series :</p><input type="text" placeholder="minuts" [(ngModel)]="min">'
-      <input type="text" placeholder="seconds" [(ngModel)]="sec"></div>
-    </div>
+    <textarea class="form-control">- Échauffement 20 min. à 65% de la VMA.
+-Étirements.</textarea>
+    
   </div>
   <div class="section section3">
     <div class="seance" *ngFor= "let seri of seriGrp index as i">

@@ -1,7 +1,34 @@
-.box{
-    width: 60%;
+.conteneur{
+    width: 100%;
+    text-align: center;
+}
+.custom-select{
+    width: 80%;
     margin: 2rem auto;
 }
-button, input{
-    margin: .3rem;
+.box{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 2rem auto;
+}
+.subox{
+    display: flex;
+}
+.box input{
+    text-align: center;
+}
+.box button{
+width: 20%;
+min-width: 100px;
+}
+@media only screen and (max-width: 480px) {
+
+    .custom-select{
+        width: 90%;
+    }
+    .box button{
+        width: 50%;
+        align-self: center;
+        }
 }
