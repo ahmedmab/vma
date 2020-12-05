@@ -24,7 +24,7 @@ seriGrp:any[]=[]
 cardType:string
  mOrS:any[]= []
  volumeTotale:number=0
- 
+ echauf:string
 
 
 
@@ -61,10 +61,8 @@ cardType:string
     this.mOrS.push(this.cardType)
     this.num++
     this.volumeTotale += parseInt(this.seriGrp[this.num-2].param, 10) * parseInt(this.seriGrp[this.num-2].rep, 10)
-    
-    console.warn(typeof(this.seriGrp[this.num-2].rep))
-    console.warn(typeof(parseInt(this.seriGrp[this.num-2].param, 10)))
-    console.warn(this.volumeTotale)
+    this.echauf = 'test ' + this.echauf
+    console.warn(this.echauf)
 
   }
   renitialiser(){

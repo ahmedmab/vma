@@ -5,8 +5,6 @@
 .box-section1{
     width: 100%;
     padding: 1rem 0%;
-    position: -webkit-sticky;
-    position: sticky;
     top: 10px;
     z-index: 1;
     }
@@ -151,7 +149,7 @@ cursor: pointer;
 }
 .save-pdf button {
     width: 12rem;
-    margin-left: auto;
+    margin: 1rem 2rem 0 auto;
 }
 
 @media only screen and (max-width: 480px) {
