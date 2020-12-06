@@ -11,4 +11,7 @@ body{
 button{
     font-family: 'Martel Sans', sans-serif;
 }
+h1,h2,h3{
+    color: blueviolet;
+}
 

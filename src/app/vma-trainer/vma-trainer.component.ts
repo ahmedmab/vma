@@ -26,12 +26,29 @@ vma_100
 second
 minut
 metre 
+
+tab1:boolean= true
   constructor() { }
 
   ngOnInit(): void {
   }
+  tabone(){
+    this.tab1= true
+    $('.tab1').addClass('active');
+    $('.tab2').removeClass('active');
+  }
+  tabtow(){
+    this.tab1= false
+    $('.tab2').addClass('active');
+    $('.tab1').removeClass('active');
+  }
+  renitialiser(){
+    $('td').addClass('wihte')
+  }
 
   calcul(){
+    $('td').removeClass('wihte')
+
 this.second = ' s'   
 this.minut = ' min'
 this.metre = ' m'
