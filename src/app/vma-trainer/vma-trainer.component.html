@@ -9,8 +9,8 @@
     <div>
 
       <nav class="nav nav-pills flex-column flex-sm-row">
-        <a class="flex-sm-fill text-sm-center nav-link tab1 active" (click)="tabone()">Travail avec le temps</a>
-        <a class="flex-sm-fill text-sm-center nav-link tab2" (click)="tabtow()">Travail avec la distance</a>
+        <a class="flex-sm-fill text-sm-center nav-link tab1" [ngClass]="{'active': tab1 == true}" (click)="tabone()">Travail avec le temps</a>
+        <a class="flex-sm-fill text-sm-center nav-link tab2" [ngClass]="{'active': tab1 == false}" (click)="tabtow()">Travail avec la distance</a>
       </nav>
       <!--temps par distance-->
         <div *ngIf="tab1 == true" class="table">
