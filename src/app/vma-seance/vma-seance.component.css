@@ -1,6 +1,5 @@
 .seanc{
     width: 100%;
-    padding: 1rem;
 }
 .box-section1{
     width: 100%;
@@ -14,10 +13,10 @@
     margin: auto;
     font-weight: bold;
     padding: 1rem;
-    background-color: #f05454;
+    background-color: #d9ebe8;
     border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 2px 5px rgba(0,0,0,0.63);
-
+    
 
 }
 .section1 p{
@@ -25,7 +24,7 @@
     margin-top: 2px;
 }
 .section1 h4{
-    color: white;
+    color: rgb(22, 20, 20);
     font-weight: bold;
 }
 .section2{
@@ -40,7 +39,6 @@ textarea{
     text-align: left;
 }
 .section3{
-    border:1px lightgrey solid;
     z-index: 2;
 
 }
@@ -103,8 +101,6 @@ display: flex;
 flex-direction: row;
 }
 .serie-card{
-    width: 80%;
-    height: fit-content;
     margin: .3rem auto;
   border-radius: 15px 0 0 15px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.16), 0 2px 5px rgba(0,0,0,0.23);
@@ -177,6 +173,17 @@ cursor: pointer;
     .input5 .btn{
         width: 40%;
     }
+  }
+  th{
+font-size: .7rem;
+background-color: #f4f4f4;
+display: block;
+  }
+  td{
+    font-size: .5rem;
+background-color: white;
+display: block;
+
   }
   h2,h3,h4{
     margin: 1rem .5rem;

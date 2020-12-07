@@ -1,34 +1,11 @@
 .conteneur{
-    width: 100%;
-    text-align: center;
+    padding: 1rem .5rem;
 }
-.custom-select{
-    width: 80%;
-    margin: 2rem auto;
+p{
+    font-weight: bold;
 }
-.box{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: 2rem auto;
-}
-.subox{
-    display: flex;
-}
-.box input{
-    text-align: center;
-}
-.box button{
-width: 20%;
-min-width: 100px;
-}
+
 @media only screen and (max-width: 480px) {
 
-    .custom-select{
-        width: 90%;
-    }
-    .box button{
-        width: 50%;
-        align-self: center;
-        }
+    
 }
