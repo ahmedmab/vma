@@ -1,20 +1,17 @@
 .seanc{
     width: 100%;
-    padding: 1rem;
 }
 .box-section1{
     width: 100%;
-    padding: 1rem 0%;
-    top: 10px;
-    z-index: 1;
-    }
+    margin-bottom: 10px;
+}
 
 .section1{
-    width: 70%;
+    width: 80%;
     margin: auto;
     font-weight: bold;
     padding: 1rem;
-    background-color: #f05454;
+    background-color: #c3aed6;
     border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 2px 5px rgba(0,0,0,0.63);
 
@@ -157,27 +154,42 @@ cursor: pointer;
     .box {
         flex-direction: column;
     }
-    .box-section1{
-        margin: 0%;
-        top: 10px;
+    .section1{
+        width: 90%;
     }
+    
     .recEntreSeri {
         flex-direction: column;
         }
     h2,h3,h4{
-        font-size: 4vw;
+        font-size: 16px;
+    }
+    p{
+        font-size: 11px;
     }
 
     .serie-card{
         width: 100%;
     }
+    .serie-card .serie-card-body .serie{
+        line-height: 15px;
+    }
+   
+    table th,table td{
+        display: block;
+        line-height: 10px;
+        font-size: 70%;
+    }    
     .input-param .inputype, .item5, .item2 select{
         width: 100%;
     }
     .input5 .btn{
         width: 40%;
     }
+    .save-pdf button {
+        width: 12rem;
+        margin: 1rem auto 0 auto;
+    }
   }
-  h2,h3,h4{
-    margin: 1rem .5rem;
-}
+
+ 

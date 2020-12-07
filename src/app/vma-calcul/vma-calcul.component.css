@@ -4,13 +4,13 @@
 }
 .custom-select{
     width: 80%;
-    margin: 2rem auto;
+    margin: 1rem auto;
 }
 .box{
     display: flex;
     flex-direction: column;
     width: 80%;
-    margin: 2rem auto;
+    margin: 1rem auto;
 }
 .subox{
     display: flex;
