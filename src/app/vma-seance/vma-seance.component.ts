@@ -26,7 +26,7 @@ cardType:string
  volumeSeri:number
  volumeTotale:number=0
  echauf:string
-
+ vide
 
 
   constructor() { }
@@ -58,18 +58,21 @@ cardType:string
   }
   
   submit(f){
-    this.seriGrp.push(f)
-
+    
     if(this.inputype == ' métres' && f.param>0) {f.mOrs = 'm' 
     f.volumeSeri = parseInt(f.param, 10) * parseInt(f.rep, 10)}  
     else if (this.inputype == ' seconds' && f.param>0) {f.mOrs = 's'
     f.volumeSeri = ((parseInt(f.param, 10) * (parseInt(f.vmaVal, 10) * parseInt(f.percent, 10) / 100) / 3.6) * parseInt(f.rep, 10)).toFixed(2)} 
     else {this.cardType = ''}
 
+    this.seriGrp.push(f)
+
     this.num++
     this.volumeTotale += parseInt(this.seriGrp[this.num-2].param, 10) * parseInt(this.seriGrp[this.num-2].rep, 10)
     this.echauf = 'test ' + this.echauf
     console.log(f)
+    console.log(this.seriGrp)
+    this.vide = ''
   }
   renitialiser(){
     this.seriGrp = []
