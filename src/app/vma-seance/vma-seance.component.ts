@@ -22,7 +22,8 @@ min:number
 sec:number
 seriGrp:any[]=[]
 cardType:string
- mOrS:any[]= []
+ mOrs:string
+ volumeSeri:number
  volumeTotale:number=0
  echauf:string
 
@@ -33,6 +34,7 @@ cardType:string
   ngOnInit(): void {
 
   }
+
  
   setRec(efort:number, type:string){
     let result;
@@ -54,16 +56,20 @@ cardType:string
     this.avec = !this.avec
     this.avec ? this.inputype = ' seconds' : this.inputype = ' métres'
   }
- 
+  
   submit(f){
     this.seriGrp.push(f)
-    this.inputype == ' métres' && f.param>0 ? this.cardType = 'm' : this.inputype == ' seconds' && f.param>0 ? this.cardType = 's': this.cardType = ''
-    this.mOrS.push(this.cardType)
+
+    if(this.inputype == ' métres' && f.param>0) {f.mOrs = 'm' 
+    f.volumeSeri = parseInt(f.param, 10) * parseInt(f.rep, 10)}  
+    else if (this.inputype == ' seconds' && f.param>0) {f.mOrs = 's'
+    f.volumeSeri = ((parseInt(f.param, 10) * (parseInt(f.vmaVal, 10) * parseInt(f.percent, 10) / 100) / 3.6) * parseInt(f.rep, 10)).toFixed(2)} 
+    else {this.cardType = ''}
+
     this.num++
     this.volumeTotale += parseInt(this.seriGrp[this.num-2].param, 10) * parseInt(this.seriGrp[this.num-2].rep, 10)
     this.echauf = 'test ' + this.echauf
-    console.warn(this.echauf)
-
+    console.log(f)
   }
   renitialiser(){
     this.seriGrp = []
@@ -148,7 +154,7 @@ this.num --
     let finalY = (doc as any).lastAutoTable.finalY + 20; // The y position on the page
     doc.text(`Volume totale : ${this.volumeTotale}`, doc.internal.pageSize.getWidth()/2, finalY, {align:"center"})
     // Open PDF document in new tab
-    doc.output('dataurlnewwindow')
+    doc.output('dataurl')
     // Download PDF document  
     doc.save('séance-VMA.pdf');
     }

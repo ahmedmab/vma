@@ -71,7 +71,7 @@
             <thead>
                 <tr>
                  <th style="text-align: center; color: #333; word-spacing: .5rem;">{{seri.percent}}% de la VMA :{{seri.vmaVal}} Km/h</th>
-                  <th scope="col" colspan="2" style="color: black; text-align: center; word-spacing: 1.5rem;">{{seri.rep}} * {{seri.param}}{{mOrS[i]}}</th>
+                  <th scope="col" colspan="2" style="color: black; text-align: center; word-spacing: 1.5rem;">{{seri.rep}} * {{seri.param}}{{seri.mOrs}}</th>
                 </tr>
               </thead>
               <tbody>
@@ -79,11 +79,11 @@
                   <th scope="row">vitesse :</th>
                   <td>{{myForm.value.vmaVal * myForm.value.percent / 100}} Km/h</td>
                   <th scope="row">récupération :</th>
-                  <td>{{setRec(seri.param, mOrS[i])}}</td>
+                  <td>{{setRec(seri.param, seri.mOrs)}}</td>
                 </tr>
                 <tr>
                   <th scope="row" colspan="2">volume de travail : </th>
-                  <td>{{seri.rep * seri.param}}</td>
+                  <td>{{seri.volumeSeri}}</td>
                 </tr>
               </tbody>
         </table>

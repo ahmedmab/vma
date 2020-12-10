@@ -1,7 +1,6 @@
 .conteneur{
     padding: 1rem .5rem;
 }
-<<<<<<< HEAD
 .custom-select{
     width: 80%;
     margin: 1rem auto;
@@ -21,10 +20,6 @@
 .box button{
 width: 20%;
 min-width: 100px;
-=======
-p{
-    font-weight: bold;
->>>>>>> 92e65c097b839052e16f872bf0d8703792d52c00
 }
 
 @media only screen and (max-width: 480px) {
