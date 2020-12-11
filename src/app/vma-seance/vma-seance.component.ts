@@ -68,7 +68,7 @@ cardType:string
     this.seriGrp.push(f)
 
     this.num++
-    this.volumeTotale += parseInt(this.seriGrp[this.num-2].param, 10) * parseInt(this.seriGrp[this.num-2].rep, 10)
+    this.volumeTotale += parseInt(f.volumeSeri, 10)
     this.echauf = 'test ' + this.echauf
     console.log(f)
     console.log(this.seriGrp)
