@@ -65,8 +65,5 @@ td{
         flex-direction: row;
         justify-content: space-between;
     }
-   table th{
-display: block;    }
-   table td{
-        display: block;    }
+   
 }

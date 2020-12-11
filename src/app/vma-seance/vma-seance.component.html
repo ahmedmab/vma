@@ -41,7 +41,7 @@
   </div>    
 <div class="item2">
   <p>VMA</p>
-<input type="text" placeholder="VMA" name="vmaVal" [value]="vide"  ngModel>
+<input type="text" placeholder="VMA" name="vmaVal"  ngModel>
 </div> 
 
 </div> 
@@ -71,13 +71,13 @@
             <thead>
                 <tr>
                  <th style="text-align: center; color: #333; word-spacing: .5rem;">{{seri.percent}}% de la VMA :{{seri.vmaVal}} Km/h</th>
-                  <th scope="col" colspan="2" style="color: black; text-align: center; word-spacing: 1.5rem;">{{seri.rep}} * {{seri.param}}{{seri.mOrs}}</th>
+                  <th scope="col" colspan="2" style="color: black; text-align: center; word-spacing: 1.5rem;">{{seri.rep}} X {{seri.param}}{{seri.mOrs}}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">vitesse :</th>
-                  <td>{{myForm.value.vmaVal * myForm.value.percent / 100}} Km/h</td>
+                  <td>{{seri.vmaVal * seri.percent / 100}} Km/h</td>
                   <th scope="row">récupération :</th>
                   <td>{{setRec(seri.param, seri.mOrs)}}</td>
                 </tr>

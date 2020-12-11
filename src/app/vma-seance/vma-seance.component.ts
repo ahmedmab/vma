@@ -25,8 +25,8 @@ cardType:string
  mOrs:string
  volumeSeri:number
  volumeTotale:number=0
- echauf:string
- vide
+ echauf:string = 'course de 20 min. à 65% de la VMA ; Étirements '
+ vide:string
 
 
   constructor() { }
@@ -58,7 +58,6 @@ cardType:string
   }
   
   submit(f){
-    
     if(this.inputype == ' métres' && f.param>0) {f.mOrs = 'm' 
     f.volumeSeri = parseInt(f.param, 10) * parseInt(f.rep, 10)}  
     else if (this.inputype == ' seconds' && f.param>0) {f.mOrs = 's'
@@ -66,23 +65,20 @@ cardType:string
     else {this.cardType = ''}
 
     this.seriGrp.push(f)
-
     this.num++
     this.volumeTotale += parseInt(f.volumeSeri, 10)
-    this.echauf = 'test ' + this.echauf
-    console.log(f)
-    console.log(this.seriGrp)
+    this.echauf = this.echauf
     this.vide = ''
   }
   renitialiser(){
     this.seriGrp = []
     this.num = 1
+    this.volumeTotale = 0
   }
-  delet(index){
-this.seriGrp.splice(index,1)
-console.log(this.seriGrp)
-this.num --
-
+  delet(index:number){
+    this.volumeTotale = this.volumeTotale - parseInt(this.seriGrp[index].volumeSeri, 10)
+    this.seriGrp.splice(index,1)
+    this.num --
   }
   //convertir les seconds en min et sec
   MyTime(STemps) {
@@ -110,6 +106,12 @@ this.num --
 
     doc.setFontSize(20);
     doc.text(`Seance d'entrainment VMA`, doc.internal.pageSize.getWidth()/2, 20, {align:"center"});
+
+    doc.setFontSize(15);
+    doc.setTextColor(20);
+    doc.text(`Echauffement : ${this.echauf}`, 30, 60);
+   
+    doc.text(`---------------`, doc.internal.pageSize.getWidth()/2, 20, {align:"center"});
 
     doc.setFontSize(11);
     doc.setTextColor(100);
@@ -142,7 +144,7 @@ this.num --
         head: [['serie '+ j++, '']],
   
         body: [
-               [{ content: element.percent + " %" +" "+ element.vmaVal + " Km/h", colSpan: 2, styles: { halign: 'center',fontSize: 13, fontStyle: 'bold'} }],
+               [{ content: `${element.percent} % ${element.vmaVal} Km/h   ( ${element.rep} X ${element.param} ${element.mOrs} )` , colSpan: 2, styles: { halign: 'center',fontSize: 13, fontStyle: 'bold'} }],
                ['Vitesse :', element.vmaVal*element.percent/100 + " Km/h"],
                ['Volume de Travail :', element.rep*element.param],
                ['Récuperation :', this.MyTime(element.param*2/3)]
@@ -155,9 +157,9 @@ this.num --
       doc.setTextColor(20);
 
     let finalY = (doc as any).lastAutoTable.finalY + 20; // The y position on the page
-    doc.text(`Volume totale : ${this.volumeTotale}`, doc.internal.pageSize.getWidth()/2, finalY, {align:"center"})
+    doc.text(`Volume totale : ${this.volumeTotale} m`, doc.internal.pageSize.getWidth()/2, finalY, {align:"center"})
     // Open PDF document in new tab
-    doc.output('dataurl')
+    doc.output('dataurlnewwindow')
     // Download PDF document  
     doc.save('séance-VMA.pdf');
     }
