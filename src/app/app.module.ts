@@ -7,6 +7,7 @@ import { VmaInfoComponent } from './vma-info/vma-info.component';
 import { VmaCalculComponent } from './vma-calcul/vma-calcul.component';
 import { VmaTrainerComponent } from './vma-trainer/vma-trainer.component';
 import { VmaSeanceComponent } from './vma-seance/vma-seance.component';
+import { ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { VmaSeanceComponent } from './vma-seance/vma-seance.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms'
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
 
@@ -10,10 +11,13 @@ import 'jspdf-autotable';
   styleUrls: ['./vma-seance.component.css']
 })
 export class VmaSeanceComponent implements OnInit {
-percent:number
-vmaVal:number
-param:number
-rep:number
+  seriForm = new FormGroup({
+    percent: new FormControl(''),
+    vmaVal: new FormControl(''),
+    param: new FormControl(''),
+    rep: new FormControl(''),
+  })
+
 avec:boolean = true
 inputype:string = ' seconds'
 num:number=1
@@ -26,8 +30,6 @@ cardType:string
  volumeSeri:number
  volumeTotale:number=0
  echauf:string = 'course de 20 min. à 65% de la VMA ; Étirements '
- vide:string
-
 
   constructor() { }
 
@@ -68,7 +70,12 @@ cardType:string
     this.num++
     this.volumeTotale += parseInt(f.volumeSeri, 10)
     this.echauf = this.echauf
-    this.vide = ''
+    this.seriForm.patchValue({
+      rep: '',
+      param: '',
+      percent: '',
+    })
+    console.warn(f)
   }
   renitialiser(){
     this.seriGrp = []

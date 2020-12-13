@@ -1,17 +1,17 @@
+*, *::before, *::after{ box-sizing: border-box;}
 
 .body{
     padding: 0%;
     margin: 0%;
     width: 100%;
-    height: 100vh;
-    background-color: #d0e8f2;
+    height: 100%;
+    background-color: #efefef;
     display: grid;
     grid-template-columns: 30px 1fr 30px;
     grid-template-rows: auto 1fr 80px;
     grid-template-areas: "head head head"
                           "... main ..."
                           "footer footer footer";
-    row-gap: 5px; 
 }
 
 nav{
@@ -32,4 +32,21 @@ footer{
     grid-area: footer;
     
     
+}
+@media only screen and (max-width: 780px) {
+    .body{
+        width: 100vw;
+        height: 100vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr 80px;
+        grid-template-areas: "head"
+                              "main"
+                              "footer";
+    }
+    main{
+        padding: 2rem 1rem;
+        background-color: #f1f1f8;
+        grid-area: main;
+    
+    }
 }

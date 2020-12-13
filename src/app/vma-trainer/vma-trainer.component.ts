@@ -39,9 +39,7 @@ tab1:boolean= true
   tabtow(){
     this.tab1= false
   }
-  renitialiser(){
-   
-  }
+  
 
   calcul(){
    
