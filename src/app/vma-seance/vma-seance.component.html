@@ -1,28 +1,29 @@
-<div class="seanc container">
- <div class="box-section1">
+<div class="seanc">
   <div class="section section1">
-    <form [formGroup]="seriForm" (ngSubmit)="submit(seriForm.value)" ><h4>Préparer votre série: {{num}}</h4> 
+
+    <form class="text-center border border-light p-5" [formGroup]="seriForm" (ngSubmit)="submit(seriForm.value)" >  <p class="h4 mb-4">Préparer votre série: {{num}}</p>
  <div class="box">  
     <div class="item1">
-    <p>NB de répetition:</p><input type="text" size="2" formControlName="rep">
+    <input class="form-control mb-4" type="text" size="2" formControlName="rep" placeholder="nombre de répetition">
      </div>
      <div class="item3">
 
       <div class="btn-togle">
-      <button class="btn btn-secondary btn-sm" (click)="togle()" [disabled]="!avec" >distance</button>
-      <button class="btn btn-secondary btn-sm" (click)="togle()" [disabled]="avec" >durée</button>
+      <button [ngClass]="!avec?'btn btn-success btn-sm':'btn btn-light btn-sm'" (click)="togle()" [disabled]="!avec" >distance</button>
+      <button [ngClass]="avec?'btn btn-success btn-sm':'btn btn-light btn-sm'" (click)="togle()" [disabled]="avec" >durée</button>
       </div>
       <div class="input-param">
-        <input class="inputype" type="text" [placeholder]="inputype" formControlName="param">
+        <input class="inputype form-control mb-4" type="text" [placeholder]="inputype" formControlName="param">
         </div>
    </div>
   
    
     <div class="item2">
-   <p>allure</p>
    <div>
-    <select formControlName="percent">
+    <select class="browser-default custom-select mb-4" formControlName="percent">
+        <option value="" selected>allure</option>
         <option value="60">60 %</option>
+        <option value="65">65 %</option>
         <option value="70">70 %</option>
         <option value="75">75 %</option>
         <option value="80">80 %</option>
@@ -40,23 +41,21 @@
    
   </div>    
 <div class="item2">
-  <p>VMA</p>
-<input type="text" placeholder="VMA" formControlName="vmaVal">
+<input type="text" class="form-control mb-4" placeholder="VMA" formControlName="vmaVal">
 </div> 
 
 </div> 
 <div class="item5">
-  <button  class="btn btn-warning btn-sm " type="submit">Ajouter</button>
-  <div class="btn btn-light btn-sm " (click)="renitialiser()">Rénitialiser</div>
+  <button  class="btn btn-warning " type="submit">Ajouter</button>
+  <div class="btn btn-light" (click)="renitialiser()">Rénitialiser</div>
 
   </div>
     </form>
   </div>
-</div> 
   <div class="section section2">
     <div class="seance-head" >
     <h3 class="titre titre-seance">Seance d'entrainement</h3>  
-    <textarea class="form-control" [(ngModel)]="echauf">- Échauffement 20 min. à 65% de la VMA.
+    <textarea class="form-control rounded-0" [(ngModel)]="echauf">- Échauffement 20 min. à 65% de la VMA.
 -Étirements.</textarea>
     
   </div>

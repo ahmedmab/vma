@@ -1,39 +1,49 @@
 <div class="body">
-    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #dcd5fd;">
-      <a class="navbar-brand" href="#">VMA</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+      <a class="navbar-brand" routerLink="">VMA</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-    
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" routerLink='info'><i class="fas fa-info-circle"></i>à propos de VMA<span class="sr-only">(current)</span></a>
+            <a class="nav-link" routerLink="/info">a propos <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink='calcul'><i class="fas fa-calculator"></i><span> Calculer VMA</span></a>
+            <a class="nav-link" routerLink="/calcul">Calculer Vma</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink='trainer-plan'><i class="fas fa-running"></i><span> Tableaux d'allures VMA</span></a>
+            <a class="nav-link" routerLink="/trainer-plan">Tablaux d'allures</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink='seance'><i class="fas fa-running"></i><span> S'entrainer avec VMA</span></a>
+            <a class="nav-link" routerLink="/seance">S'entrainer avec Vma</a>
           </li>
         </ul>
       </div>
     </nav>
+
+
+  </header>
   <main>
     <div class=" containercontenu">
       <router-outlet></router-outlet>
       </div>
   </main>
 
-  <footer>
-    <hr>
-  <p>Copyright &copy;	2020 | created with <i class="far fa-heart"></i>+<i class="fas fa-coffee"></i> by Ahmed MABROUKI</p> 
-  
-  </footer>
-  
-</div>
+  <!-- Footer -->
+<footer class="page-footer font-small mdb-color darken-3">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright : Ahmed MABROUKI |
+    <strong> ahmedmab87@gmail.com</strong>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
 
 

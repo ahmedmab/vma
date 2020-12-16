@@ -6,12 +6,11 @@ html{
 }
 body{
     font-family: 'Montserrat', sans-serif;
-
+    width: 100%;
+    height: 100%;
 }
+
 button{
     font-family: 'Martel Sans', sans-serif;
-}
-h1,h2,h3{
-    color: blueviolet;
 }
 
