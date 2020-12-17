@@ -29,10 +29,10 @@ main{
 footer{
     grid-area: footer; 
 }
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 560px) {
     .body{
         width: 100vw;
-        height: 100vh;
+        min-height: 100vh;
         grid-template-columns: 1fr;
         grid-template-rows: auto 1fr 80px;
         grid-template-areas: "head"

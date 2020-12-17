@@ -1,39 +1,34 @@
-*{
+*, *::after,*::before{
     box-sizing: border-box;
+    margin: 0%;
 }
 .seanc{
     width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
-.section1{
-    width: 60%;
-    margin: 0 auto 1rem auto;
+.box-1{
+padding: 0 1rem;}
+.box-2{
+    flex: 2;
 }
-form{
-    box-shadow: 0px 1px 21px 0px rgba(0,0,0,0.34);
-}
+
 
 .section2{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
-    border:1px lightgrey solid;
     padding: 1rem;
-    border-radius: 15px 15px 0 0;
-
 }
-textarea{
+textarea, .card{
     margin: 1rem auto;
     width: 90%;
     text-align: left;
 }
 .section3{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
+}
 
-}
-.titre{
-    text-align: center;
-    color: #393e46;
-}
 .titre-seance{
     font-weight: bolder;
     text-decoration: underline;
@@ -43,21 +38,10 @@ button:disabled{
     font-weight: bolder;
     color: white;
 }
-.box{
-    display:flex;
-    flex-basis: 100%;
-    flex-direction: column;
-    margin: 20px auto;
-}
-.item1, .item2, .item3{
-    display: flex;
-    flex-direction: column;
-}
-.box select, .box input{
-height: 2rem;
-}
-.input-param{
-    width: 100%;
+
+.big{
+    font-family: sans-serif;
+    transform: scaleY(1.2);
 }
 .btn-togle, .item5{
     display: flex;
@@ -90,10 +74,6 @@ display: flex;
 flex-direction: row;
 }
 .serie-card{
-    margin: .3rem auto;
-  border-radius: 15px 0 0 15px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.16), 0 2px 5px rgba(0,0,0,0.23);
-  background-color: #f1f1e8;
     position: relative;
 }
 .serie{
@@ -115,6 +95,7 @@ cursor: pointer;
 }
 .table{
     background-color: white;
+    column-width: 5rem;
 
 }
 .table th{
@@ -138,39 +119,29 @@ cursor: pointer;
 }
 
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 560px) {
     /* For mobile phones: */
-   
+    .seanc{
+        width: 100%;
+        flex-direction: column; 
+ }
+ .box-1{
+    padding: 0;
+ }
+ 
     .box {
         flex-direction: column;
     }
-    form{
-        box-shadow: none;
-    }
-    .seanc{
-        width: 100vw;
-    }
-    .section1{
-        width: 100%;
-    }
+   
     
-    .recEntreSeri {
-        flex-direction: column;
-        }
-    
-    .serie-card{
-        width: 100%;
-    }
+     .serie-card{
+            width: 100%;
+      }
     .serie-card .serie-card-body .serie{
         line-height: 15px;
     }
    
-    table th,table td{
-        display: block;
-        line-height: 10px;
-        font-size: 70%;
-    }    
-   
+    
     .save-pdf button {
         margin: 1rem auto 0 auto;
     }

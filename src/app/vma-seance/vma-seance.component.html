@@ -1,6 +1,5 @@
 <div class="seanc">
-  <div class="section section1">
-
+  <div class="box-1">
     <form class="text-center border border-light p-5" [formGroup]="seriForm" (ngSubmit)="submit(seriForm.value)" >  <p class="h4 mb-4">Préparer votre série: {{num}}</p>
  <div class="box">  
     <div class="item1">
@@ -9,8 +8,8 @@
      <div class="item3">
 
       <div class="btn-togle">
-      <button [ngClass]="!avec?'btn btn-success btn-sm':'btn btn-light btn-sm'" (click)="togle()" [disabled]="!avec" >distance</button>
-      <button [ngClass]="avec?'btn btn-success btn-sm':'btn btn-light btn-sm'" (click)="togle()" [disabled]="avec" >durée</button>
+      <button [ngClass]="!avec?'btn btn-success btn-sm big':'btn btn-light btn-sm'" (click)="togle()" [disabled]="!avec" >distance</button>
+      <button [ngClass]="avec?'btn btn-success btn-sm big':'btn btn-light btn-sm'" (click)="togle()" [disabled]="avec" >durée</button>
       </div>
       <div class="input-param">
         <input class="inputype form-control mb-4" type="text" [placeholder]="inputype" formControlName="param">
@@ -52,6 +51,8 @@
   </div>
     </form>
   </div>
+
+ <div class="box-2">
   <div class="section section2">
     <div class="seance-head" >
     <h3 class="titre titre-seance">Seance d'entrainement</h3>  
@@ -63,45 +64,49 @@
     <div class="seance" *ngFor= "let seri of seriGrp index as i">
       
     <div class="serie-card" >
-        <div class="serie-card-body">
-      <h4 class="serie">serie : {{i+1}}</h4>
-      <div>
-        <table class="table" id="my-table">
-            <thead>
-                <tr>
-                 <th style="text-align: center; color: #333; word-spacing: .5rem;">{{seri.percent}}% de la VMA :{{seri.vmaVal}} Km/h</th>
-                  <th scope="col" colspan="2" style="color: black; text-align: center; word-spacing: 1.5rem;">{{seri.rep}} X {{seri.param}}{{seri.mOrs}}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">vitesse :</th>
-                  <td>{{seri.vmaVal * seri.percent / 100}} Km/h</td>
-                  <th scope="row">récupération :</th>
-                  <td>{{setRec(seri.param, seri.mOrs)}}</td>
-                </tr>
-                <tr>
-                  <th scope="row" colspan="2">volume de travail : </th>
-                  <td>{{seri.volumeSeri + ' '}} m</td>
-                </tr>
-              </tbody>
-        </table>
-    
-    </div>
-</div>
+        <div class="card border-dark mb-3 serie-card">
+          <div class="card-header">Serie : {{i+1}}</div>
+          <div class="card-body text-info">
+            <table class="table table-sm">
+              <thead>
+                  <tr>
+                   <th colspan="2" >{{seri.percent}}% de la VMA :{{seri.vmaVal}} Km/h</th>
+                    <th colspan="2" scope="col" style="color: black; text-align: center; word-spacing: 1.5rem;">{{seri.rep}} X {{seri.param}}{{seri.mOrs}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">vitesse :</th>
+                    <td>{{seri.vmaVal * seri.percent / 100}} Km/h</td>
+                    <th scope="row">récupération :</th>
+                    <td>{{setRec(seri.param, seri.mOrs)}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" colspan="2">volume de travail : </th>
+                    <td colspan="2">{{seri.volumeSeri + ' '}} m</td>
+                  </tr>
+                </tbody>
+          </table>
+          </div>
+          <span class="delet" (click)="delet(i)"><i class="fas fa-times"></i></span>
+        </div>
 
-<span class="delet" (click)="delet(i)"><i class="fas fa-times"></i></span>
 </div>
-<span class="badge badge-light">Recupération entre series : {{ min}}', {{ sec}}"</span>
-
     </div>
-    <h4 class="titre">Volume Totale : {{volumeTotale + ' '}} m</h4>
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Recupération entre series : {{ min}}', {{ sec}}"</li>
+        <li class="list-group-item"><h4>Volume Totale : {{volumeTotale + ' '}} m</h4></li>
+      </ul>
+    </div>
 
   </div>
-</div>
-<!--pdf-->
-<div class="save-pdf">
+  <!--pdf-->
+  <div class="save-pdf">
     <button class="btn btn-outline-danger" (click)="convertoPdf()"><span>Telecharger PDF </span><i class="far fa-arrow-alt-circle-down"></i></button>
+</div>
+    </div>
+ </div>
 </div>
 
 
