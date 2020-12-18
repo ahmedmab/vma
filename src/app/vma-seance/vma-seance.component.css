@@ -4,34 +4,33 @@
 }
 .seanc{
     width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-.box-1{
-padding: 0 1rem;}
-.box-2{
-    flex: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
 }
 
+.box {
+    width: 100%;
+}
 
 .section2{
     width: 100%;
     margin: 0 auto;
     padding: 1rem;
 }
-textarea, .card{
-    margin: 1rem auto;
-    width: 90%;
-    text-align: left;
-}
+
 .section3{
     width: 100%;
     margin: 0 auto;
 }
 
-.titre-seance{
-    font-weight: bolder;
-    text-decoration: underline;
+.seance-head{
+    margin: 1.5rem auto;
+    font-weight: 900;
+}
+.seance-head p{
+    color: purple;
 }
 button:disabled{
     background-color: rgb(28, 240, 56);
@@ -114,7 +113,7 @@ cursor: pointer;
     display: flex;
 }
 .save-pdf button {
-    margin: 1rem 1rem 1rem auto;
+    margin: 1rem 2.3rem 1rem auto;
     border-radius: 20px;
 }
 
@@ -123,16 +122,19 @@ cursor: pointer;
     /* For mobile phones: */
     .seanc{
         width: 100%;
-        flex-direction: column; 
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+
  }
  .box-1{
     padding: 0;
  }
  
-    .box {
-        flex-direction: column;
-    }
-   
+    
+   form{
+       width: 320px;
+   }
+  
     
      .serie-card{
             width: 100%;
