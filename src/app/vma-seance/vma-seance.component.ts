@@ -118,8 +118,6 @@ cardType:string
     doc.setTextColor(20);
     doc.text(`Echauffement : ${this.echauf}`, 30, 60);
    
-    doc.text(`---------------`, doc.internal.pageSize.getWidth()/2, 20, {align:"center"});
-
     doc.setFontSize(11);
     doc.setTextColor(100);
 

@@ -7,22 +7,19 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    gap: 15px;
+    gap: 17px;
 }
-
+form{
+    background-color: lavender;
+    max-width: 500px;
+    margin: .5rem auto;
+}
 .box {
     width: 100%;
 }
 
 .section2{
     width: 100%;
-    margin: 0 auto;
-    padding: 1rem;
-}
-
-.section3{
-    width: 100%;
-    margin: 0 auto;
 }
 
 .seance-head{
@@ -55,16 +52,17 @@ button:disabled{
 }
 
 .item5 .btn{
+    max-width: 10rem;   
+    min-width: 5rem;
     margin-right: .5rem;
     margin-top: 1rem;
 }
 button[type="submit"]{
-    width: 10rem;
     margin-left: auto;
 
 }
 
-.seance{
+.serie{
     width: 100%;
 }
 .recEntreSeri {
@@ -74,15 +72,6 @@ flex-direction: row;
 }
 .serie-card{
     position: relative;
-}
-.serie{
-    padding: .5rem;
-    border-radius: 15px 0 0 0;
-
-}
-.serie div{
-    padding: 1rem;
-    margin: 0 auto;
 }
 .delet{
 position: absolute;
@@ -123,10 +112,11 @@ cursor: pointer;
     .seanc{
         width: 100%;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 1fr auto;
+        place-items: center;
 
  }
- .box-1{
+ .box-1, .box-2{
     padding: 0;
  }
  
@@ -137,7 +127,7 @@ cursor: pointer;
   
     
      .serie-card{
-            width: 100%;
+            width: 320px;
       }
     .serie-card .serie-card-body .serie{
         line-height: 15px;
