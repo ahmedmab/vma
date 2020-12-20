@@ -5,39 +5,43 @@
     <option value="1">Test de demi-cooper</option>
     <option value="2">Test navette de Luc Léger</option>
   </select>
-<div class="container">
+  <div class="container">
 
-  <div *ngIf="value ==1">
-    <div class="box">
-      <div class="subox">
-        <div><label for="demi">Distance parcourue en 6 minutes de course à pied : </label></div>
-        <div><input type="text" id="demi" size="2" autofocus [(ngModel)]="distance"><span> mètres</span></div>
-      </div>
+    <div *ngIf="value ==1">
+      <div class="box">
+        <div class="subox">
+          <div><label for="demi">Distance parcourue en 6 minutes de course à pied : </label></div>
+          <div><input type="text" id="demi" size="2" autofocus [(ngModel)]="distance"><span> mètres</span></div>
+        </div>
         <br>
-      <button class="btn btn-danger" type="button" (click)="calcul()">Calculer</button>
-      <div class="result">
-        <span><h2>VMA : {{result}}</h2></span>
-    
+        <button class="btn btn-danger" type="button" (click)="calcul()">Calculer</button>
+        <div class="result">
+          <span>
+            <h2>VMA : {{result}}</h2>
+          </span>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <div *ngIf="value ==2">
+      <div class="box">
+        <div class="subox">
+          <div><label for="demi">Palier obtenu au test navette : </label></div>
+          <div><input type="text" id="demi" size="2" autofocus [(ngModel)]="palier"></div>
+        </div>
+        <br>
+        <button class="btn btn-danger" type="button" (click)="calculNavet()">Calculer</button>
+        <div class="result">
+          <span>
+            <h2>VMA : {{resultNavet}}</h2>
+          </span>
+
+        </div>
       </div>
     </div>
 
   </div>
-  
-
-  <div *ngIf="value ==2">
-    <div class="box">
-      <div class="subox">
-      <div><label for="demi">Palier obtenu au test navette : </label></div>
-       <div><input type="text" id="demi" size="2" autofocus [(ngModel)]="palier"></div>
-    </div>
-      <br>
-    <button class="btn btn-danger" type="button" (click)="calculNavet()">Calculer</button>
-    <div class="result">
-      <span><h2>VMA : {{resultNavet}}</h2></span>
-  
-    </div>
-  </div>
-    </div>
-
- </div>
 </div>
