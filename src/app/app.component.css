@@ -7,11 +7,11 @@
     min-height: 110vh;
     background-color: #efefef;
     display: grid;
-    grid-template-columns: 30px 1fr 30px;
+    grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
-    grid-template-areas: "head head head"
-                          "... main ..."
-                          "footer footer footer";
+    grid-template-areas: "head"
+                          "main"
+                          "footer";
 }
 
   header {
@@ -22,9 +22,11 @@
   
 main{
     padding: 2rem 1rem;
-    background-color: white;
+    background-color: #f1f1f8;
     grid-area: main;
-
+}
+.containercontenu{
+    height: 100%;
 }
 footer{
     grid-area: footer; 

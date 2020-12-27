@@ -1,28 +1,41 @@
-.conteneur{
-    padding: 1rem .5rem;
-}
-.custom-select{
-    width: 80%;
-    margin: 1rem auto;
-}
-.box{
+.test{
     display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: 1rem auto;
+    gap: 15px;
 }
-.subox{
+.card-calcul{
+    flex:2;
+}
+.card-calcul .card-body{
     display: flex;
+    justify-content: space-around;
 }
-.box input{
-    text-align: center;
+
+.button-calc{
+    margin-right: 3rem;
 }
-.box button{
-width: 20%;
-min-width: 100px;
+.card-description{
+    flex:1;
+}
+.result{
+    background-color: chartreuse;
 }
 
 @media only screen and (max-width: 480px) {
+    .test{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .card-calcul{
+        flex:2;
+    }
+    .card-description{
+        flex:1;
+    }
 
+    .card-calcul .card-body{
+        display: flex;
+        flex-direction: column;
+    }
     
 }
