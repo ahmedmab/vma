@@ -1,4 +1,4 @@
-.test{
+.test, .allure, .imc{
     display: flex;
     gap: 15px;
 }

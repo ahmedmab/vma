@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VmaSeanceComponent } from './vma-seance.component';
+import { Fractione30Component } from './fractione30.component';
 
-describe('VmaSeanceComponent', () => {
-  let component: VmaSeanceComponent;
-  let fixture: ComponentFixture<VmaSeanceComponent>;
+describe('Fractione30Component', () => {
+  let component: Fractione30Component;
+  let fixture: ComponentFixture<Fractione30Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VmaSeanceComponent ]
+      declarations: [ Fractione30Component ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VmaSeanceComponent);
+    fixture = TestBed.createComponent(Fractione30Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

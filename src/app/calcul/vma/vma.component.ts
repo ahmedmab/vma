@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+
 @Component({
-  selector: 'app-vma-calcul',
-  templateUrl: './vma-calcul.component.html',
-  styleUrls: ['./vma-calcul.component.css']
+  selector: 'app-vma',
+  templateUrl: './vma.component.html',
+  styleUrls: ['./vma.component.css']
 })
-export class VmaCalculComponent implements OnInit {
+export class VmaComponent implements OnInit {
+
   value;
   result
   distance:number
@@ -20,6 +22,7 @@ this.value = select
 
   calcul(){
     this.result = this.distance/100 + ' Km/h'
+    console.log(this.distance)
   }
   calculNavet(){
     this.resultNavet = 8

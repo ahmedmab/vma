@@ -1,0 +1,41 @@
+.test, .allure, .imc{
+    display: flex;
+    gap: 15px;
+}
+.card-calcul{
+    flex:2;
+}
+.card-calcul .card-body{
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-calc{
+    margin-right: 3rem;
+}
+.card-description{
+    flex:1;
+}
+.result{
+    background-color: chartreuse;
+}
+
+@media only screen and (max-width: 480px) {
+    .test{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .card-calcul{
+        flex:2;
+    }
+    .card-description{
+        flex:1;
+    }
+
+    .card-calcul .card-body{
+        display: flex;
+        flex-direction: column;
+    }
+    
+}

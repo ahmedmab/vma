@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VmaCalculComponent } from './vma-calcul.component';
+import { CalculComponent } from './calcul.component';
 
-describe('VmaCalculComponent', () => {
-  let component: VmaCalculComponent;
-  let fixture: ComponentFixture<VmaCalculComponent>;
+describe('CalculComponent', () => {
+  let component: CalculComponent;
+  let fixture: ComponentFixture<CalculComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VmaCalculComponent ]
+      declarations: [ CalculComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VmaCalculComponent);
+    fixture = TestBed.createComponent(CalculComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="input-group mb-3">
+      <p>choisir le test physique et saisi la performance obtenu :</p>
+      <select class="custom-select" (change)="getVal($event.target.value)">
+        <option selected>selectioner le test</option>
+        <option value="1">Test de demi-cooper</option>
+        <option value="2">Test navette de Luc Léger</option>
+      </select>
+    </div>
+
+    <div class="test" *ngIf="value ==1">
+
+      <div class="card card-description">
+        <div class="card-body">
+          <h5 class="card-title">description</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+            content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card card-calcul">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+
+          <div class="md-form input-group mb-3">
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="distance" >
+            <div class="input-group-append">
+              <span class="input-group-text md-addon">.m</span>
+            </div>
+          </div>
+          <div class="button-calc">
+            <button class="btn btn-danger" type="button" (click)="calcul()">Calculer</button>
+          </div>
+        </div>
+        <div class="result">
+          <span>
+            <h2>VMA : {{result}}</h2>
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="test" *ngIf="value ==2">
+      <div class="card card-description">
+        <div class="card-body">
+          <h5 class="card-title">description</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+            content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+
+      <div class="card card-calcul">
+        <div class="card-body">
+          <div class="md-form input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Palier:</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+              aria-describedby="inputGroupMaterial-sizing-default" [(ngModel)]="palier">
+          </div>
+          <div class="button-calc">
+            <button class="btn btn-danger" type="button" (click)="calculNavet()">Calculer</button>
+          </div>
+        </div>
+        <div class="result">
+          <span>
+            <h2>VMA : {{resultNavet}}</h2>
+          </span>
+
+        </div>
+      </div>
+    </div>
+

@@ -3,14 +3,12 @@ import { FormBuilder, Validators } from '@angular/forms'
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
 
-
-
 @Component({
-  selector: 'app-vma-seance',
-  templateUrl: './vma-seance.component.html',
-  styleUrls: ['./vma-seance.component.css']
+  selector: 'app-seance',
+  templateUrl: './seance.component.html',
+  styleUrls: ['./seance.component.css']
 })
-export class VmaSeanceComponent implements OnInit {
+export class SeanceComponent implements OnInit {
   seriForm = this.fb.group({
     percent: ['', Validators.required],
     vmaVal: ['', Validators.required],
@@ -172,7 +170,4 @@ export class VmaSeanceComponent implements OnInit {
     // Download PDF document  
     doc.save('séance-VMA.pdf');
   }
-
-
-
 }
