@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calcul.component.css']
 })
 export class CalculComponent implements OnInit {
-
+  choix:string = 'vma'
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  choice(c:string){
+    this.choix = c
   }
 
 }

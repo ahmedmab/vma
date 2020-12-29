@@ -1,72 +1,82 @@
 <div class="container">
-    <div class="input-group mb-3">
-      <p>choisir le test physique et saisi la performance obtenu :</p>
-      <select class="custom-select" (change)="getVal($event.target.value)">
-        <option selected>selectioner le test</option>
-        <option value="1">Test de demi-cooper</option>
-        <option value="2">Test navette de Luc Léger</option>
-      </select>
-    </div>
+  <div class="input-group mb-3">
+    <p>choisir le test physique et saisi la performance obtenu :</p>
+    <select class="custom-select" (change)="getVal($event.target.value)">
+      <optgroup label="Epreuve continue à intensité stable">
+        <option value="1">Test de COOPER</option>
+        <option value="2">Test de demi-cooper</option>
+        <option value="3">Test d'ASTRAND</option>
+      </optgroup>
+      <optgroup label="Epreuve continue à intensité progressive">
+        <option value="4">Test LEGER CAZORLA</option>
+        <option value="5">Test navette de Luc Léger</option>
+      </optgroup>
+      <optgroup label="Epreuve intermittente à intensité progressive">
+        <option value="6">Test TUB 2 de CAZORLA</option>
+      </optgroup>
+    </select>
+  </div>
 
-    <div class="test" *ngIf="value ==1">
+  <div class="test" *ngIf="value ==2">
 
-      <div class="card card-description">
-        <div class="card-body">
-          <h5 class="card-title">description</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-      <div class="card card-calcul">
-        <div class="card-body">
-          <h5 class="card-title"></h5>
-
-          <div class="md-form input-group mb-3">
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="distance" >
-            <div class="input-group-append">
-              <span class="input-group-text md-addon">.m</span>
-            </div>
-          </div>
-          <div class="button-calc">
-            <button class="btn btn-danger" type="button" (click)="calcul()">Calculer</button>
-          </div>
-        <div class="result">
-          <span>
-            <h2>VMA : {{result}}</h2>
-          </span>
-        </div>
+    <div class="card card-description">
+      <div class="card-body">
+        <h5 class="card-title">description</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+          content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
       </div>
     </div>
+    <div class="card card-calcul">
+      <div class="card-body">
+        <h5 class="card-title"></h5>
 
-    <div class="test" *ngIf="value ==2">
-      <div class="card card-description">
-        <div class="card-body">
-          <h5 class="card-title">description</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <div class="input-group input-group-lg">
+          <span class="input-group-text">distance parcourue :</span>
+          <input type="text" class="form-control" [(ngModel)]="distance" />
+          <span class="input-group-text border-0" id="basic-addon1">.m</span>
+
+          <button class="btn btn-danger" type="button" (click)="calcul()">Calculer</button>
         </div>
+        
       </div>
-
-      <div class="card card-calcul">
-        <div class="card-body">
-          <div class="md-form input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Palier:</span>
-            </div>
-            <input type="text" class="form-control" aria-label="Sizing example input"
-              aria-describedby="inputGroupMaterial-sizing-default" [(ngModel)]="palier">
-          </div>
-          <div class="button-calc">
-            <button class="btn btn-danger" type="button" (click)="calculNavet()">Calculer</button>
-          </div>
-        </div>
-        <div class="result">
-          <span>
-            <h2>VMA : {{resultNavet}}</h2>
-          </span>
-
-        </div>
+      <div class="result">
+        <span>
+          <h4>VMA : {{result}}</h4>
+          <h6>VO2max</h6>
+        </span>
       </div>
     </div>
+  </div>
+  <div class="test" *ngIf="value == 5">
+    <div class="card card-description">
+      <div class="card-body">
+        <h5 class="card-title">description</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+          content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+
+    <div class="card card-calcul">
+      <div class="card-body">
+        <div class="md-form input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Palier:</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroupMaterial-sizing-default" [(ngModel)]="palier">
+        </div>
+        <div class="button-calc">
+          <button class="btn btn-danger" type="button" (click)="calculNavet()">Calculer</button>
+        </div>
+      </div>
+      <div class="result">
+        <span>
+          <h4>VMA : {{resultNavet}}</h4>
+          <h6>VO2max</h6>
+        </span>
+      </div>
+    </div>
+  </div>
+  

@@ -5,14 +5,8 @@
 .card-calcul{
     flex:2;
 }
-.card-calcul .card-body{
-    display: flex;
-    justify-content: space-around;
-}
 
-.button-calc{
-    margin-right: 3rem;
-}
+
 .card-description{
     flex:1;
 }

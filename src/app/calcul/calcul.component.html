@@ -1,1 +1,23 @@
-<app-vma></app-vma>
+<main>
+    <div class="nav">
+            <span class="vma"><p (click)="choice('vma')">VMA</p></span>
+            <span><p (click)="choice('allure')">Allure</p></span>
+            <span><p (click)="choice('poid')">Poids Ideal</p></span>
+            <span><p (click)="choice('imc')">IMC</p></span>
+    </div>
+    <section>
+        <div *ngIf="choix== 'vma'">
+            <app-vma></app-vma>
+        </div>
+        <div *ngIf="choix== 'allure'">
+            <app-allure></app-allure>
+        </div>
+        <div *ngIf="choix=='poid'">
+            <app-imc></app-imc>
+        </div>
+        <div *ngIf="choix=='imc'">
+            <app-imc></app-imc>
+        </div>
+
+    </section>
+</main>

@@ -18,6 +18,7 @@ export class VmaComponent implements OnInit {
   }
   getVal(select){
 this.value = select
+console.log(this.value)
   }
 
   calcul(){

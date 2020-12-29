@@ -1,39 +1,57 @@
-.test, .allure, .imc{
+*{
+    box-sizing: border-box;
+}
+.nav{
+  display: flex;
+  flex-direction: column;
+}
+.nav span{
+    text-align: center;
+    padding: .5rem 1.2rem;
+    height: 40px;
+    cursor: pointer;
+    margin: 0;
+    background-color: #d9e4dd;
+    border-bottom: 1px solid darkgrey;
+    transition: 1200 ease;
+}
+.vma{
+    font-weight: 800;
+    color: #52057b;
+
+}
+.nav span:hover{
+    background-color: #ff4646;
+    color: cornsilk;
+    font-weight: 900;
+}
+
+main{
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
-.card-calcul{
-    flex:2;
+section{
+    padding: 1rem;
 }
-.card-calcul .card-body{
-    display: flex;
-    justify-content: space-around;
-}
-
-}
-.card-description{
-    flex:1;
-}
-.result{
-    background-color: chartreuse;
-}
-
-@media only screen and (max-width: 480px) {
-    .test{
-        display: flex;
+@media only screen and (max-width: 560px) {
+    main{
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
     }
-    .card-calcul{
-        flex:2;
+    .nav{
+        flex-direction: row;
+        justify-content: center;
     }
-    .card-description{
-        flex:1;
+    .nav span{
+        font-size: 13px;
+        padding: .5rem 1rem;
+        height: 35px;
+        border-bottom: none;
+    }
+    .nav span:not(.vma){
+       
+        border-left: 1px solid darkgrey;
+        
     }
 
-    .card-calcul .card-body{
-        display: flex;
-        flex-direction: column;
-    }
-    
 }
