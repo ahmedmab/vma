@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./entrainement.component.css']
 })
 export class EntrainementComponent implements OnInit {
-
+  choix:string= 'preparer'
+  
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  choice(c:string){
+    this.choix = c
+  }
+
 
 }

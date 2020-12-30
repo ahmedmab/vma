@@ -1,2 +1,21 @@
-<p>entrainement works!</p>
-<app-seance></app-seance>
+<main>
+    <div class="nav">
+        <div><i class="fas fa-running"></i>
+            <h4>S'entrainer</h4>
+        </div>
+        <span class="svma">
+            <p class="vma" (click)="choice('preparer')">Préparer la séance</p>
+        </span>
+        <span>
+            <p (click)="choice('fr30')">Fractionné 30/30</p>
+        </span>
+    </div>
+    <section>
+        <div *ngIf="choix== 'preparer'">
+            <app-seance></app-seance>
+        </div>
+        <div *ngIf="choix=='fr30'">
+            <app-fractione30></app-fractione30>
+        </div>
+    </section>
+</main>

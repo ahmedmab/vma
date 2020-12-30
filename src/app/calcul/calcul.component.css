@@ -4,6 +4,11 @@
 .nav{
   display: flex;
   flex-direction: column;
+  background-color: #fff;
+  min-width: 170px;
+  height: 100%;
+  box-shadow: -1px 0 5px 0 #555;
+  
 }
 .nav span{
     text-align: center;
@@ -11,22 +16,35 @@
     height: 40px;
     cursor: pointer;
     margin: 0;
-    background-color: #d9e4dd;
-    border-bottom: 1px solid darkgrey;
-    transition: 1200 ease;
+    color: #333;
+    border-left: 1px solid darkgrey;
+    transition: 1300 ease;
 }
-.vma{
-    font-weight: 800;
-    color: #52057b;
+.nav h4{
+    padding: 1rem .5rem;
+    display: inline-block;
+}
+.nav i{
+    padding-left: .5rem;
+    font-size: 18px;
+}
+.nav span p{
+    font-weight: 500;
+    font-size: smaller;
+}
+.nav span .vma{
+    font-weight: 900;
 
 }
 .nav span:hover{
-    background-color: #ff4646;
-    color: cornsilk;
+    background-color: #e6e6e6;
+    color: #01c5c4;
+}
+.nav span p:hover{
     font-weight: 900;
 }
-
 main{
+    height: 100%;
     display: flex;
     gap: 20px;
 }
@@ -40,18 +58,26 @@ section{
     }
     .nav{
         flex-direction: row;
-        justify-content: center;
+        height: fit-content;
+    }
+    .nav div{
+        margin-right: auto;
     }
     .nav span{
         font-size: 13px;
         padding: .5rem 1rem;
         height: 35px;
-        border-bottom: none;
     }
-    .nav span:not(.vma){
-       
-        border-left: 1px solid darkgrey;
-        
+    .nav .svma{
+        border-left: none;
+    }
+    .nav h4{
+        display: none;
+    }
+    .nav i{
+        margin-top: 0.7rem;
+        margin-right: auto;
+        font-size: 15px;
     }
 
 }

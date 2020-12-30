@@ -21,8 +21,6 @@
  
   
 main{
-    padding: 2rem 1rem;
-    background-color: #f1f1f8;
     grid-area: main;
 }
 .containercontenu{
