@@ -1,41 +1,55 @@
-.test{
-    display: flex;
-    gap: 15px;
+.container{
+    padding: 1rem 2rem;
 }
-.card-calcul{
-    flex:2;
+.grid-card{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100px 1fr;
+    gap: 10px;
+    grid-template-areas: "desc desc"
+                         "form result";
 }
-.card-calcul .card-body{
-    display: flex;
-    justify-content: space-around;
+.form{
+    grid-area: form;
+    padding: 1rem;
 }
-
-.button-calc{
-    margin-right: 3rem;
-}
-.card-description{
-    flex:1;
+.description{
+    grid-area: desc;
 }
 .result{
-    background-color: chartreuse;
+    grid-area: result;
+    margin: auto;
+    
+}
+.result p{
+    font-weight: bolder;
+    font-size: xx-large;
+    margin-bottom: 0;
+    color: lime;
+}
+.result small{
+    color: rgb(33, 94, 31);
+    margin-left: 15px;
 }
 
-@media only screen and (max-width: 480px) {
-    .test{
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-    .card-calcul{
-        flex:2;
-    }
-    .card-description{
-        flex:1;
-    }
 
-    .card-calcul .card-body{
-        display: flex;
-        flex-direction: column;
+
+
+@media only screen and (max-width: 480px) {
+    .container{
+        padding: 0;
     }
+    .grid-card{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr 100px;
+        grid-template-areas: "desc"
+                             "form" 
+                             "result";
+    }
+    .form{
+        padding: 0;
+    }
+    .result{
+    margin: auto 0;}
     
 }

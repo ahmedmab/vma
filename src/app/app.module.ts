@@ -7,7 +7,14 @@ import { VmaInfoComponent } from './vma-info/vma-info.component';
 import { VmaCalculComponent } from './vma-calcul/vma-calcul.component';
 import { VmaTrainerComponent } from './vma-trainer/vma-trainer.component';
 import { VmaSeanceComponent } from './vma-seance/vma-seance.component';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonModule} from '@angular/material/button';
+import { MatInputModule } from "@angular/material/input";
+import { MatIconModule } from "@angular/material/icon";
+
+
 
 @NgModule({
   declarations: [
@@ -21,7 +28,12 @@ import { ReactiveFormsModule } from '@angular/forms'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule
     ],
   providers: [],
   bootstrap: [AppComponent]

@@ -18,7 +18,9 @@
     grid-area: head;
    
   }
- 
+ .lang{
+     margin-left: auto;
+ }
   
 main{
     padding: 2rem 1rem;

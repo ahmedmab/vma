@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material/tabs';
+import { jsPDF } from 'jspdf';
+import 'jspdf-autotable';
+
 
 @Component({
   selector: 'app-vma-trainer',
@@ -26,21 +30,18 @@ export class VmaTrainerComponent implements OnInit {
   second
   minut
   metre
+  //...
+  tab:string = '#tab1'
+  
 
-  tab1: boolean = true
-  constructor() { }
+  constructor() { 
+
+  }
 
   ngOnInit(): void {
+    
   }
-  tabone() {
-    this.tab1 = true
-
-  }
-  tabtow() {
-    this.tab1 = false
-  }
-
-
+  
   calcul() {
 
     this.second = ' s'
@@ -75,5 +76,18 @@ export class VmaTrainerComponent implements OnInit {
     return result
   }
 
+  tabChanged(tabChangeEvent: MatTabChangeEvent): void {
+    tabChangeEvent.index==0 ? this.tab = '#tab1' : this.tab = '#tab2'
+}
+  toPdf(){
+    let typeTable:string
+    this.tab =='#tab1'? typeTable = 'temps' : typeTable = 'distance'
+    var doc = new jsPDF('l', 'px', 'a4');
+    doc.setFontSize(16);
+    doc.text(`Allure par ${typeTable}`,doc.internal.pageSize.getWidth() / 2, 20, { align: "center" },20);
+    (doc as any).autoTable({html: this.tab})
+    
+    doc.save('tableau-allures.pdf')
+  }
 
 }
