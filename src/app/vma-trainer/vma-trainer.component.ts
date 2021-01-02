@@ -80,13 +80,35 @@ export class VmaTrainerComponent implements OnInit {
     tabChangeEvent.index==0 ? this.tab = '#tab1' : this.tab = '#tab2'
 }
   toPdf(){
-    let typeTable:string
-    this.tab =='#tab1'? typeTable = 'temps' : typeTable = 'distance'
     var doc = new jsPDF('l', 'px', 'a4');
-    doc.setFontSize(16);
-    doc.text(`Allure par ${typeTable}`,doc.internal.pageSize.getWidth() / 2, 20, { align: "center" },20);
-    (doc as any).autoTable({html: this.tab})
-    
+    let typeTable:string
+    let finalY = (doc as any).autoTable.previous.finalY + 20
+    let centerX = doc.internal.pageSize.getWidth() / 2
+    let footer = doc.internal.pageSize.getHeight() - 10
+
+    this.tab =='#tab1'? typeTable = 'temps' : typeTable = 'distance'
+    //property
+    doc.setProperties({
+      title: 'table for MAS',
+      subject: 'This is the subject',
+      author: 'Ahmed Mabrouki',
+      keywords: 'eps, vma, sport, runing',
+      creator: 'MEEE'
+  });
+    //
+    doc.setFontSize(20);
+    doc.setFont("helvetica","bold");
+    doc.text(`Allure par ${typeTable}`,centerX, 30, { align: "center" });
+    (doc as any).autoTable({html: this.tab,
+                           startY: 50,
+    })
+    doc.setFont('sans-serif','none')
+    doc.setTextColor(120);
+    doc.line(30, footer-15, 600, footer-15); // horizontal line
+    doc.text('vmacalcul.com',30, footer)
+    // Open PDF document in new tab
+    doc.output('dataurlnewwindow')
+    // Download PDF document  
     doc.save('tableau-allures.pdf')
   }
 

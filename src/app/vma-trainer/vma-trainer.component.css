@@ -26,6 +26,7 @@ mat-label{
 
 table{
     background-color: #fff;
+
 }
   .table{
       text-align: center;
@@ -33,13 +34,16 @@ table{
   }
  
 
-th{
-    font-size: .7rem;
+th{ font-size: 1rem;
+    font-weight: 900;
+    color: #333;
 }
-td{
-    font-size: .5rem;
+td{ font-size: .8rem;
+    font-size: 90%;
+    font-weight: 600;
+
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
     .head-input{
         width: 100%;
         padding: 0 1rem;
@@ -51,23 +55,27 @@ td{
      }
     .btns{
         flex-direction: row;
-
         width: 100%;
     }
     .btns button{
         flex:auto;
     }
-    .table{
-        background-color: white;
+    
+    .table-box{
+        width: 96vw;
+        margin: 0 auto;
     }
-    td{
-        font-size: .3rem;
-        column-width: 6px;
-
-    }
-    th{
-        font-size: .4rem;
-        column-width: 12px;
+    
+    
+     th,td{
+         font-size: 80%;
+     }
+     
+    th[scope="row"],thead tr .fix{
+        background-color: #fcf8e8;
+        position: sticky;
+        left: -2px;
+        top:auto;
     }
    
 }

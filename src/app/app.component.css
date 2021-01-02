@@ -23,12 +23,13 @@
  }
   
 main{
-    padding: 2rem 1rem;
+    padding: 2rem;
     background-color: #f1f1f8;
     grid-area: main;
 }
 .containercontenu{
     height: 100%;
+    margin: 0 auto;
 }
 footer{
     grid-area: footer; 
@@ -44,7 +45,7 @@ footer{
                               "footer";
     }
     main{
-        padding: 2rem 1rem;
+        padding: 1rem .5rem;
         background-color: #f1f1f8;
         grid-area: main;
     
