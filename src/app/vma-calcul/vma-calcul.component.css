@@ -11,31 +11,42 @@
 }
 .form{
     grid-area: form;
-    padding: 1rem;
+    padding:1rem;
 }
+.form-box{
+    display: flex;
+    flex-direction: column;
+}
+
 .description{
     grid-area: desc;
 }
 .result{
     grid-area: result;
-    margin: auto;
+    padding: 1rem 2rem;
     
 }
-.result p{
+
+.result .vma{
+    color : rgb(14, 250, 14);
     font-weight: bolder;
-    font-size: xx-large;
+    font-size: x-large;
     margin-bottom: 0;
-    color: lime;
 }
-.result small{
+.result .vo{
     color: rgb(33, 94, 31);
-    margin-left: 15px;
+    font-weight: bold;
+    font-size: large;
+    margin-left: 2px;
+}
+.result span{
+    font-size: 70%;
 }
 
 
 
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
     .container{
         padding: 0;
     }
@@ -46,10 +57,23 @@
                              "form" 
                              "result";
     }
-    .form{
-        padding: 0;
+    input{
+        height: 40px;
+    }
+    button{
+        margin-top: 0;
+        height: 40px;
+        padding-top: 10px;
+    }
+    .form-box{
+        flex-direction: row;
+        gap: 5px;
     }
     .result{
-    margin: auto 0;}
+        padding: 1rem;
+    }
+    .result p{
+        margin: 0 auto 0 5px;
+    }
     
 }

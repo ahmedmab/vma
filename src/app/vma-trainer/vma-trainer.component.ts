@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
@@ -10,7 +11,18 @@ import 'jspdf-autotable';
   styleUrls: ['./vma-trainer.component.css']
 })
 export class VmaTrainerComponent implements OnInit {
-  vma
+
+  vma = new FormControl('',[Validators.required, Validators.min(0)])
+  getErrorMessage() {
+    if (this.vma.hasError('required')) {
+      return 'vous devez saisir une valeur';
+    }
+    else if (this.vma.hasError('min')) {
+      return 'la valeur de VMA doit etre supérieur a 0';
+    }
+
+    return '';
+  }
   vma60
   vma65
   vma70
@@ -41,27 +53,32 @@ export class VmaTrainerComponent implements OnInit {
   ngOnInit(): void {
     
   }
+  clear(){
+    console.log(this.vma.value)
+    return this.vma.reset()
+  }
   
   calcul() {
-
+    console.log(this.vma)
+    let vma =  this.vma.value
     this.second = ' s'
     this.minut = ' min'
     this.metre = ' m'
-    this.vma_ms = this.vma * 1000 / 3600
+    this.vma_ms =  vma * 1000 / 3600
     this.vma_30s = this.vma_ms
     this.vma_100 = 100 / this.vma_ms
-    this.vma60 = (this.vma * 60) / 100 + " km/h"
-    this.vma65 = (this.vma * 65) / 100 + " km/h"
-    this.vma70 = (this.vma * 70) / 100 + " km/h"
-    this.vma75 = (this.vma * 75) / 100 + " km/h"
-    this.vma80 = (this.vma * 80) / 100 + " km/h"
-    this.vma85 = (this.vma * 85) / 100 + " km/h"
-    this.vma90 = (this.vma * 90) / 100 + " km/h"
-    this.vma95 = (this.vma * 95) / 100 + " km/h"
-    this.vma100 = this.vma + " km/h"
-    this.vma105 = (this.vma * 105) / 100 + " km/h"
-    this.vma110 = (this.vma * 110) / 100 + " km/h"
-    this.vma115 = (this.vma * 115) / 100 + " km/h"
+    this.vma60 = (vma * 60) / 100 + " km/h"
+    this.vma65 = (vma * 65) / 100 + " km/h"
+    this.vma70 = (vma * 70) / 100 + " km/h"
+    this.vma75 = (vma * 75) / 100 + " km/h"
+    this.vma80 = (vma * 80) / 100 + " km/h"
+    this.vma85 = (vma * 85) / 100 + " km/h"
+    this.vma90 = (vma * 90) / 100 + " km/h"
+    this.vma95 = (vma * 95) / 100 + " km/h"
+    this.vma100 = vma + " km/h"
+    this.vma105 = (vma * 105) / 100 + " km/h"
+    this.vma110 = (vma * 110) / 100 + " km/h"
+    this.vma115 = (vma * 115) / 100 + " km/h"
   }
 
   MyTime(STemps) {

@@ -28,20 +28,22 @@
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
         <div class="form">
-          <div>
+          <div class="form-box">
             <!-- Name input -->
-            <div class="form-outline mb-4">
-              <input type="text" id="form5Example1" class="form-control" [(ngModel)]="input" />
-              <label class="form-label" for="form5Example1">Distance</label>
+            <div class="form-outline">
+              <input type="text" id="form5Example1" class="form-control" [formControl]="input" required/>
+              <label class="form-label" for="form5Example1">Name</label>
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-danger btn-block mb-4" (click)="cooper()">Clalculer</button>
+            <div>
+              <button class="btn btn-warning mb-3" (click)="calcul()">Clalculer</button>
+            </div>
           </div>
         </div>
         <div class="result">
-          <p>VMA : {{output.toFixed(1)}}</p>
-          <small>VO2max : {{vo2max.toFixed(1)}}</small>
+          <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
+          <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
         </div>
 
       </div>
@@ -60,20 +62,22 @@
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
         <div class="form">
-          <div>
+          <div class="form-box">
             <!-- Name input -->
-            <div class="form-outline mb-4">
-              <input type="text" id="form5Example1" class="form-control" [(ngModel)]="input"/>
+            <div class="form-outline">
+              <input type="text" id="form5Example1" class="form-control" [formControl]="input" required/>
               <label class="form-label" for="form5Example1">Name</label>
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-danger btn-block mb-4" (click)="demiCooper()">Clalculer</button>
+            <div>
+              <button class="btn btn-warning mb-3" (click)="calcul()">Clalculer</button>
+            </div>
           </div>
         </div>
         <div class="result">
-          <p>VMA : {{output}}</p>
-          <small>VO2max : </small>
+          <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
+          <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
         </div>
 
       </div>
@@ -91,20 +95,22 @@
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
         <div class="form">
-          <div>
+          <div class="form-box">
             <!-- Name input -->
-            <div class="form-outline mb-4">
-              <input type="text" id="form5Example1" class="form-control" [(ngModel)]="input"/>
+            <div class="form-outline">
+              <input type="text" id="form5Example1" class="form-control" [formControl]="input" required/>
               <label class="form-label" for="form5Example1">Name</label>
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-danger btn-block mb-4" (click)="astrand()">Clalculer</button>
+            <div>
+              <button class="btn btn-warning mb-3" (click)="calcul()">Clalculer</button>
+            </div>
           </div>
         </div>
         <div class="result">
-          <p>VMA : {{output}}</p>
-          <small>VO2max : </small>
+          <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
+          <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
         </div>
 
       </div>
@@ -122,20 +128,22 @@
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
         <div class="form">
-          <div>
+          <div class="form-box">
             <!-- Name input -->
-            <div class="form-outline mb-4">
-              <input type="text" id="form5Example1" class="form-control" [(ngModel)]="input" />
+            <div class="form-outline">
+              <input type="text" id="form5Example1" class="form-control" [formControl]="input" required/>
               <label class="form-label" for="form5Example1">Name</label>
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-danger btn-block mb-4" (click)="legerCazorla()">Clalculer</button>
+            <div>
+              <button class="btn btn-warning mb-3" (click)="calcul()">Clalculer</button>
+            </div>
           </div>
         </div>
         <div class="result">
-          <p>VMA : {{output}}</p>
-          <small>VO2max : </small>
+          <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
+          <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
         </div>
 
       </div>
@@ -155,20 +163,22 @@
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
         <div class="form">
-          <div>
+          <div class="form-box">
             <!-- Name input -->
-            <div class="form-outline mb-4">
-              <input type="text" id="form5Example1" class="form-control" [(ngModel)]="input"/>
+            <div class="form-outline">
+              <input type="text" id="form5Example1" class="form-control" [formControl]="input" required/>
               <label class="form-label" for="form5Example1">Name</label>
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-danger btn-block mb-4" (click)="navet()">Clalculer</button>
+            <div>
+              <button class="btn btn-warning mb-3" (click)="calcul()">Clalculer</button>
+            </div>
           </div>
         </div>
         <div class="result">
-          <p>VMA : {{output}}</p>
-          <small>VO2max : </small>
+          <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
+          <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
         </div>
 
       </div>
@@ -187,20 +197,22 @@
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
         <div class="form">
-          <div>
+          <div class="form-box">
             <!-- Name input -->
-            <div class="form-outline mb-4">
-              <input type="text" id="form5Example1" class="form-control" [(ngModel)]="input"/>
+            <div class="form-outline">
+              <input type="text" id="form5Example1" class="form-control" [formControl]="input" required/>
               <label class="form-label" for="form5Example1">Name</label>
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-danger btn-block mb-4" (click)="tubCazorla()">Clalculer</button>
+            <div>
+              <button class="btn btn-warning mb-3" (click)="calcul()">Clalculer</button>
+            </div>
           </div>
         </div>
         <div class="result">
-          <p>VMA : {{output}}</p>
-          <small>VO2max : </small>
+          <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
+          <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
         </div>
 
       </div>

@@ -3,10 +3,11 @@
 
     <mat-form-field class="form">
       <mat-label>Saisir votre VMA ( Km/h )</mat-label>
-      <input matInput type="text" [(ngModel)]="vma">
-      <button mat-button *ngIf="vma" matSuffix mat-icon-button aria-label="Clear" (click)="vma=''">
+      <input matInput type="number" [formControl]="vma" required>
+      <button mat-button *ngIf="vma" matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
         <mat-icon>close</mat-icon>
       </button>
+      <mat-error *ngIf="vma.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <div class="btns">
@@ -239,13 +240,13 @@
             </table>
             </div>
         </mat-tab>
-        <mat-tab label="Travail avec la distance">
+        <mat-tab  label="Travail avec la distance">
           <!--distance par temps-->
           <div class="table-responsive text-nowrap">
             <table id="tab2" class="table table-bordered table-sm">
               <thead>
                 <tr>
-                  <th scope="col">%</th>
+                  <th class="fix" scope="col">%</th>
                   <th scope="col">vitesse</th>
                   <th scope="col">30 s</th>
                   <th scope="col">45 s</th>

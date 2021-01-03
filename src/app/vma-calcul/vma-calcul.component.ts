@@ -1,3 +1,4 @@
+import { FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-vma-calcul',
@@ -5,40 +6,88 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vma-calcul.component.css']
 })
 export class VmaCalculComponent implements OnInit {
-  value:number
-  input:number
-  output:number
-  vo2max:number
+  input = new FormControl('', Validators.required)
+  value: number
+  vma: number
+  vo2max: number
+  calculVo2max() {
+    this.vo2max = this.vma * 3.5
+  }
   constructor() { }
 
   ngOnInit(): void {
   }
-  getVal(select){
-this.value = select
-  }
-  cooper(){
-    this.vo2max = 22.35 * (this.input/1000) - 11.288
-    this.output = this.vo2max /3.5
-    this.input=null
-  }
-  demiCooper(){
-    this.output = this.input/100
-    this.vo2max = this.output*3.5
-    this.input=null
+  getVal(select) {
+    this.value = select
+    this.input.reset()
+    this.vma = null
+    this.vo2max = null
+
 
   }
-  astrand(){
-    this.output = this.input*17.143/1000
+  //calcul--
+
+
+  calcul() {
+    //cooper
+    if (this.value == 1) {
+      this.vo2max = 22.35 * (this.input.value / 1000) - 11.288;
+      this.vma = this.vo2max / 3.5;
+    }
+    //demi-cooper
+    else if (this.value == 2) {
+      this.vma = this.input.value / 100;
+    }
+    //ASTRAND
+    else if (this.value == 3) {
+      this.vma = this.input.value * 17.143 / 1000
+
+    }
+    //LEGER CAZORLA
+    else if (this.value == 4) {
+
+    }
+    //navette de Luc Léger
+    else if (this.value == 5) {
+      this.vma = 8
+      this.vma += this.input.value / 2
+
+    }
+    //TUB 2 de CAZORLA
+    else if (this.value == 6) {
+
+    }
+    this.vo2max = this.vma * 3.5;
+
+
 
   }
-  legerCazorla(){
+
+  //--------
+
+
+  cooper() {
+    this.vo2max = 22.35 * (this.input.value / 1000) - 11.288
+    this.vma = this.vo2max / 3.5
+    this.input = null
+  }
+  demiCooper() {
+    this.vma = this.input.value / 100
+    console.log(this.input.value)
 
   }
-  navet(){
-    this.output = 8
-    this.output += this.input/2 
+  astrand() {
+    this.vma = this.input.value * 17.143 / 1000
+
   }
-  tubCazorla(){
+  legerCazorla() {
+
+  }
+  navet() {
+    this.vma = 8
+    this.vma += this.input.value / 2
+  }
+  tubCazorla() {
 
   }
 

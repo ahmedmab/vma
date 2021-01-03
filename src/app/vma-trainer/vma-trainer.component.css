@@ -11,12 +11,10 @@
 }
 .form{
     text-align: center;
-    width: 18%;
+    width: 25%;
 
 }
-mat-label{
-    color: #000;
-}
+
 .btns{
     display: flex;
     flex-direction: column;
@@ -58,9 +56,9 @@ td{ font-size: .8rem;
         width: 100%;
     }
     .btns button{
-        flex:auto;
+        width: 50%;
     }
-    
+       
     .table-box{
         width: 96vw;
         margin: 0 auto;
