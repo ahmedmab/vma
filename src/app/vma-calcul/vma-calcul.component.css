@@ -4,7 +4,7 @@
 .grid-card{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: auto;
     gap: 10px;
     grid-template-areas: "desc desc"
                          "form result";
@@ -22,14 +22,26 @@
 }
 
 .msg{
-    position: absolute;
     top:45%;
     font-size: 80%;
+    position: absolute;
 
 }
 
 .description{
     grid-area: desc;
+}
+.description-text{
+    padding: .5rem;
+}
+.dero p{
+    display: inline-block;
+}
+.dero{
+    display: block;
+    padding: 1rem;
+    background-color: beige;
+    border-radius: 15px;
 }
 .result{
     grid-area: result;
@@ -86,7 +98,7 @@
         top:97%;
     }
     .result{
-        padding: 2rem;
+        padding: 0 2rem;
     }
     .result p{
         margin: 0 auto 20px 5px;

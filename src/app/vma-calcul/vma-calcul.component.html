@@ -4,15 +4,11 @@
   <div class="input-group mb-3">
     <select class="custom-select" (change)="getVal($event.target.value)">
       <option selected> -- Tests Physique -- </option>
-      <optgroup label="Epreuve continue à intensité stable">
-        <option value="1">Test de COOPER</option>
-        <option value="2">Test de demi-cooper</option>
-        <option value="3">Test d'ASTRAND</option>
-      </optgroup>
-      <optgroup label="Epreuve continue à intensité progressive">
-        <option value="4">Test Vameval (CAZORLA)</option>
-        <option value="5">Test Navette de Luc Léger</option>
-      </optgroup>
+      <option value="1">Test de COOPER</option>
+      <option value="2">Test de demi-cooper</option>
+      <option value="3">Test d'ASTRAND</option>
+      <option value="4">Test Vameval (CAZORLA)</option>
+      <option value="5">Test Navette de Luc Léger</option>
     </select>
   </div>
 
@@ -20,10 +16,17 @@
     <div class="card card-description">
       <div class="card-body grid-card">
         <div class="description">
-          <h3 class="card-title">Test Cooper</h3>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <h3>Test de Cooper</h3>
+          <p class="description-text">Ce test permet notamment d'estimer le
+            VO2Max d'une personne. Il s'agit de parcourir la plus grande distance
+            possible en 12 minutes à intensité stable en course à pied.
+          </p>
+          <div class="dero">
+            <p class="dero-titre h6">Déroulement du test :</p>
+            <p class="dero-text">vous avez parcouru 2,6km en 12min. selon la formule suivante
+              VO2max = (22,35 X Distance en km) – 11,288 alors votre VO2max = 22,35 X 2,6 = 58,11 – 11,288 = 46,8
+              ml/mn/kg.</p>
+          </div>
         </div>
 
         <div class="form">
@@ -31,7 +34,7 @@
             <!-- Name input -->
             <div class="form-outline">
               <label class="form-label" for="form5Example1">distance(m)</label>
-              <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required/>
+              <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required />
               <small class="msg" style="color: red;" *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
             </div>
             <!-- Submit button -->
@@ -56,17 +59,22 @@
     <div class="card card-description">
       <div class="card-body grid-card">
         <div class="description">
-          <h3 class="card-title">Test de demi-cooper</h3>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <h3>Test de demi-cooper</h3>
+          <p class="description-text">Ce test se déroule sur une intensité progressive. Après un échauffement, on doit
+            parcourir la plus grande distance possible en 6 minutes.</p>
+          <div class="dero">
+            <p class="dero-titre h6">Déroulement du test :</p>
+            <p class="dero-text">Déroulement du test : vous avez parcouru 1560 mètres en 6
+              minutes, vous divisez votre distance parcourue par 100 et vous obtenez votre VMA (1560/100 = 15,6
+              km/h).</p>
+          </div>
         </div>
         <div class="form">
           <div class="form-box">
             <!-- Name input -->
             <div class="form-outline">
               <label class="form-label" for="form5Example1">distance(m)</label>
-              <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required/>
+              <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required />
               <small class="msg" style="color: red;" *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
             </div>
             <!-- Submit button -->
@@ -90,17 +98,23 @@
     <div class="card card-description">
       <div class="card-body grid-card">
         <div class="description">
-          <h3 class="card-title">Test d'ASTRAND</h3>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <h3>Test d'ASTRAND</h3>
+          <p class="description-text">Ce test se déroule sur une intensité stable. Il faut parcourir la plus grande
+            distance
+            possible en 3 minutes, ce qui permet de faire un calcul approximatif en se basant sur la distance réalisée
+            en 3 minutes 30.</p>
+          <div class="dero">
+            <p class="dero-titre h6">Déroulement du test :</p>
+            <p class="dero-text">Déroulement du test : vous réussissez à parcourir une distance
+              de 500 mètres en 3min.30, donc votre VMA est de 500/210 (3min.30) X 3600 (1heure) = 8,4 km/h.</p>
+          </div>
         </div>
         <div class="form">
           <div class="form-box">
             <!-- Name input -->
             <div class="form-outline">
               <label class="form-label" for="form5Example1">distance(m)</label>
-              <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required/>
+              <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required />
               <small class="msg" style="color: red;" *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
             </div>
             <!-- Submit button -->
@@ -124,17 +138,24 @@
     <div class="card card-description">
       <div class="card-body grid-card">
         <div class="description">
-          <h3 class="card-title">Test Vameval (CAZORLA)</h3>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <h3>Test Vameval (CAZORLA)</h3>
+          <p class="description-text">Ce Test se déroule sur une intensité progressive. Des
+            plots sont installés tous les 20 mètres autour de la piste, on doit atteindre chacun d’eux au moment où l’on
+            entend un signal sonore.</p>
+          <div class="dero">
+            <p class="dero-titre h6">Déroulement du test :</p>
+            <p class="dero-text">Déroulement du test : vous commencez à une vitesse de 8 km/h et
+              au fur et à mesure que vous courez, la vitesse va s’accélérer de 0,5 km/h toutes les minutes. Votre VMA
+              est déterminée dès que vous entendez le signal sonore et que vous avez un retard d’au moins deux mètres
+              par rapport au plot que vous devriez avoir atteint.</p>
+          </div>
         </div>
         <div class="form">
           <div class="form-box">
             <!-- Name input -->
             <div class="form-outline">
               <label class="form-label" for="form5Example1">Palier</label>
-              <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required/>
+              <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required />
               <small class="msg" style="color: red;" *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
             </div>
             <!-- Submit button -->
@@ -160,17 +181,25 @@
     <div class="card card-description">
       <div class="card-body grid-card">
         <div class="description">
-          <h3 class="card-title">Test navette de Luc Léger</h3>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <h3>Test navette de Luc Léger</h3>
+          <p class="description-text">Ce Test se déroule sur une intensité progressive, entre 2 lignes espacées de 20 m,
+            courir
+            le plus longtemps possible en respectant un
+            rythme de course qui s'accélère de 0.5km/h toutes les minutes </p>
+          <div class="dero">
+            <p class="dero-titre h6">Déroulement du test :</p>
+            <p class="dero-text">Tout comme le test Vameval Votre VMA est déterminée dès que vous entendez le signal
+              sonore
+              et que vous avez un retard d’au moins deux mètres par rapport au plot que vous devriez avoir
+              atteint</p>
+          </div>
         </div>
         <div class="form">
           <div class="form-box">
             <!-- Name input -->
             <div class="form-outline">
               <label class="form-label" for="form5Example1">Palier</label>
-              <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required/>
+              <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required />
               <small class="msg" style="color: red;" *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
             </div>
             <!-- Submit button -->
