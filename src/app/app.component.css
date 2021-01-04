@@ -34,7 +34,7 @@ main{
 footer{
     grid-area: footer; 
 }
-@media only screen and (max-width: 560px) {
+@media only screen and (max-width: 576px) {
     .body{
         width: 100vw;
         min-height: 100vh;

@@ -54,7 +54,6 @@ export class VmaTrainerComponent implements OnInit {
     
   }
   clear(){
-    console.log(this.vma.value)
     return this.vma.reset()
   }
   
@@ -87,9 +86,9 @@ export class VmaTrainerComponent implements OnInit {
     STemps = (Math.round(STemps * 10)) / 10;
 
     var MyMinut = (STemps - (STemps % 60)) / 60;
-    if (MyMinut > 0) { result = result + MyMinut + " mn " };
+    if (MyMinut > 0) { result = result + MyMinut + ` ' `};
     var MySecond = (Math.round((STemps % 60) * 10)) / 10;
-    if (MySecond > 0) { result = result + MySecond + " s" };
+    if (MySecond > 0) { result = result + MySecond.toFixed(0) + ` "` };
     return result
   }
 
@@ -106,7 +105,7 @@ export class VmaTrainerComponent implements OnInit {
     this.tab =='#tab1'? typeTable = 'temps' : typeTable = 'distance'
     //property
     doc.setProperties({
-      title: 'table for MAS',
+      title: `tableau d'allure de course`,
       subject: 'This is the subject',
       author: 'Ahmed Mabrouki',
       keywords: 'eps, vma, sport, runing',

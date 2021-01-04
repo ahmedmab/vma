@@ -6,7 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vma-calcul.component.css']
 })
 export class VmaCalculComponent implements OnInit {
-  input = new FormControl('', Validators.required)
+  input = new FormControl('', [Validators.required, Validators.min(0)])
+  errorMessage(){
+    if (this.input.hasError('required')) {
+      return 'vous devez saisir une valeur'
+    }
+    if (this.input.hasError('min')) {
+      return 'la valeur doit étre superieur à 0'
+    }
+    return ''
+  }
   value: number
   vma: number
   vo2max: number
@@ -17,6 +26,7 @@ export class VmaCalculComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   getVal(select) {
     this.value = select
     this.input.reset()
@@ -25,9 +35,6 @@ export class VmaCalculComponent implements OnInit {
 
 
   }
-  //calcul--
-
-
   calcul() {
     //cooper
     if (this.value == 1) {
@@ -64,31 +71,5 @@ export class VmaCalculComponent implements OnInit {
   }
 
   //--------
-
-
-  cooper() {
-    this.vo2max = 22.35 * (this.input.value / 1000) - 11.288
-    this.vma = this.vo2max / 3.5
-    this.input = null
-  }
-  demiCooper() {
-    this.vma = this.input.value / 100
-    console.log(this.input.value)
-
-  }
-  astrand() {
-    this.vma = this.input.value * 17.143 / 1000
-
-  }
-  legerCazorla() {
-
-  }
-  navet() {
-    this.vma = 8
-    this.vma += this.input.value / 2
-  }
-  tubCazorla() {
-
-  }
 
 }

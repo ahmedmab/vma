@@ -3,17 +3,15 @@
 
   <div class="input-group mb-3">
     <select class="custom-select" (change)="getVal($event.target.value)">
+      <option selected> -- Tests Physique -- </option>
       <optgroup label="Epreuve continue à intensité stable">
         <option value="1">Test de COOPER</option>
         <option value="2">Test de demi-cooper</option>
         <option value="3">Test d'ASTRAND</option>
       </optgroup>
       <optgroup label="Epreuve continue à intensité progressive">
-        <option value="4">Test LEGER CAZORLA</option>
-        <option value="5">Test navette de Luc Léger</option>
-      </optgroup>
-      <optgroup label="Epreuve intermittente à intensité progressive">
-        <option value="6">Test TUB 2 de CAZORLA</option>
+        <option value="4">Test Vameval (CAZORLA)</option>
+        <option value="5">Test Navette de Luc Léger</option>
       </optgroup>
     </select>
   </div>
@@ -27,19 +25,21 @@
             content. This content is a little bit longer.</p>
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
+
         <div class="form">
           <div class="form-box">
             <!-- Name input -->
             <div class="form-outline">
-              <input type="text" id="form5Example1" class="form-control" [formControl]="input" required/>
-              <label class="form-label" for="form5Example1">Name</label>
+              <label class="form-label" for="form5Example1">distance(m)</label>
+              <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required/>
+              <small class="msg" style="color: red;" *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
             </div>
-
             <!-- Submit button -->
-            <div>
-              <button class="btn btn-warning mb-3" (click)="calcul()">Clalculer</button>
+            <div class="btn-calc">
+              <button class="btn btn-warning" (click)="calcul()">Clalculer</button>
             </div>
           </div>
+
         </div>
         <div class="result">
           <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
@@ -65,15 +65,16 @@
           <div class="form-box">
             <!-- Name input -->
             <div class="form-outline">
-              <input type="text" id="form5Example1" class="form-control" [formControl]="input" required/>
-              <label class="form-label" for="form5Example1">Name</label>
+              <label class="form-label" for="form5Example1">distance(m)</label>
+              <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required/>
+              <small class="msg" style="color: red;" *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
             </div>
-
             <!-- Submit button -->
-            <div>
-              <button class="btn btn-warning mb-3" (click)="calcul()">Clalculer</button>
+            <div class="btn-calc">
+              <button class="btn btn-warning" (click)="calcul()">Clalculer</button>
             </div>
           </div>
+
         </div>
         <div class="result">
           <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
@@ -98,15 +99,16 @@
           <div class="form-box">
             <!-- Name input -->
             <div class="form-outline">
-              <input type="text" id="form5Example1" class="form-control" [formControl]="input" required/>
-              <label class="form-label" for="form5Example1">Name</label>
+              <label class="form-label" for="form5Example1">distance(m)</label>
+              <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required/>
+              <small class="msg" style="color: red;" *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
             </div>
-
             <!-- Submit button -->
-            <div>
-              <button class="btn btn-warning mb-3" (click)="calcul()">Clalculer</button>
+            <div class="btn-calc">
+              <button class="btn btn-warning" (click)="calcul()">Clalculer</button>
             </div>
           </div>
+
         </div>
         <div class="result">
           <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
@@ -122,7 +124,7 @@
     <div class="card card-description">
       <div class="card-body grid-card">
         <div class="description">
-          <h3 class="card-title">Test LEGER CAZORLA</h3>
+          <h3 class="card-title">Test Vameval (CAZORLA)</h3>
           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
             content. This content is a little bit longer.</p>
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -131,15 +133,16 @@
           <div class="form-box">
             <!-- Name input -->
             <div class="form-outline">
-              <input type="text" id="form5Example1" class="form-control" [formControl]="input" required/>
-              <label class="form-label" for="form5Example1">Name</label>
+              <label class="form-label" for="form5Example1">Palier</label>
+              <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required/>
+              <small class="msg" style="color: red;" *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
             </div>
-
             <!-- Submit button -->
-            <div>
-              <button class="btn btn-warning mb-3" (click)="calcul()">Clalculer</button>
+            <div class="btn-calc">
+              <button class="btn btn-warning" (click)="calcul()">Clalculer</button>
             </div>
           </div>
+
         </div>
         <div class="result">
           <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
@@ -166,49 +169,16 @@
           <div class="form-box">
             <!-- Name input -->
             <div class="form-outline">
-              <input type="text" id="form5Example1" class="form-control" [formControl]="input" required/>
-              <label class="form-label" for="form5Example1">Name</label>
+              <label class="form-label" for="form5Example1">Palier</label>
+              <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required/>
+              <small class="msg" style="color: red;" *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
             </div>
-
             <!-- Submit button -->
-            <div>
-              <button class="btn btn-warning mb-3" (click)="calcul()">Clalculer</button>
+            <div class="btn-calc">
+              <button class="btn btn-warning" (click)="calcul()">Clalculer</button>
             </div>
           </div>
-        </div>
-        <div class="result">
-          <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
-          <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
-        </div>
 
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="test" *ngIf="value ==6">
-    <div class="card card-description">
-      <div class="card-body grid-card">
-        <div class="description">
-          <h3 class="card-title">Test TUB 2 de CAZORLA</h3>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-        <div class="form">
-          <div class="form-box">
-            <!-- Name input -->
-            <div class="form-outline">
-              <input type="text" id="form5Example1" class="form-control" [formControl]="input" required/>
-              <label class="form-label" for="form5Example1">Name</label>
-            </div>
-
-            <!-- Submit button -->
-            <div>
-              <button class="btn btn-warning mb-3" (click)="calcul()">Clalculer</button>
-            </div>
-          </div>
         </div>
         <div class="result">
           <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
