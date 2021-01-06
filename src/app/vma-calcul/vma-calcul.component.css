@@ -1,5 +1,8 @@
-.container{
-    padding: 1rem 2rem;
+
+article{
+    padding: 1rem;
+    background-color: white;
+    border-radius: 10px 10px 0 0;
 }
 .grid-card{
     display: grid;
@@ -9,6 +12,7 @@
     grid-template-areas: "desc desc"
                          "form result";
 }
+
 .form{
     grid-area: form;
     padding:1rem;

@@ -23,6 +23,7 @@ export class VmaTrainerComponent implements OnInit {
 
     return '';
   }
+  red = 'pui'
   vma60
   vma65
   vma70
@@ -66,7 +67,6 @@ export class VmaTrainerComponent implements OnInit {
     this.vma_ms =  vma * 1000 / 3600
     this.vma_30s = this.vma_ms
     this.vma_100 = 100 / this.vma_ms
-    this.vma60 = (vma * 60) / 100 + " km/h"
     this.vma65 = (vma * 65) / 100 + " km/h"
     this.vma70 = (vma * 70) / 100 + " km/h"
     this.vma75 = (vma * 75) / 100 + " km/h"

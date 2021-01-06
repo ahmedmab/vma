@@ -2,6 +2,17 @@
     box-sizing: border-box;
     margin: 0%;
 }
+.type-se{
+    display: flex;
+    justify-content: space-around;
+}
+.s-type{
+    min-width: fit-content;
+    font-size: 90%;
+    padding: .5rem 1rem;
+    border-radius: 15px;
+}
+
 .seanc{
     width: 100%;
     display: grid;
@@ -109,6 +120,11 @@ cursor: pointer;
 
 @media only screen and (max-width: 576px) {
     /* For mobile phones: */
+   
+    .s-type{
+        min-width: fit-content;
+        font-size: 80%;
+    }
     .seanc{
         width: 100%;
         grid-template-columns: 1fr;
@@ -123,6 +139,7 @@ cursor: pointer;
     
    form{
        width: 320px;
+       font-size: 90%;
    }
   
     

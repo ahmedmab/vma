@@ -17,9 +17,10 @@
 
 .btns{
     display: flex;
-    flex-direction: column;
     gap: 10px;
     width: 25%;
+    flex-direction: column;
+
 }
 
 table{
@@ -40,6 +41,16 @@ td{ font-size: .8rem;
     font-size: 90%;
     font-weight: 400;
 
+}
+.consign{
+    width: 100%;
+    font-weight: 300;
+    text-align: right;
+    padding-right: 10rem;
+    color: #16c79a;
+}
+.colore{
+    background-color: #bedcfa;
 }
 @media only screen and (max-width: 576px) {
     .head-input{
@@ -65,7 +76,7 @@ td{ font-size: .8rem;
     }
     
     
-     th,td{
+     th,td,.consign{
          font-size: 80%;
      }
      
@@ -75,5 +86,11 @@ td{ font-size: .8rem;
         left: -2px;
         top:auto;
     }
-   
+    .consign{
+        width: 90%;
+        text-align: center;
+        padding: 0;
+
+    }
+
 }

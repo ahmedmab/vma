@@ -18,6 +18,18 @@ export class VmaSeanceComponent implements OnInit {
     rep: ['', Validators.required],
   })
 
+  //seance objet
+  seance={
+    vma: this.seriForm.value.vmaVal,
+    effort: this.seriForm.value.param,
+    niveau: 1,
+    volume: 3000,
+    repetition: this.seriForm.value.rep,
+    recuperation: 30    
+
+  }
+  //
+
   avec: boolean = true
   inputype: string = ' seconds'
   num: number = 1
