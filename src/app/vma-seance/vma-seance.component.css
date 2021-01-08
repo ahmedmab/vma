@@ -33,13 +33,6 @@ form{
     width: 100%;
 }
 
-.seance-head{
-    margin: 1.5rem auto;
-    font-weight: 900;
-}
-.seance-head p{
-    color: purple;
-}
 button:disabled{
     background-color: rgb(28, 240, 56);
     font-weight: bolder;
@@ -71,41 +64,6 @@ button:disabled{
 button[type="submit"]{
     margin-left: auto;
 
-}
-
-.serie{
-    width: 100%;
-}
-.recEntreSeri {
-width: 100%;
-display: flex;
-flex-direction: row;
-}
-.serie-card{
-    position: relative;
-}
-.delet{
-position: absolute;
-right: .8rem;
-top: .4rem;
-font-size: 1.2rem;
-color: rgb(243, 43, 60);
-cursor: pointer;
-}
-.table{
-    background-color: white;
-    column-width: 5rem;
-
-}
-.table th{
-    color: orangered;
-}
-.table td{
-    color: #625261;
-    font-weight: bold;
-}
-.badge{
-    display: block;
 }
 
 .save-pdf{
@@ -142,14 +100,6 @@ cursor: pointer;
        font-size: 90%;
    }
   
-    
-     .serie-card{
-            width: 320px;
-      }
-    .serie-card .serie-card-body .serie{
-        line-height: 15px;
-    }
-   
     
     .save-pdf button {
         margin: 1rem auto 0 auto;

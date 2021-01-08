@@ -23,7 +23,6 @@ export class VmaTrainerComponent implements OnInit {
 
     return '';
   }
-  red = 'pui'
   vma60
   vma65
   vma70

@@ -16,59 +16,53 @@ export class VmaCalculComponent implements OnInit {
     }
     return ''
   }
-  value: number
   vma: number
   vo2max: number
-  calculVo2max() {
-    this.vo2max = this.vma * 3.5
-  }
+ 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  getVal(select) {
-    this.value = select
-    this.input.reset()
+  resetVal() {
     this.vma = null
     this.vo2max = null
 
-
   }
-  calcul() {
+ 
     //cooper
-    if (this.value == 1) {
-      this.vo2max = 22.35 * (this.input.value / 1000) - 11.288;
+    calculCooper(x) {
+      this.vo2max = 22.35 * (x.value / 1000) - 11.288;
       this.vma = this.vo2max / 3.5;
     }
     //demi-cooper
-    else if (this.value == 2) {
-      this.vma = this.input.value / 100;
+    calculDemiCooper(x) {
+      this.vma = x.value / 100;
+      this.vo2max = this.vma * 3.5;
     }
     //ASTRAND
-    else if (this.value == 3) {
-      this.vma = this.input.value * 17.143 / 1000
-
+    calculAstrand(x) {
+      this.vma = x.value * 17.143 / 1000
+      this.vo2max = this.vma * 3.5;
     }
-    //LEGER CAZORLA
-    else if (this.value == 4) {
-
+    //Vameval CAZORLA
+    calculVameval(x) {
+      this.vma = 8
+      this.vma += x.value / 2
+      this.vo2max = this.vma * 3.5;
     }
     //navette de Luc Léger
-    else if (this.value == 5) {
+    calculNavette(x) {
       this.vma = 8
-      this.vma += this.input.value / 2
-
+      this.vma += x.value / 2
+      this.vo2max = this.vma * 3.5;
     }
-    //TUB 2 de CAZORLA
-    else if (this.value == 6) {
-
-    }
-    this.vo2max = this.vma * 3.5;
+   
+    
 
 
 
-  }
+  
 
   //--------
 

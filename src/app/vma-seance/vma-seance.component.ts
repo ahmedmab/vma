@@ -3,44 +3,71 @@ import { FormBuilder, Validators } from '@angular/forms'
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
 
-
-
 @Component({
   selector: 'app-vma-seance',
   templateUrl: './vma-seance.component.html',
   styleUrls: ['./vma-seance.component.css']
 })
+
+ 
 export class VmaSeanceComponent implements OnInit {
   seriForm = this.fb.group({
     percent: ['', Validators.required],
     vmaVal: ['', Validators.required],
     param: ['', Validators.required],
-    rep: ['', Validators.required],
   })
 
   //seance objet
-  seance={
-    vma: this.seriForm.value.vmaVal,
-    effort: this.seriForm.value.param,
-    niveau: 1,
-    volume: 3000,
-    repetition: this.seriForm.value.rep,
-    recuperation: 30    
+  volumeTotale
+  plan= []
+  cappacite = ['cappacitée',4000, 5000, 6000, 7000]
+  puissance = ['puissance',2000, 2500, 3000, 4000]
 
+  generer(f) {
+   
+    let seance={
+      vma: 0,
+      type: [],
+      distance: 0,
+      dure:0,
+      niveau: 0,
+      volume: 0,
+      repetition: 0,
+      recuperation: 30    
+    }
+    seance.vma = f.vmaVal
+    //calculer l'effort
+    if(this.time){
+      seance.dure = f.param
+      seance.distance = Math.floor(seance.dure * ((f.vmaVal * f.percent)/100 * 1000) / 3600)
+    }
+    else{
+      seance.distance = f.param
+      seance.dure = Math.floor(seance.distance / (((f.vmaVal * f.percent)/100 * 1000) / 3600))
+    }
+    //
+    seance.type = (f.percent < 100) ?  this.cappacite : this.puissance;
+    seance.niveau = f.vmaVal <= 5 ? 1 : f.vmaVal<=10 ? 2 : f.vmaVal<=15 ? 3 : 4
+    seance.volume = seance.type[seance.niveau]
+    seance.repetition = Math.floor(seance.volume/seance.distance )
+    seance.volume = seance.type[seance.niveau] - (seance.volume % seance.distance)
+
+    this.plan.push(seance)
+    this.num++
+    console.warn(seance)
+    console.log(this.plan)
+     
+  
   }
-  //
+  //--------------------------
 
-  avec: boolean = true
+  time: boolean = true
   inputype: string = ' seconds'
   num: number = 1
   min: number
   sec: number
-  seriGrp: any[] = []
   cardType: string
-  mOrs: string
-  volumeSeri: number
-  volumeTotale: number = 0
-  echauf: string = 'course de 20 min. à 65% de la VMA ; Étirements '
+ 
 
   constructor(private fb:FormBuilder ) { }
 
@@ -66,8 +93,8 @@ export class VmaSeanceComponent implements OnInit {
   }
 
   togle() {
-    this.avec = !this.avec
-    this.avec ? this.inputype = ' seconds' : this.inputype = ' métres'
+    this.time = !this.time
+    this.time ? this.inputype = ' seconds' : this.inputype = ' métres'
   }
 
   submit(f) {
@@ -81,27 +108,24 @@ export class VmaSeanceComponent implements OnInit {
     }
     else { this.cardType = '' }
 
-    this.seriGrp.push(f)
-    this.num++
     this.volumeTotale += parseInt(f.volumeSeri, 10)
-    this.echauf = this.echauf
     this.seriForm.patchValue({
       rep: '',
       param: '',
       percent: '',
     })
-    console.warn(f)
   }
   renitialiser() {
-    this.seriGrp = []
+    this.plan = []
     this.num = 1
-    this.volumeTotale = 0
   }
   delet(index: number) {
-    this.volumeTotale = this.volumeTotale - parseInt(this.seriGrp[index].volumeSeri, 10)
-    this.seriGrp.splice(index, 1)
+    this.volumeTotale = this.volumeTotale - parseInt(this.plan[index].volumeSeri, 10)
+    this.plan.splice(index, 1)
     this.num--
   }
+ 
+
   //convertir les seconds en min et sec
   MyTime(STemps) {
     var result = "";
@@ -121,7 +145,7 @@ export class VmaSeanceComponent implements OnInit {
 
   convertoPdf() {
     let j = 1;
-    this.seriGrp.forEach(el => {
+    this.plan.forEach(el => {
       console.log(el)
 
     })
@@ -130,14 +154,11 @@ export class VmaSeanceComponent implements OnInit {
     doc.setFontSize(20);
     doc.text(`Seance d'entrainment VMA`, doc.internal.pageSize.getWidth() / 2, 20, { align: "center" });
 
-    doc.setFontSize(15);
-    doc.setTextColor(20);
-    doc.text(`Echauffement : ${this.echauf}`, 30, 60);
 
     doc.setFontSize(11);
     doc.setTextColor(100);
 
-    this.seriGrp.forEach(element => {
+    this.plan.forEach(element => {
 
 
       (doc as any).autoTable({
