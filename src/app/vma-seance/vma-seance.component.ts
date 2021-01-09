@@ -20,8 +20,8 @@ export class VmaSeanceComponent implements OnInit {
   //seance objet
   volumeTotale
   plan= []
-  cappacite = ['cappacitée',1000, 1500, 2000, 2500]
-  puissance = ['puissance',500, 800, 1000, 1200]
+  cappacite = ['cappacitée',1500, 1800, 2200, 2500, 2800]
+  puissance = ['puissance',500, 800, 1000, 1200, 1500]
 
   generer(f) {
    
@@ -50,7 +50,7 @@ export class VmaSeanceComponent implements OnInit {
     }
     //
     seance.type = (f.percent < 100) ?  this.cappacite : this.puissance;
-    seance.niveau = f.vmaVal <= 5 ? 1 : f.vmaVal<=10 ? 2 : f.vmaVal<=15 ? 3 : 4
+    seance.niveau = f.vmaVal <= 5 ? 1 : f.vmaVal<=10 ? 2 : f.vmaVal<=15 ? 3 : f.vmaVal<=20 ? 4 : 5;
     seance.volume = seance.type[seance.niveau]
     seance.repetition = Math.floor(seance.volume/seance.distance )
     seance.volume = seance.type[seance.niveau] - (seance.volume % seance.distance)
@@ -61,10 +61,14 @@ export class VmaSeanceComponent implements OnInit {
     } else if (seance.dure > 60 && seance.dure <= 120) {
       seance.recuperation = 60
     }
-    else{
-      seance.recuperation = 90
+    else if(seance.dure > 120 && seance.dure <= 180){
+      seance.niveau >= 3 ? seance.recuperation = 75 : seance.recuperation = 90
+       
     }
+    else {
+      seance.niveau >= 3 ? seance.recuperation = 90 : seance.recuperation = 105
 
+    }
      //
 
     this.plan.push(seance)
@@ -146,9 +150,9 @@ export class VmaSeanceComponent implements OnInit {
     STemps = (Math.round(STemps * 10)) / 10;
 
     var MyMinut = (STemps - (STemps % 60)) / 60;
-    if (MyMinut > 0) { result = result + MyMinut + " mn " };
+    if (MyMinut > 0) { result = result + MyMinut + ` ' ` };
     var MySecond = (Math.round((STemps % 60) * 10)) / 10;
-    if (MySecond > 0) { result = result + MySecond + " s" };
+    if (MySecond > 0) { result = result + MySecond + ` " ` };
     return result
   }
 
