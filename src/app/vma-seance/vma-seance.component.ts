@@ -20,8 +20,8 @@ export class VmaSeanceComponent implements OnInit {
   //seance objet
   volumeTotale
   plan= []
-  cappacite = ['cappacitée',4000, 5000, 6000, 7000]
-  puissance = ['puissance',2000, 2500, 3000, 4000]
+  cappacite = ['cappacitée',1000, 1500, 2000, 2500]
+  puissance = ['puissance',500, 800, 1000, 1200]
 
   generer(f) {
    
@@ -32,10 +32,13 @@ export class VmaSeanceComponent implements OnInit {
       dure:0,
       niveau: 0,
       volume: 0,
+      volumeTemps: 0,
       repetition: 0,
+      per:0,
       recuperation: 30    
     }
     seance.vma = f.vmaVal
+    seance.per = f.percent
     //calculer l'effort
     if(this.time){
       seance.dure = f.param
@@ -43,7 +46,7 @@ export class VmaSeanceComponent implements OnInit {
     }
     else{
       seance.distance = f.param
-      seance.dure = Math.floor(seance.distance / (((f.vmaVal * f.percent)/100 * 1000) / 3600))
+      seance.dure = (Math.floor(seance.distance / (((f.vmaVal * f.percent)/100 * 1000) / 3600)))
     }
     //
     seance.type = (f.percent < 100) ?  this.cappacite : this.puissance;
@@ -51,6 +54,18 @@ export class VmaSeanceComponent implements OnInit {
     seance.volume = seance.type[seance.niveau]
     seance.repetition = Math.floor(seance.volume/seance.distance )
     seance.volume = seance.type[seance.niveau] - (seance.volume % seance.distance)
+    seance.volumeTemps = Math.floor(seance.volume / (((f.vmaVal * f.percent)/100 * 1000) / 3600))
+     //calculer Recuperation
+    if (seance.dure <= 60) {
+      seance.recuperation = seance.dure - (seance.dure % 5)
+    } else if (seance.dure > 60 && seance.dure <= 120) {
+      seance.recuperation = 60
+    }
+    else{
+      seance.recuperation = 90
+    }
+
+     //
 
     this.plan.push(seance)
     this.num++
@@ -117,12 +132,10 @@ export class VmaSeanceComponent implements OnInit {
   }
   renitialiser() {
     this.plan = []
-    this.num = 1
   }
   delet(index: number) {
     this.volumeTotale = this.volumeTotale - parseInt(this.plan[index].volumeSeri, 10)
     this.plan.splice(index, 1)
-    this.num--
   }
  
 

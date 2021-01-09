@@ -5,7 +5,7 @@
       <div class="type-se mb-2">
         <div class="s-type btn btn-outline-danger">Puissance</div>
         <div class="s-type btn btn-outline-secondary">Capacitée</div>
-        <div class="s-type btn btn-outline-info">Endurence</div>
+        <div class="s-type btn btn-outline-success">Continu</div>
       </div>
       <p class="h6 mb-2 ml-3">Séance: {{num}}</p>
       <div class="box">
@@ -64,14 +64,30 @@
   <div class="box-2">
     <div class="section section2">
       <div *ngFor="let item of plan index as i">
-        <strong>Séance {{i + 1}}</strong>
-        <ul>
-          <li> type {{item.type[0]}}</li>
-          <li> nv {{item.niveau}}</li>
-          <li>{{item.repetition}} X {{item.distance}} m ( {{item.dure}}")</li>
-          <li>volume {{item.volume}}</li>
-          <li>rec {{item.recuperation}}</li>
-        </ul>
+        <table class="table table-sm mb-2">
+          <tr>
+            <th> <strong>Séance {{i + 1}}</strong> </th>
+            <th colspan="2">{{item.type[0]}}</th>
+            <td class="close"><a mat-button matSuffix mat-icon-button aria-label="Clear" (click)="delet(i)">
+                <mat-icon>close</mat-icon>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <th>vitesse </th>
+            <td>{{item.vma * item.per / 100}} km/h</td>
+            <td colspan="2">{{item.per}}% de la VMA ( {{item.vma}} km/h )</td>
+          </tr>
+          <tr>
+            <th class="seri" colspan="4">{{item.repetition}} X {{item.distance}}m ( {{MyTime(item.dure)}})</th>
+          </tr>
+          <tr>
+            <th>Rec</th>
+            <td>{{item.recuperation}} "</td>
+            <th>volume</th>
+            <td>{{item.volume}}m ({{MyTime(item.volumeTemps)}})</td>
+          </tr>
+        </table>
       </div>
       <!--pdf-->
       <div class="save-pdf">

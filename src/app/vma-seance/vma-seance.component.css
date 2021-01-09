@@ -65,7 +65,25 @@ button[type="submit"]{
     margin-left: auto;
 
 }
-
+th,td{
+line-height: 80%;
+min-width: fit-content;
+}
+.seri{
+    text-align: center;
+    font-weight: 500;
+    font-size: 120%;
+    word-spacing: 120%;
+}
+.table{
+    position: relative;
+    background-color: white;
+}
+.close a{
+   position: absolute;
+   bottom: 74%;
+   left: 94%;
+}
 .save-pdf{
     width: 100%;
     display: flex;
