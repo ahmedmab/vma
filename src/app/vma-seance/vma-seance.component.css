@@ -7,10 +7,9 @@
     justify-content: space-around;
 }
 .s-type{
-    min-width: fit-content;
+    width: 33%;
     font-size: 90%;
     padding: .5rem 1rem;
-    border-radius: 15px;
 }
 
 .seanc{
@@ -84,15 +83,16 @@ min-width: fit-content;
    bottom: 74%;
    left: 94%;
 }
-.save-pdf{
-    width: 100%;
-    display: flex;
+.msg-box{
+    height: 8px;
 }
-.save-pdf button {
-    margin: 1rem 2.3rem 1rem auto;
-    border-radius: 20px;
+.invalid{
+    color: red;
+    font-size: 85%;
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
 }
-
 
 @media only screen and (max-width: 576px) {
     /* For mobile phones: */

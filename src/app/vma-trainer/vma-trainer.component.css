@@ -1,6 +1,8 @@
 .box{ width: 100%;
-    padding: 0;
-    margin: 0;}
+    padding: 1rem;
+    margin: 0;
+    background-color: #fff;
+}
 
 .head-input{
     width: 100%;
@@ -53,6 +55,10 @@ td{ font-size: .8rem;
     background-color: #bedcfa;
 }
 @media only screen and (max-width: 576px) {
+    .box{ 
+        padding: 0;
+        
+    }
     .head-input{
         width: 100%;
         padding: 0 1rem;

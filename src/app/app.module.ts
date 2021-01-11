@@ -12,6 +12,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -33,6 +35,7 @@ import { MatIconModule } from "@angular/material/icon";
     MatButtonModule,
     MatInputModule,
     MatIconModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ],
   providers: [],
   bootstrap: [AppComponent]
