@@ -1,22 +1,23 @@
 <div class="seanc">
   <div class="box-1">
-    <form class="border border-light p-3 mx-auto" [formGroup]="seriForm" (ngSubmit)="generer(seriForm.value)">
-      <p class="mb-3">Préparer votre Séance VMA de type :</p>
+    <form class="border p-3 mx-auto" [formGroup]="seriForm">
+      <p class="text-center h4 mb-3">Séance {{' '+num}}</p>
       <div class="type-se mb-3">
-        <div class="s-type btn btn-light" (click)="seanceCourte()">Courte</div>
-        <div class="s-type btn btn-light" (click)="seanceMoyenne()">Moyenne</div>
-        <div class="s-type btn btn-light" (click)="seanceLongue()">Longue</div>
+        <a mat-flat-button color="basic" class="s-type" style="color: crimson;" (click)="seanceCourte()">Courte</a>
+        <a mat-flat-button color="basic" class="s-type" style="color: magenta;" (click)="seanceMoyenne()">Moyenne</a>
+        <a mat-flat-button color="basic" class="s-type" style="color: rgb(16, 202, 16);"
+          (click)="seanceLongue()">Longue</a>
       </div>
-      <p class="h6 mb-2 ml-3" [ngStyle]="{'color':stype.color}">Séance de VMA {{stype.name}}<span class="badge badge-pill badge-dark">{{' '+num}}</span>
+      <p class="mb-2 ml-3" [ngStyle]="{'color':stype.color}">Séance de VMA {{stype.name}}
       </p>
       <div class="box">
         <div class="item2 col-auto">
           <input type="number" class="form-control" placeholder="VMA" formControlName="vmaVal">
           <div class="msg-box mb-2">
-          <div *ngIf="seriForm.get('vmaVal').invalid && seriForm.get('vmaVal').touched" class="invalid">
-            {{vmaErrorMessage()}}</div>
+            <div *ngIf="seriForm.get('vmaVal').invalid && seriForm.get('vmaVal').touched" class="invalid">
+              {{vmaErrorMessage()}}</div>
+          </div>
         </div>
-      </div>
         <div class="item2 col-auto">
           <div>
             <select class="browser-default custom-select" formControlName="percent">
@@ -35,8 +36,8 @@
 
             </select>
             <div class="msg-box mb-2">
-            <div *ngIf="seriForm.get('percent').touched && seriForm.get('percent').pristine" class="invalid">
-              {{percentErrorMessage()}}</div>
+              <div *ngIf="seriForm.get('percent').touched && seriForm.get('percent').pristine" class="invalid">
+                {{percentErrorMessage()}}</div>
             </div>
           </div>
 
@@ -45,9 +46,9 @@
         <div class="item3 col-auto mt-3">
 
           <div class="btn-togle ">
-            <button [ngClass]="!time?'btn btn-success btn-sm big':'btn btn-light btn-sm'" (click)="togle()"
+            <button [ngClass]="!time?'btn btn-success btn-sm':'btn btn-light btn-sm'" (click)="togle()"
               [disabled]="!time">distance</button>
-            <button [ngClass]="time?'btn btn-success btn-sm big':'btn btn-light btn-sm'" (click)="togle()"
+            <button [ngClass]="time?'btn btn-success btn-sm':'btn btn-light btn-sm'" (click)="togle()"
               [disabled]="time">durée</button>
           </div>
           <div class="input-param">
@@ -58,43 +59,41 @@
 
       </div>
       <div class="item5 p-2 col-auto">
-        <button class="btn btn-warning btn-sm " type="submit">Ajouter</button>
-        <div class="btn btn-light btn-sm" (click)="renitialiser()">Rénitialiser</div>
-        <!--pdf-->
-
+        <div class="pdf" (click)="convertoPdf()"><i class="fas fa-cloud-download-alt"></i></div>
+        <p class="l-pdf">PDF</p>
+        <div class="add" (click)="generer(seriForm.value)"><i class="far fa-plus-square"></i></div>
+        <div class="reset mt-2" (click)="renitialiser()"><i class="fas fa-sync-alt"></i></div>
+        <p class="l-reset">Rénitialiser</p>
       </div>
+
     </form>
-    <div class="save-pdf">
-      <button class="btn btn-sm btn-block btn-outline-danger" (click)="convertoPdf()"><span>Telecharger PDF </span><i
-          class="far fa-arrow-alt-circle-down"></i></button>
-    </div>
+
   </div>
 
   <div class="box-2">
-    <h2 class="text-center mt-2 mb-3 p-1" style="background-color: #00587a; color:white">Plan d'entrainement</h2>
+    <h2 class="text-center mt-2 mb-3 p-1" style="font-weight: bold; color:#00587a">Plan d'entrainement</h2>
 
     <div class="section section2">
       <div *ngFor="let item of plan index as i">
         <table class="table table-sm mb-2">
-          <tr>
+          <tr class="table-light p-1">
             <th> <strong>Séance {{i + 1}}</strong> </th>
-            <th colspan="2">{{item.type[0]}}</th>
-            <td class="close"><a mat-button matSuffix mat-icon-button aria-label="Clear" (click)="delet(i)">
-                <mat-icon>close</mat-icon>
-              </a>
-            </td>
+            <th colspan="3">{{item.type[0]}}</th>
+            <th class="close"><span (click)="delet(i)">
+              <i class="fas fa-times"></i> </span>
+          </th>
           </tr>
           <tr>
             <th>vitesse </th>
             <td>{{item.vma * item.per / 100}} km/h</td>
-            <td colspan="2">{{item.per}}% de la VMA ( {{item.vma}} km/h )</td>
+            <td colspan="3">{{item.per}}% de la VMA ( {{item.vma}} km/h )</td>
           </tr>
           <tr>
-            <th class="seri" colspan="4">{{item.repetition}} X {{item.distance}}m ( {{MyTime(item.dure)}})</th>
+            <th class="seri" colspan="5">{{item.repetition}} X {{item.distance}}m ( {{MyTime(item.dure)}})</th>
           </tr>
           <tr>
             <th>Rec</th>
-            <td>{{MyTime(item.recuperation)}} "</td>
+            <td colspan="2">{{MyTime(item.recuperation)}}</td>
             <th>volume</th>
             <td>{{item.volume}}m ({{MyTime(item.volumeTemps)}})</td>
           </tr>

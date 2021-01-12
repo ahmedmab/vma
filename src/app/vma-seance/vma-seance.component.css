@@ -8,8 +8,9 @@
 }
 .s-type{
     width: 33%;
+    min-width: fit-content;
+    color: #333;
     font-size: 90%;
-    padding: .5rem 1rem;
 }
 
 .seanc{
@@ -17,12 +18,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    gap: 17px;
+    gap: 15px;
 }
 form{
-    background-color: lavender;
     max-width: 500px;
     margin: .5rem auto;
+    background-color: whitesmoke;
 }
 .box {
     width: 100%;
@@ -53,15 +54,40 @@ button:disabled{
 .item2 p{
     text-align: center;
 }
-
-.item5 .btn{
-    max-width: 10rem;   
-    min-width: 5rem;
-    margin-right: .5rem;
-    margin-top: 1rem;
+.item5{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 16px;
+    grid-template-areas: "reset adde pdf"
+                         "label-reset adde label-pdf";
+    place-items: center;
+    gap: 2px;
 }
-button[type="submit"]{
-    margin-left: auto;
+.l-pdf{
+    grid-area: label-pdf;
+    color: tomato;
+}
+.l-reset{
+    grid-area: label-reset;
+}
+.add{
+    grid-area: adde;
+    color: #48426d; 
+    font-size: 52px;
+    cursor: pointer;
+
+}
+.pdf{
+grid-area: pdf;
+font-size: 30px;
+color: tomato;
+cursor: pointer;
+
+}
+.reset{
+grid-area: reset;
+font-size: 30px;
+cursor: pointer;
 
 }
 th,td{
@@ -75,13 +101,15 @@ min-width: fit-content;
     word-spacing: 120%;
 }
 .table{
-    position: relative;
     background-color: white;
 }
-.close a{
-   position: absolute;
-   bottom: 74%;
-   left: 94%;
+.close{
+    position: relative;
+}
+.close span i {
+    position: absolute;
+    top: 0%;
+    right: 5px;
 }
 .msg-box{
     height: 8px;
@@ -96,17 +124,15 @@ min-width: fit-content;
 
 @media only screen and (max-width: 576px) {
     /* For mobile phones: */
-   
-    .s-type{
-        min-width: fit-content;
-        font-size: 80%;
-    }
     .seanc{
         width: 100%;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr auto;
         place-items: center;
 
+ }
+ .box-2{
+     width: 100%;
  }
  .box-1, .box-2{
     padding: 0;
@@ -118,9 +144,5 @@ min-width: fit-content;
        font-size: 90%;
    }
   
-    
-    .save-pdf button {
-        margin: 1rem auto 0 auto;
-    }
   }
  
