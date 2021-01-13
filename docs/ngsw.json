@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1610331493205,
+  "timestamp": 1610500714972,
   "index": "https://ahmedmab.github.io/vma/index.html",
   "assetGroups": [
     {
@@ -16,7 +16,7 @@
         "https://ahmedmab.github.io/vma/6.64992a9fb42d37a613bb.js",
         "https://ahmedmab.github.io/vma/favicon.ico",
         "https://ahmedmab.github.io/vma/index.html",
-        "https://ahmedmab.github.io/vma/main.07de54f9a4709b2447c5.js",
+        "https://ahmedmab.github.io/vma/main.fa764ffec467369bd95b.js",
         "https://ahmedmab.github.io/vma/manifest.webmanifest",
         "https://ahmedmab.github.io/vma/polyfills.9bf4dad123bd95dda86e.js",
         "https://ahmedmab.github.io/vma/runtime.7ac2db21f5a5fa3f1a0a.js",
@@ -58,8 +58,8 @@
     "https://ahmedmab.github.io/vma/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "https://ahmedmab.github.io/vma/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "https://ahmedmab.github.io/vma/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://ahmedmab.github.io/vma/index.html": "6173ef7952000ba39353ec2725a46ac73d674d42",
-    "https://ahmedmab.github.io/vma/main.07de54f9a4709b2447c5.js": "b8ea7e19b5558447d0e4e71d097b8a65cfb905aa",
+    "https://ahmedmab.github.io/vma/index.html": "cab98b245f8473fd4d0e65a9bb11173d38f7df06",
+    "https://ahmedmab.github.io/vma/main.fa764ffec467369bd95b.js": "6749484f936e631ffbcc30e671875aa08fb59cd6",
     "https://ahmedmab.github.io/vma/manifest.webmanifest": "889385c9887699a706035875e9680b7fb48a75ca",
     "https://ahmedmab.github.io/vma/polyfills.9bf4dad123bd95dda86e.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
     "https://ahmedmab.github.io/vma/runtime.7ac2db21f5a5fa3f1a0a.js": "73d54660c6fafe3a072c7391511f26187796f244",

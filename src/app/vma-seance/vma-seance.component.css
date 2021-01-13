@@ -55,6 +55,8 @@ button:disabled{
     text-align: center;
 }
 .item5{
+    margin: 0 auto;
+    width: 70%;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 1fr 16px;
@@ -75,20 +77,30 @@ button:disabled{
     color: #48426d; 
     font-size: 52px;
     cursor: pointer;
+    opacity: .9;
+    transition: all ease .4s;
 
+}
+.add:hover, .pdf:hover, .reset:hover{
+opacity: 1;
+}
+.add:active, .pdf:active, .reset:active{
+    opacity: .6;
 }
 .pdf{
 grid-area: pdf;
 font-size: 30px;
-color: tomato;
+color: red;
 cursor: pointer;
-
+opacity: .8;
+transition: all ease .4s;
 }
 .reset{
 grid-area: reset;
 font-size: 30px;
 cursor: pointer;
-
+opacity: .8;
+transition: all ease .4s;
 }
 th,td{
 line-height: 80%;
@@ -138,10 +150,13 @@ min-width: fit-content;
     padding: 0;
  }
  
-    
    form{
        width: 320px;
        font-size: 90%;
+   }
+   .item5{
+    width: 80%;
+
    }
   
   }

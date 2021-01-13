@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { jsPDF } from 'jspdf';
@@ -11,6 +12,7 @@ import 'jspdf-autotable';
 
 
 export class VmaSeanceComponent implements OnInit {
+  test
   seriForm = new FormGroup({
     percent: new FormControl('', Validators.required),
     vmaVal: new FormControl('', [Validators.required, Validators.min(1), Validators.max(29)]),
@@ -25,9 +27,9 @@ export class VmaSeanceComponent implements OnInit {
   cappacite = [1500, 1800, 2200, 2500, 2800]
   puissance = [500, 800, 1000, 1200, 1500]
   moyenne = []
-  cr:boolean = true
-  my:boolean = true
-  lg:boolean = true
+  cr: boolean = true
+  my: boolean = true
+  lg: boolean = true
 
   seanceCourte() {
     this.stype.name = 'Courte '
@@ -96,8 +98,8 @@ export class VmaSeanceComponent implements OnInit {
       seance.dure = (Math.floor(seance.distance / (((f.vmaVal * f.percent) / 100 * 1000) / 3600)))
     }
     //
-    seance.type = (f.percent < 100) ?  this.cappacite : this.puissance;
-    seance.niveau = f.vmaVal <= 5 ? 1 : f.vmaVal<=10 ? 2 : f.vmaVal<=15 ? 3 : f.vmaVal<=20 ? 4 : 5;
+    seance.type = (f.percent < 100) ? this.cappacite : this.puissance;
+    seance.niveau = f.vmaVal <= 5 ? 1 : f.vmaVal <= 10 ? 2 : f.vmaVal <= 15 ? 3 : f.vmaVal <= 20 ? 4 : 5;
     seance.volume = seance.type[seance.niveau]
     seance.repetition = Math.floor(seance.volume / seance.distance)
     seance.volume = seance.type[seance.niveau] - (seance.volume % seance.distance)
@@ -218,7 +220,7 @@ export class VmaSeanceComponent implements OnInit {
     var doc = new jsPDF('portrait', 'px', 'a4');
 
     doc.setFontSize(20);
-    doc.text(`Seance d'entrainment VMA`, doc.internal.pageSize.getWidth() / 2, 20, { align: "center" });
+    doc.text(`Plan d'entrainment`, doc.internal.pageSize.getWidth() / 2, 20, { align: "center" });
 
 
     doc.setFontSize(11);
@@ -249,13 +251,14 @@ export class VmaSeanceComponent implements OnInit {
           0: { fontStyle: 'bold' },
           1: { halign: 'center' },
         },
-        head: [['serie ' + j++, '']],
+        head: [['Séance ' + j++, '']],
 
         body: [
-          [{ content: `${element.percent} % ${element.vmaVal} Km/h   ( ${element.rep} X ${element.param} ${element.mOrs} )`, colSpan: 2, styles: { halign: 'center', fontSize: 13, fontStyle: 'bold' } }],
-          ['Vitesse :', element.vmaVal * element.percent / 100 + " Km/h"],
-          ['Volume de Travail :', element.rep * element.param],
-          ['Récuperation :', this.MyTime(element.param * 2 / 3)]
+          [{ content: `${element.repetition} X ${element.distance}m ( ${this.MyTime(element.dure)}) `, colSpan: 2, styles: { halign: 'center', fontSize: 13, fontStyle: 'bold' } }],
+          ['Vitesse :', `${element.vma * element.per / 100}  Km/h ${element.per}% de la VMA ( ${element.vma} km/h )`],
+          ['Récuperation :', this.MyTime(element.recuperation)],
+          ['Volume de Travail :', element.volume + 'm' + (this.MyTime(element.volumeTemps))]
+          
         ],
 
       });
