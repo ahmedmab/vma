@@ -1,6 +1,6 @@
 <div class="seanc">
   <div class="box-1">
-    <form class="border p-3 mx-auto" [formGroup]="seriForm">
+    <form class="border p-3 mx-auto needs-validation" [formGroup]="seriForm">
       <p class="text-center h4 mb-3">Séance {{' '+num}}</p>
       <div class="type-se mb-3">
         <a mat-flat-button color="basic" class="s-type" style="color: crimson;" (click)="seanceCourte()">Courte</a>
@@ -52,10 +52,11 @@
               [disabled]="time">durée</button>
           </div>
           <div class="input-param">
-            <input class="inputype form-control mb-3" type="number" [placeholder]="inputype" formControlName="param">
+            <input class="inputype form-control mb-1" type="number" [placeholder]="inputype" formControlName="param">
           </div>
-        </div>
+          <div *ngIf="seriForm.get('param').touched" class="invalid">{{effortErrorMessage()}}</div>
 
+        </div>
 
       </div>
       <div class="item5 p-2 col-auto">
@@ -78,10 +79,10 @@
         <table class="table table-sm mb-2">
           <tr class="table-light p-1">
             <th> <em style="font-weight: 900; font-size: 120%;">Séance {{i + 1}}</em> </th>
-            <th colspan="3">{{item.type[0]}}</th>
+            <th colspan="3">{{item.type}}</th>
             <th class="close"><span (click)="delet(i)">
-              <i class="fas fa-times"></i> </span>
-          </th>
+                <i class="fas fa-times"></i> </span>
+            </th>
           </tr>
           <tr>
             <th>vitesse </th>
@@ -89,7 +90,8 @@
             <td colspan="3">{{item.per}}% de la VMA ( {{item.vma}} km/h )</td>
           </tr>
           <tr>
-            <th class="seri" colspan="5">{{item.repetition}} X {{item.distance}}m ( {{MyTime(item.dure)}})</th>
+            <th class="seri" colspan="5">{{item.serie}} X ( {{item.repetition}} X {{item.distance}}m (
+              {{MyTime(item.dure)}}) )</th>
           </tr>
           <tr>
             <th>Rec</th>

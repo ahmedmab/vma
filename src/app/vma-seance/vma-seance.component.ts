@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
 
+
 @Component({
   selector: 'app-vma-seance',
   templateUrl: './vma-seance.component.html',
@@ -12,7 +13,11 @@ import 'jspdf-autotable';
 
 
 export class VmaSeanceComponent implements OnInit {
-  test
+  constructor() { }
+
+  ngOnInit(): void {
+
+  }
   seriForm = new FormGroup({
     percent: new FormControl('', Validators.required),
     vmaVal: new FormControl('', [Validators.required, Validators.min(1), Validators.max(29)]),
@@ -24,9 +29,9 @@ export class VmaSeanceComponent implements OnInit {
   }
   volumeTotale
   plan = []
-  cappacite = [1500, 1800, 2200, 2500, 2800]
-  puissance = [500, 800, 1000, 1200, 1500]
-  moyenne = []
+  longue = [4000, 4600, 5200, 5800, 7000]
+  courte = [3000, 3500, 4000, 4500, 5000]
+  moyenne = [3000, 3500, 4000, 4500, 6000]
   cr: boolean = true
   my: boolean = true
   lg: boolean = true
@@ -71,23 +76,46 @@ export class VmaSeanceComponent implements OnInit {
     }
     return '';
   }
+  // controler le type par la distance de course
+  effortErrorMessage() {
+    if (this.seriForm.get('param').hasError('required')) {
+      return 'vous devez saisir le volume de chaque répetition'
+    } else {
+      if (this.stype.name == 'Courte ' && this.seriForm.get('param').value > 76) {
+        return `Conseil du Coach : dans la séance de VMA courte l'effort ne doit pas dépasser  1' 15" ou ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m pour chaque répetion`;
+      }
+      else if (this.stype.name == 'Longue ' && this.seriForm.get('param').value < 76) {
+        return 'la valeur de param < 76';
+      }
+      return ''
+    }
+
+  }
+
+
+  //
   //seance objet
   generer(f) {
     console.log(this.seriForm)
     let seance = {
       vma: 0,
-      type: [],
+      type: '',
+      typeArr: [],
       distance: 0,
       dure: 0,
       niveau: 0,
       volume: 0,
       volumeTemps: 0,
+      serie: 0,
       repetition: 0,
       per: 0,
       recuperation: 30
     }
+    seance.type = this.stype.name
     seance.vma = f.vmaVal
     seance.per = f.percent
+    seance.typeArr = (f.percent < 100) ? this.longue : (f.percent < 110) ? this.moyenne : this.courte;
+
     //calculer l'effort
     if (this.time) {
       seance.dure = f.param
@@ -97,13 +125,45 @@ export class VmaSeanceComponent implements OnInit {
       seance.distance = f.param
       seance.dure = (Math.floor(seance.distance / (((f.vmaVal * f.percent) / 100 * 1000) / 3600)))
     }
-    //
-    seance.type = (f.percent < 100) ? this.cappacite : this.puissance;
+
+    //niveau et volume de seance
     seance.niveau = f.vmaVal <= 5 ? 1 : f.vmaVal <= 10 ? 2 : f.vmaVal <= 15 ? 3 : f.vmaVal <= 20 ? 4 : 5;
-    seance.volume = seance.type[seance.niveau]
-    seance.repetition = Math.floor(seance.volume / seance.distance)
-    seance.volume = seance.type[seance.niveau] - (seance.volume % seance.distance)
+    seance.volume = seance.typeArr[seance.niveau - 1]
+
+    //calculer NB de serie
+    const serieCalcul = (t, n) => {
+      if (t < 100) {
+        (n == 1) ? seance.serie = 1 :
+          (n == 2) ? seance.serie = 1 :
+            (n == 3) ? seance.serie = 2 :
+              (n == 4) ? seance.serie = 2 :
+                seance.serie = 3
+      } else if (t < 110) {
+        (n == 1) ? seance.serie = 1 :
+          (n == 2) ? seance.serie = 2 :
+            (n == 3) ? seance.serie = 3 :
+              (n == 4) ? seance.serie = 3 :
+                seance.serie = 4
+      }
+      else {
+        (n == 1) ? seance.serie = 2 :
+          (n == 2) ? seance.serie = 2 :
+            (n == 3) ? seance.serie = 3 :
+              (n == 4) ? seance.serie = 3 :
+                seance.serie = 4
+      }
+    }
+
+    serieCalcul(seance.per, seance.niveau);
+    //------------
+    // Repetition pour chaque serie depend du volume de travail 
+    seance.repetition = Math.floor((seance.volume / seance.distance) / seance.serie)
+    let restRepetition: number = Math.floor(seance.volume / seance.distance) % seance.serie
+
+    //-----
+    seance.volume = seance.typeArr[seance.niveau - 1] - (seance.volume % seance.distance)
     seance.volumeTemps = Math.floor(seance.volume / (((f.vmaVal * f.percent) / 100 * 1000) / 3600))
+
     //calculer Recuperation
     if (seance.dure <= 60) {
       seance.recuperation = seance.dure - (seance.dure % 5)
@@ -118,16 +178,14 @@ export class VmaSeanceComponent implements OnInit {
       seance.niveau >= 3 ? seance.recuperation = 90 : seance.recuperation = 105
 
     }
-    //
 
     this.plan.push(seance)
     this.num++
-    console.warn(seance)
-    console.log(this.plan)
 
 
   }
-  //--------------------------
+
+  //------------------------
 
   time: boolean = false
   inputype: string = ' métres'
@@ -137,52 +195,11 @@ export class VmaSeanceComponent implements OnInit {
   cardType: string
 
 
-  constructor() { }
-
-  ngOnInit(): void {
-
-  }
-
-  //fonction pour calculer la recuperation inter-repetition
-  setRec(efort: number, type: string) {
-    let result;
-    if (type == 'm') {
-
-      if (efort > 100) { result = 'cas de plus 100'; }
-      else if (efort < 100) { result = 'cas de moins 100'; }
-      else { result = 'egal a 100'; }
-
-    }
-
-    else {
-      result = 'faut calculer rec avec le temps';
-    }
-    return result
-  }
-
   togle() {
     this.time = !this.time
     this.time ? this.inputype = ' seconds' : this.inputype = ' métres'
   }
 
-  submit(f) {
-    if (this.inputype == ' métres' && f.param > 0) {
-      f.mOrs = 'm'
-      f.volumeSeri = parseInt(f.param, 10) * parseInt(f.rep, 10)
-    }
-    else if (this.inputype == ' seconds' && f.param > 0) {
-      f.mOrs = 's'
-      f.volumeSeri = ((parseInt(f.param, 10) * (parseInt(f.vmaVal, 10) * parseInt(f.percent, 10) / 100) / 3.6) * parseInt(f.rep, 10)).toFixed(2)
-    }
-    else { this.cardType = '' }
-
-    this.volumeTotale += parseInt(f.volumeSeri, 10)
-    this.seriForm.patchValue({
-      rep: '',
-      param: '',
-      percent: '',
-    })
-  }
   renitialiser() {
     this.plan = []
     this.num = 1
@@ -219,13 +236,12 @@ export class VmaSeanceComponent implements OnInit {
     })
     var doc = new jsPDF('portrait', 'px', 'a4');
 
-    doc.setFontSize(20);
+    doc.setFontSize(24);
+    doc.setTextColor(7, 70, 139);
     doc.text(`Plan d'entrainment`, doc.internal.pageSize.getWidth() / 2, 20, { align: "center" });
-
 
     doc.setFontSize(11);
     doc.setTextColor(100);
-
     this.plan.forEach(element => {
 
 
@@ -251,14 +267,14 @@ export class VmaSeanceComponent implements OnInit {
           0: { fontStyle: 'bold' },
           1: { halign: 'center' },
         },
-        head: [['Séance ' + j++, '']],
+        head: [['Séance ' + j++, `Type : ${element.type}`]],
 
         body: [
-          [{ content: `${element.repetition} X ${element.distance}m ( ${this.MyTime(element.dure)}) `, colSpan: 2, styles: { halign: 'center', fontSize: 13, fontStyle: 'bold' } }],
+          [{ content: `${element.serie} X (  ${element.repetition} X ${element.distance}m ( ${this.MyTime(element.dure)})  )`, colSpan: 2, styles: { halign: 'center', fontSize: 13, fontStyle: 'bold' } }],
           ['Vitesse :', `${element.vma * element.per / 100}  Km/h ${element.per}% de la VMA ( ${element.vma} km/h )`],
           ['Récuperation :', this.MyTime(element.recuperation)],
-          ['Volume de Travail :', element.volume + 'm' + (this.MyTime(element.volumeTemps))]
-          
+          ['Volume de Travail :', `${element.volume} m   ( ${this.MyTime(element.volumeTemps)} )`]
+
         ],
 
       });
