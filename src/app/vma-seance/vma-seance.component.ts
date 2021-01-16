@@ -82,10 +82,16 @@ export class VmaSeanceComponent implements OnInit {
       return 'vous devez saisir le volume de chaque répetition'
     } else {
       if (this.stype.name == 'Courte ' && this.seriForm.get('param').value > 76) {
-        return `Conseil du Coach : dans la séance de VMA courte l'effort ne doit pas dépasser  1' 15" ou ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m pour chaque répetion`;
+        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value} dans la séance de VMA Courte
+         l'effort doit etre entre 15" ou ${Math.floor(15 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m et 1' 15" ou ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m pour chaque répetition`;
       }
-      else if (this.stype.name == 'Longue ' && this.seriForm.get('param').value < 76) {
-        return 'la valeur de param < 76';
+      else if (this.stype.name == 'Moyenne ' && (this.seriForm.get('param').value < 76 || this.seriForm.get('param').value > 150) ) {
+        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value} dans la séance de VMA Moyenne
+         l'effort l'effort doit etre entre 1' 15" ou ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m  et 2' 30" ou ${Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m pour chaque répetition`;
+      }
+      else if (this.stype.name == 'Longue ' && this.seriForm.get('param').value < 150) {
+        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value} dans la séance de VMA Longue
+         l'effort l'effort doit etre entre 2' 30" ou ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m  et 4' ou ${Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m pour chaque répetition`;
       }
       return ''
     }
