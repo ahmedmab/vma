@@ -2,7 +2,11 @@
 *{box-sizing: border-box;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: "Helvetica Neue", sans-serif; }
+body { margin: 0;
+     font-family: "Helvetica Neue", sans-serif;
+     background-image: url(/assets/images/bg.jpg);
+
+    }
 
 button{
     font-family: 'Martel Sans', sans-serif;
@@ -26,10 +30,14 @@ button{
 }
 
 @media only screen and (max-width: 600px) {
-    .mat-typography h1{
+body {
+    background-image: none;
+   
+    }
+.mat-typography h1{
         font-size: 30px;
     }
-    .mat-typography h3{
+.mat-typography h3{
         font-size: 26px;
     }
 .mat-tab-label{

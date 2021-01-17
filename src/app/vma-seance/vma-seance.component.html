@@ -1,3 +1,5 @@
+<div class="page">
+<h2 class="text-center head">Plan d'entrainement</h2>
 <div class="seanc">
   <div class="box-1">
     <form class="border p-3 mx-auto needs-validation" [formGroup]="seriForm">
@@ -55,16 +57,13 @@
             <input class="inputype form-control mb-1" type="number" [placeholder]="inputype" formControlName="param">
           </div>
           <div *ngIf="seriForm.get('param').touched" class="invalid">{{effortErrorMessage()}}</div>
-
+          <div *ngIf="seriForm.get('param').touched" class="control">{{effortControleMessage()}}</div>
         </div>
 
       </div>
       <div class="item5 p-2 col-auto">
-        <div class="pdf" (click)="convertoPdf()"><i class="fas fa-cloud-download-alt"></i></div>
-        <p class="l-pdf">PDF</p>
-        <div class="add" (click)="generer(seriForm.value)"><i class="far fa-plus-square"></i></div>
-        <div class="reset mt-2" (click)="renitialiser()"><i class="fas fa-sync-alt"></i></div>
-        <p class="l-reset">Rénitialiser</p>
+        <button class="add" mat-stroked-button color="primary" (click)="generer(seriForm.value)"><i
+            class="fas fa-plus"></i> Ajouter </button>
       </div>
 
     </form>
@@ -72,9 +71,7 @@
   </div>
 
   <div class="box-2">
-    <h2 class="text-center mt-2 mb-3 p-1" style="font-weight: bold; color:#00587a">Plan d'entrainement</h2>
-
-    <div class="section section2">
+    <div class="section2">
       <div *ngFor="let item of plan index as i">
         <table class="table table-sm mb-2">
           <tr class="table-light p-1">
@@ -103,5 +100,13 @@
       </div>
 
     </div>
+    <div class="btns">
+      <button class="reset" mat-stroked-button color="basic" (click)="renitialiser()">Rénitialiser<i
+          class="fas fa-sync-alt"></i></button>
+
+      <button class="pdf" mat-stroked-button color="warn" (click)="convertoPdf()">PDF <i
+          class="fas fa-cloud-download-alt"></i></button>
+    </div>
   </div>
+</div>
 </div>

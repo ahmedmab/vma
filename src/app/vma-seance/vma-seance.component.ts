@@ -76,22 +76,41 @@ export class VmaSeanceComponent implements OnInit {
     }
     return '';
   }
-  // controler le type par la distance de course
   effortErrorMessage() {
     if (this.seriForm.get('param').hasError('required')) {
       return 'vous devez saisir le volume de chaque répetition'
-    } else {
+    }
+  }
+  // controler le type par la distance de course
+
+  effortControleMessage() {
+    if (this.time) {
       if (this.stype.name == 'Courte ' && this.seriForm.get('param').value > 76) {
-        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value} dans la séance de VMA Courte
-         l'effort doit etre entre 15" ou ${Math.floor(15 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m et 1' 15" ou ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m pour chaque répetition`;
+        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Courte
+         l'effort doit etre entre 15" ( ${Math.floor(15 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 1' 15" ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
       }
-      else if (this.stype.name == 'Moyenne ' && (this.seriForm.get('param').value < 76 || this.seriForm.get('param').value > 150) ) {
-        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value} dans la séance de VMA Moyenne
-         l'effort l'effort doit etre entre 1' 15" ou ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m  et 2' 30" ou ${Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m pour chaque répetition`;
+      else if (this.stype.name == 'Moyenne ' && (this.seriForm.get('param').value < 76 || this.seriForm.get('param').value > 150)) {
+        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Moyenne
+         l'effort doit etre entre 1' 15" ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 2' 30" ( ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
       }
       else if (this.stype.name == 'Longue ' && this.seriForm.get('param').value < 150) {
-        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value} dans la séance de VMA Longue
-         l'effort l'effort doit etre entre 2' 30" ou ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m  et 4' ou ${Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m pour chaque répetition`;
+        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Longue
+         l'effort doit etre entre 2' 30" ( ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 4' ( ${Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
+      }
+      return ''
+    }
+    else {
+      if (this.stype.name == 'Courte ' && this.seriForm.get('param').value > Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)) {
+        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Courte
+         l'effort doit etre entre 15" ( ${Math.floor(15 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 1' 15" ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
+      }
+      else if (this.stype.name == 'Moyenne ' && (this.seriForm.get('param').value < Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600) || this.seriForm.get('param').value > Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600))) {
+        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Moyenne
+         l'effort l'effort doit etre entre 1' 15" ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 2' 30" ( ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
+      }
+      else if (this.stype.name == 'Longue ' && this.seriForm.get('param').value < Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)) {
+        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Longue
+         l'effort l'effort doit etre entre 2' 30" ( ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 4' ( ${Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
       }
       return ''
     }
@@ -231,16 +250,25 @@ export class VmaSeanceComponent implements OnInit {
   }
 
   // data pour le document PDF
-
-  title = `Seance d'entrainment VMA`;
-
   convertoPdf() {
+    var doc = new jsPDF('portrait', 'px', 'a4');
+    //
+    let footer = doc.internal.pageSize.getHeight() - 10
+
+    //property
+    doc.setProperties({
+      title: `Plan d'entrainement`,
+      subject: 'This is the subject',
+      author: 'Ahmed Mabrouki',
+      keywords: 'eps, vma, sport, runing',
+      creator: 'MEEE'
+    });
+
     let j = 1;
     this.plan.forEach(el => {
       console.log(el)
 
     })
-    var doc = new jsPDF('portrait', 'px', 'a4');
 
     doc.setFontSize(24);
     doc.setTextColor(7, 70, 139);
@@ -265,7 +293,7 @@ export class VmaSeanceComponent implements OnInit {
         headStyles: {
           fillColor: [255, 255, 255],
           textColor: [0, 0, 10],
-          fontSize: 18,
+          fontSize: 17,
           fontStyle: 'italic',
           padding: 0,
         },
@@ -273,10 +301,10 @@ export class VmaSeanceComponent implements OnInit {
           0: { fontStyle: 'bold' },
           1: { halign: 'center' },
         },
-        head: [['Séance ' + j++, `Type : ${element.type}`]],
+        head: [['Séance ' + j++, { content: `type : ${element.type}`, styles: { fontSize: 13, halign: 'right', fontStyle: 'none' } }]],
 
         body: [
-          [{ content: `${element.serie} X (  ${element.repetition} X ${element.distance}m ( ${this.MyTime(element.dure)})  )`, colSpan: 2, styles: { halign: 'center', fontSize: 13, fontStyle: 'bold' } }],
+          [{ content: `${element.serie} X (  ${element.repetition} X ${element.distance}m ( ${this.MyTime(element.dure)})  )`, colSpan: 2, styles: { halign: 'center', fontSize: 16, fontStyle: 'bold', padding: 2 } }],
           ['Vitesse :', `${element.vma * element.per / 100}  Km/h ${element.per}% de la VMA ( ${element.vma} km/h )`],
           ['Récuperation :', this.MyTime(element.recuperation)],
           ['Volume de Travail :', `${element.volume} m   ( ${this.MyTime(element.volumeTemps)} )`]
@@ -291,6 +319,10 @@ export class VmaSeanceComponent implements OnInit {
 
     let finalY = (doc as any).lastAutoTable.finalY + 20; // The y position on the page
     doc.text(`Volume totale : ${this.volumeTotale} m`, doc.internal.pageSize.getWidth() / 2, finalY, { align: "center" })
+    //signature
+    doc.setTextColor(120);
+    doc.line(30, footer - 15, 420, footer - 15); // horizontal line
+    doc.text('vmacalcul.com', 30, footer)
     // Open PDF document in new tab
     doc.output('dataurlnewwindow')
     // Download PDF document  

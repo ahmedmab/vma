@@ -12,6 +12,11 @@
     color: #333;
     font-size: 90%;
 }
+.page{
+    background-color: white;
+    margin: 0%;
+    padding: 0%;
+}
 
 .seanc{
     width: 100%;
@@ -19,6 +24,8 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     gap: 15px;
+    padding: .5rem;
+    border-radius: 3px;
 }
 form{
     max-width: 500px;
@@ -29,9 +36,6 @@ form{
     width: 100%;
 }
 
-.section2{
-    width: 100%;
-}
 
 button:disabled{
     background-color: rgb(28, 240, 56);
@@ -39,10 +43,6 @@ button:disabled{
     color: white;
 }
 
-.big{
-    font-family: sans-serif;
-    transform: scaleY(1.2);
-}
 .btn-togle, .item5{
     display: flex;
     flex-direction: row;
@@ -55,53 +55,50 @@ button:disabled{
     text-align: center;
 }
 .item5{
-    margin: 0 auto;
-    width: 70%;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 16px;
-    grid-template-areas: "reset adde pdf"
-                         "label-reset adde label-pdf";
-    place-items: center;
-    gap: 2px;
-}
-.l-pdf{
-    grid-area: label-pdf;
-    color: tomato;
-}
-.l-reset{
-    grid-area: label-reset;
+    width: 100%;
+    text-align: center;
 }
 .add{
-    grid-area: adde;
-    color: #48426d; 
-    font-size: 52px;
-    cursor: pointer;
-    opacity: .9;
-    transition: all ease .4s;
+    margin-left: auto;
+    width: 10rem;
+}
+
+.box-2{
+min-width: 300px;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: minmax(200px, auto) 80px;
+grid-template-areas: "plan"
+                    "btns";
+place-items: center;
+}
+.head{
+    padding: 1rem;
+    margin: 0%;
+    font-weight: bold;
+     color:#00587a;
+}
+.section2{
+    grid-area: plan;
+    width: 100%;
+    background-color: #fcf8ec;
+}
+
+.btns{
+    grid-area: btns;
+  place-self: start;
+   margin: 13px auto 0;
 
 }
-.add:hover, .pdf:hover, .reset:hover{
-opacity: 1;
-}
-.add:active, .pdf:active, .reset:active{
-    opacity: .6;
-}
 .pdf{
-grid-area: pdf;
-font-size: 30px;
-color: red;
-cursor: pointer;
-opacity: .8;
-transition: all ease .4s;
+    width: 8rem;
+    margin-left: 5px;
 }
-.reset{
-grid-area: reset;
-font-size: 30px;
-cursor: pointer;
-opacity: .8;
-transition: all ease .4s;
+.reset i{
+    margin-left: 3px;
+
 }
+
 th,td{
 line-height: 80%;
 min-width: fit-content;
@@ -133,6 +130,13 @@ min-width: fit-content;
     margin: 0;
     padding: 0;
 }
+.control{
+    color: rgb(7, 44, 253);
+    font-size: 90%;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+}
 
 @media only screen and (max-width: 576px) {
     /* For mobile phones: */
@@ -145,6 +149,7 @@ min-width: fit-content;
  }
  .box-2{
      width: 100%;
+     grid-template-rows: minmax(30px, auto) 80px;
  }
  .box-1, .box-2{
     padding: 0;
