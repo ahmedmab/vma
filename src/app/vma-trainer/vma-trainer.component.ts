@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatTabChangeEvent } from '@angular/material/tabs';
@@ -12,7 +13,7 @@ import 'jspdf-autotable';
 })
 export class VmaTrainerComponent implements OnInit {
 
-  vma = new FormControl('',[Validators.required, Validators.min(0)])
+  vma = new FormControl('', [Validators.required, Validators.min(0)])
   getErrorMessage() {
     if (this.vma.hasError('required')) {
       return 'vous devez saisir une valeur';
@@ -43,27 +44,30 @@ export class VmaTrainerComponent implements OnInit {
   minut
   metre
   //...
-  tab:string = '#tab1'
-  
+  tab: string = '#tab1'
 
-  constructor() { 
+
+  constructor() {
 
   }
 
   ngOnInit(): void {
-    
+
   }
-  clear(){
+  clear() {
     return this.vma.reset()
   }
-  
+
+   replaceComma(str:string){
+     return str!== null ?  str.replace(/,/g, "") : ''
+     }
+     
   calcul() {
-    console.log(this.vma)
-    let vma =  this.vma.value
+    let vma = this.vma.value
     this.second = ' s'
     this.minut = ' min'
     this.metre = ' m'
-    this.vma_ms =  vma * 1000 / 3600
+    this.vma_ms = vma * 1000 / 3600
     this.vma_30s = this.vma_ms
     this.vma_100 = 100 / this.vma_ms
     this.vma65 = (vma * 65) / 100 + " km/h"
@@ -77,6 +81,7 @@ export class VmaTrainerComponent implements OnInit {
     this.vma105 = (vma * 105) / 100 + " km/h"
     this.vma110 = (vma * 110) / 100 + " km/h"
     this.vma115 = (vma * 115) / 100 + " km/h"
+    
   }
 
   MyTime(STemps) {
@@ -85,23 +90,23 @@ export class VmaTrainerComponent implements OnInit {
     STemps = (Math.round(STemps * 10)) / 10;
 
     var MyMinut = (STemps - (STemps % 60)) / 60;
-    if (MyMinut > 0) { result = result + MyMinut + ` ' `};
+    if (MyMinut > 0) { result = result + MyMinut + ` ' ` };
     var MySecond = (Math.round((STemps % 60) * 10)) / 10;
     if (MySecond > 0) { result = result + MySecond.toFixed(0) + ` "` };
     return result
   }
 
   tabChanged(tabChangeEvent: MatTabChangeEvent): void {
-    tabChangeEvent.index==0 ? this.tab = '#tab1' : this.tab = '#tab2'
-}
-  toPdf(){
+    tabChangeEvent.index == 0 ? this.tab = '#tab1' : this.tab = '#tab2'
+  }
+  toPdf() {
     var doc = new jsPDF('l', 'px', 'a4');
-    let typeTable:string
+    let typeTable: string
     let finalY = (doc as any).autoTable.previous.finalY + 20
     let centerX = doc.internal.pageSize.getWidth() / 2
     let footer = doc.internal.pageSize.getHeight() - 10
 
-    this.tab =='#tab1'? typeTable = 'temps' : typeTable = 'distance'
+    this.tab == '#tab1' ? typeTable = 'temps' : typeTable = 'distance'
     //property
     doc.setProperties({
       title: `tableau d'allure de course`,
@@ -109,18 +114,19 @@ export class VmaTrainerComponent implements OnInit {
       author: 'Ahmed Mabrouki',
       keywords: 'eps, vma, sport, runing',
       creator: 'MEEE'
-  });
+    });
     //
     doc.setFontSize(20);
-    doc.setFont("helvetica","bold");
-    doc.text(`Allure par ${typeTable}`,centerX, 30, { align: "center" });
-    (doc as any).autoTable({html: this.tab,
-                           startY: 50,
+    doc.setFont("helvetica", "bold");
+    doc.text(`Allure par ${typeTable}`, centerX, 30, { align: "center" });
+    (doc as any).autoTable({
+      html: this.tab,
+      startY: 50,
     })
-    doc.setFont('sans-serif','none')
+    doc.setFont('sans-serif', 'none')
     doc.setTextColor(120);
-    doc.line(30, footer-15, 600, footer-15); // horizontal line
-    doc.text('vmacalcul.com',30, footer)
+    doc.line(30, footer - 15, 600, footer - 15); // horizontal line
+    doc.text('vmacalcul.com', 30, footer)
     // Open PDF document in new tab
     doc.output('dataurlnewwindow')
     // Download PDF document  
