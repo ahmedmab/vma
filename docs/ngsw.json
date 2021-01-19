@@ -1,7 +1,7 @@
 {
   "configVersion": 1,
-  "timestamp": 1611018634350,
-  "index": "https://ahmedmab.github.io/vma/index.html",
+  "timestamp": 1611094807728,
+  "index": "/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -11,16 +11,16 @@
         "ignoreVary": true
       },
       "urls": [
-        "https://ahmedmab.github.io/vma/4.88186cdfed16c68fe475.js",
-        "https://ahmedmab.github.io/vma/5.042a6c7785d37dcc381c.js",
-        "https://ahmedmab.github.io/vma/6.64992a9fb42d37a613bb.js",
-        "https://ahmedmab.github.io/vma/favicon.ico",
-        "https://ahmedmab.github.io/vma/index.html",
-        "https://ahmedmab.github.io/vma/main.ef1c1f0370b42a097f40.js",
-        "https://ahmedmab.github.io/vma/manifest.webmanifest",
-        "https://ahmedmab.github.io/vma/polyfills.9bf4dad123bd95dda86e.js",
-        "https://ahmedmab.github.io/vma/runtime.7ac2db21f5a5fa3f1a0a.js",
-        "https://ahmedmab.github.io/vma/styles.07ede4d59a51423597af.css"
+        "/4.88186cdfed16c68fe475.js",
+        "/5.042a6c7785d37dcc381c.js",
+        "/6.64992a9fb42d37a613bb.js",
+        "/favicon.ico",
+        "/index.html",
+        "/main.ef1c1f0370b42a097f40.js",
+        "/manifest.webmanifest",
+        "/polyfills.9bf4dad123bd95dda86e.js",
+        "/runtime.7ac2db21f5a5fa3f1a0a.js",
+        "/styles.07ede4d59a51423597af.css"
       ],
       "patterns": []
     },
@@ -32,42 +32,42 @@
         "ignoreVary": true
       },
       "urls": [
-        "https://ahmedmab.github.io/vma/assets/icons/icon-vma128x128.png",
-        "https://ahmedmab.github.io/vma/assets/icons/icon-vma144x144.png",
-        "https://ahmedmab.github.io/vma/assets/icons/icon-vma152x152.png",
-        "https://ahmedmab.github.io/vma/assets/icons/icon-vma192x192.png",
-        "https://ahmedmab.github.io/vma/assets/icons/icon-vma384x384.png",
-        "https://ahmedmab.github.io/vma/assets/icons/icon-vma512x512.png",
-        "https://ahmedmab.github.io/vma/assets/icons/icon-vma72x72.png",
-        "https://ahmedmab.github.io/vma/assets/icons/icon-vma96x96.png",
-        "https://ahmedmab.github.io/vma/assets/images/bg.jpg",
-        "https://ahmedmab.github.io/vma/assets/images/start.jpg"
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/images/bg.jpg",
+        "/assets/images/start.jpg"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://ahmedmab.github.io/vma/4.88186cdfed16c68fe475.js": "9e877488de66401a7dce12a6c86a1a12147fb351",
-    "https://ahmedmab.github.io/vma/5.042a6c7785d37dcc381c.js": "1990066a4db285d3681cf408cab018f064457782",
-    "https://ahmedmab.github.io/vma/6.64992a9fb42d37a613bb.js": "92a28e257376530edda2c2fc7c33a9026b7514eb",
-    "https://ahmedmab.github.io/vma/assets/icons/icon-vma128x128.png": "5546d7cd0045ea0e9018aae8c24a7c9fffe51651",
-    "https://ahmedmab.github.io/vma/assets/icons/icon-vma144x144.png": "42434131150c8228ea9a51e53d4b394326d7957f",
-    "https://ahmedmab.github.io/vma/assets/icons/icon-vma152x152.png": "669a12c5f4c8d062ad667689abef2c6bd606b056",
-    "https://ahmedmab.github.io/vma/assets/icons/icon-vma192x192.png": "b9ea1cb418ba48129cc945c8dd3e7e5361231d84",
-    "https://ahmedmab.github.io/vma/assets/icons/icon-vma384x384.png": "2dbb4ed328059e4193fea066f54c71a1af8045cb",
-    "https://ahmedmab.github.io/vma/assets/icons/icon-vma512x512.png": "51365f88266fac9208693086b1f7041285a6041e",
-    "https://ahmedmab.github.io/vma/assets/icons/icon-vma72x72.png": "bd0c969620df4371c9dd38426c7b5c430b4e763c",
-    "https://ahmedmab.github.io/vma/assets/icons/icon-vma96x96.png": "4906267fc3efbd341a8f57954c3a949627717e82",
-    "https://ahmedmab.github.io/vma/assets/images/bg.jpg": "6f51474b2f1aa49f413ccfacbd2596e8533d1131",
-    "https://ahmedmab.github.io/vma/assets/images/start.jpg": "d084689db21d569f74c155865b6b484ed609ee4b",
-    "https://ahmedmab.github.io/vma/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://ahmedmab.github.io/vma/index.html": "f690b9f3490f45db304bf1337d076cc1e6332901",
-    "https://ahmedmab.github.io/vma/main.ef1c1f0370b42a097f40.js": "da754e1877dd072b22bfebf8d1d771f7c49168f5",
-    "https://ahmedmab.github.io/vma/manifest.webmanifest": "889385c9887699a706035875e9680b7fb48a75ca",
-    "https://ahmedmab.github.io/vma/polyfills.9bf4dad123bd95dda86e.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
-    "https://ahmedmab.github.io/vma/runtime.7ac2db21f5a5fa3f1a0a.js": "73d54660c6fafe3a072c7391511f26187796f244",
-    "https://ahmedmab.github.io/vma/styles.07ede4d59a51423597af.css": "0cfc68583f58fa7718f6dc525d4a4b2cb6054d99"
+    "/4.88186cdfed16c68fe475.js": "9e877488de66401a7dce12a6c86a1a12147fb351",
+    "/5.042a6c7785d37dcc381c.js": "1990066a4db285d3681cf408cab018f064457782",
+    "/6.64992a9fb42d37a613bb.js": "92a28e257376530edda2c2fc7c33a9026b7514eb",
+    "/assets/icons/icon-128x128.png": "5546d7cd0045ea0e9018aae8c24a7c9fffe51651",
+    "/assets/icons/icon-144x144.png": "42434131150c8228ea9a51e53d4b394326d7957f",
+    "/assets/icons/icon-152x152.png": "669a12c5f4c8d062ad667689abef2c6bd606b056",
+    "/assets/icons/icon-192x192.png": "b9ea1cb418ba48129cc945c8dd3e7e5361231d84",
+    "/assets/icons/icon-384x384.png": "2dbb4ed328059e4193fea066f54c71a1af8045cb",
+    "/assets/icons/icon-512x512.png": "51365f88266fac9208693086b1f7041285a6041e",
+    "/assets/icons/icon-72x72.png": "bd0c969620df4371c9dd38426c7b5c430b4e763c",
+    "/assets/icons/icon-96x96.png": "4906267fc3efbd341a8f57954c3a949627717e82",
+    "/assets/images/bg.jpg": "6f51474b2f1aa49f413ccfacbd2596e8533d1131",
+    "/assets/images/start.jpg": "d084689db21d569f74c155865b6b484ed609ee4b",
+    "/favicon.ico": "b7fdb9e3ca81b048129a50e0ad095d9d95a68d05",
+    "/index.html": "7c27e78bfc37619217b4751fbb67fa7b909c5fd5",
+    "/main.ef1c1f0370b42a097f40.js": "da754e1877dd072b22bfebf8d1d771f7c49168f5",
+    "/manifest.webmanifest": "889385c9887699a706035875e9680b7fb48a75ca",
+    "/polyfills.9bf4dad123bd95dda86e.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
+    "/runtime.7ac2db21f5a5fa3f1a0a.js": "73d54660c6fafe3a072c7391511f26187796f244",
+    "/styles.07ede4d59a51423597af.css": "0cfc68583f58fa7718f6dc525d4a4b2cb6054d99"
   },
   "navigationUrls": [
     {
