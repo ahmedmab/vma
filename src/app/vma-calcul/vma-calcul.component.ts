@@ -18,12 +18,15 @@ export class VmaCalculComponent implements OnInit {
   }
   vma: number
   vo2max: number
+  hidd:boolean = true
  
   constructor() { }
 
   ngOnInit(): void {
   }
-
+ hiddTogle(){
+   this.hidd = false
+ }
   resetVal() {
     this.vma = null
     this.vo2max = null

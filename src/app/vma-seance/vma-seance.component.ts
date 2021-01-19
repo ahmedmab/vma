@@ -20,7 +20,7 @@ export class VmaSeanceComponent implements OnInit {
   }
   seriForm = new FormGroup({
     percent: new FormControl('', Validators.required),
-    vmaVal: new FormControl('', [Validators.required, Validators.min(1), Validators.max(29)]),
+    vmaVal: new FormControl('', [Validators.required, Validators.min(1), Validators.max(30)]),
     param: new FormControl('', Validators.required)
   })
   stype = {
@@ -85,34 +85,34 @@ export class VmaSeanceComponent implements OnInit {
 
   effortControleMessage() {
     if (this.time) {
-      if (this.stype.name == 'Courte ' && this.seriForm.get('param').value > 76) {
-        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Courte
+      if (this.stype.name == 'Courte ' && (this.seriForm.get('param').value > 76 || this.seriForm.get('param').value < 1)) {
+        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Courte
          l'effort doit etre entre 15" ( ${Math.floor(15 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 1' 15" ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
       }
       else if (this.stype.name == 'Moyenne ' && (this.seriForm.get('param').value < 76 || this.seriForm.get('param').value > 150)) {
-        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Moyenne
+        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Moyenne
          l'effort doit etre entre 1' 15" ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 2' 30" ( ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
       }
       else if (this.stype.name == 'Longue ' && this.seriForm.get('param').value < 150) {
-        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Longue
+        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Longue
          l'effort doit etre entre 2' 30" ( ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 4' ( ${Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
       }
-      return ''
+      return false
     }
     else {
-      if (this.stype.name == 'Courte ' && this.seriForm.get('param').value > Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)) {
-        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Courte
+      if (this.stype.name == 'Courte ' && (this.seriForm.get('param').value > Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600) || this.seriForm.get('param').value < 1)) {
+        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Courte
          l'effort doit etre entre 15" ( ${Math.floor(15 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 1' 15" ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
       }
       else if (this.stype.name == 'Moyenne ' && (this.seriForm.get('param').value < Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600) || this.seriForm.get('param').value > Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600))) {
-        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Moyenne
-         l'effort l'effort doit etre entre 1' 15" ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 2' 30" ( ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
+        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Moyenne
+        l'effort doit etre entre 1' 15" ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 2' 30" ( ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
       }
       else if (this.stype.name == 'Longue ' && this.seriForm.get('param').value < Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)) {
-        return `Conseil du Coach : pour votre VMA: ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Longue
-         l'effort l'effort doit etre entre 2' 30" ( ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 4' ( ${Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
+        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Longue
+        l'effort doit etre entre 2' 30" ( ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 4' ( ${Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
       }
-      return ''
+      return false
     }
 
   }

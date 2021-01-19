@@ -75,7 +75,7 @@ place-items: center;
 .head{
     padding: 1rem;
     margin: 0%;
-    font-weight: bold;
+    font-weight: 500;
      color:#00587a;
 }
 .section2{
@@ -131,11 +131,11 @@ min-width: fit-content;
     padding: 0;
 }
 .control{
-    color: rgb(7, 44, 253);
+    color: rgb(96, 59, 97);
     font-size: 90%;
-    font-weight: 300;
+    font-weight: 500;
     margin: 0;
-    padding: 0;
+    padding: 5px;
 }
 
 @media only screen and (max-width: 576px) {
@@ -151,6 +151,7 @@ min-width: fit-content;
      width: 100%;
      grid-template-rows: minmax(30px, auto) 80px;
  }
+
  .box-1, .box-2{
     padding: 0;
  }

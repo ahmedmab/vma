@@ -1,8 +1,8 @@
 <div class="page">
-<h2 class="text-center head">Plan d'entrainement</h2>
+<h1 class="text-center head">Plan d'entrainement</h1>
 <div class="seanc">
   <div class="box-1">
-    <form class="border p-3 mx-auto needs-validation" [formGroup]="seriForm">
+    <form class="border p-3 mx-auto" [formGroup]="seriForm">
       <p class="text-center h4 mb-3">Séance {{' '+num}}</p>
       <div class="type-se mb-3">
         <a mat-flat-button color="basic" class="s-type" style="color: crimson;" (click)="seanceCourte()">Courte</a>
@@ -24,7 +24,6 @@
           <div>
             <select class="browser-default custom-select" formControlName="percent">
               <option value="" selected>allure</option>
-              <option *ngIf="lg" value="70">70 %</option>
               <option *ngIf="lg" value="75">75 %</option>
               <option *ngIf="lg" value="80">80 %</option>
               <option *ngIf="lg" value="85">85 %</option>
@@ -57,7 +56,8 @@
             <input class="inputype form-control mb-1" type="number" [placeholder]="inputype" formControlName="param">
           </div>
           <div *ngIf="seriForm.get('param').touched" class="invalid">{{effortErrorMessage()}}</div>
-          <div *ngIf="seriForm.get('param').touched" class="control">{{effortControleMessage()}}</div>
+          <div *ngIf="seriForm.get('param').touched && effortControleMessage()" class="alert alert-info">
+            {{effortControleMessage()}}</div>
         </div>
 
       </div>
@@ -75,8 +75,8 @@
       <div *ngFor="let item of plan index as i">
         <table class="table table-sm mb-2">
           <tr class="table-light p-1">
-            <th> <em style="font-weight: 900; font-size: 120%;">Séance {{i + 1}}</em> </th>
-            <th colspan="3">{{item.type}}</th>
+            <th colspan="2"> <em style="font-weight: 900; font-size: 120%;">Séance {{i + 1}}</em> </th>
+            <th colspan="2">{{item.type}}</th>
             <th class="close"><span (click)="delet(i)">
                 <i class="fas fa-times"></i> </span>
             </th>
@@ -84,17 +84,17 @@
           <tr>
             <th>vitesse </th>
             <td>{{item.vma * item.per / 100}} km/h</td>
-            <td colspan="3">{{item.per}}% de la VMA ( {{item.vma}} km/h )</td>
+            <td style="text-align: right;" colspan="3">{{item.per}}% de la VMA ( {{item.vma}} km/h )</td>
           </tr>
           <tr>
-            <th class="seri" colspan="5">{{item.serie}} X ( {{item.repetition}} X {{item.distance}}m (
+            <th class="seri" colspan="4">{{item.serie}} X ( {{item.repetition}} X {{item.distance}}m (
               {{MyTime(item.dure)}}) )</th>
+              <td style="text-align: right;">Rec: {{MyTime(item.recuperation)}}</td>
           </tr>
           <tr>
-            <th>Rec</th>
-            <td colspan="2">{{MyTime(item.recuperation)}}</td>
-            <th>volume</th>
-            <td>{{item.volume}}m ({{MyTime(item.volumeTemps)}})</td>
+            <td colspan="2">Rec/series : 3'</td>
+            <th style="text-align: right;">volume</th>
+            <td colspan="2" style="text-align: right;">{{item.volume}}m ( {{MyTime(item.volumeTemps)}})</td>
           </tr>
         </table>
       </div>

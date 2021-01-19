@@ -46,13 +46,22 @@ td{ font-size: .8rem;
 }
 .consign{
     width: 100%;
+    font-size: .8rem;
     font-weight: 300;
-    text-align: right;
-    padding-right: 10rem;
-    color: #16c79a;
+    display: flex;
+    justify-content: space-evenly;
 }
 .colore{
     background-color: #bedcfa;
+}
+.bleu{
+    color: rgb(32, 54, 253);
+}
+.vert{
+    color: rgb(13, 189, 13);
+}
+.rec{
+    background-color: rgb(184, 250, 184);
 }
 @media only screen and (max-width: 576px) {
     .box{ 
@@ -93,10 +102,11 @@ td{ font-size: .8rem;
         top:auto;
     }
     .consign{
-        width: 90%;
+    flex-direction: column;       
         text-align: center;
-        padding: 0;
-
+    }
+    .consign p{
+        margin: 0;
     }
 
 }

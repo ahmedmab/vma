@@ -3,8 +3,8 @@
 
   <div id="accordion">
     <div class="card">
-      <div class="card-header">
-        <a class="card-link" data-toggle="collapse" href="#article">
+      <div [hidden]="hidd" class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#article" (click)="hidd = true">
           Qu'est-ce que la VMA ? </a>
       </div>
       <div id="article" class="collapse show" data-parent="#accordion">
@@ -29,38 +29,33 @@
         </article>
       </div>
     </div>
-
     <div class="card">
       <div class="card-header">
-        <a class="card-link" data-toggle="collapse" href="#vameval" (click)="resetVal()">
-          Test VAMEVA (cazorla) </a>
+        <a class="collapsed card-link" data-toggle="collapse" href="#demicooper" (click)="resetVal(); hiddTogle()">
+          Test de demi-COOPER </a>
       </div>
-      <div id="vameval" class="collapse" data-parent="#accordion">
+      <div id="demicooper" class="collapse" data-parent="#accordion">
         <div class="card-body">
           <div class="test">
-
+           
               <div class="grid-card">
                 <div class="description">
-                  <h3>Test VAMEVA (cazorla)</h3>
-                  <p class="description-text">Ce Test se déroule sur une intensité progressive. Des
-                    plots sont installés tous les 20 mètres autour de la piste, on doit atteindre chacun d’eux au moment
-                    où l’on
-                    entend un signal sonore.</p>
+                  <h3>Test de demi-COOPER</h3>
+                  <p class="description-text">Ce test se déroule sur une intensité progressive. Après un échauffement,
+                    on doit
+                    parcourir la plus grande distance possible en 6 minutes.</p>
                   <div class="dero">
                     <p class="dero-titre h6">Déroulement du test :</p>
-                    <p class="dero-text">Déroulement du test : vous commencez à une vitesse de 8 km/h et
-                      au fur et à mesure que vous courez, la vitesse va s’accélérer de 0,5 km/h toutes les minutes.
-                      Votre VMA
-                      est déterminée dès que vous entendez le signal sonore et que vous avez un retard d’au moins deux
-                      mètres
-                      par rapport au plot que vous devriez avoir atteint.</p>
+                    <p class="dero-text">Déroulement du test : vous avez parcouru 1560 mètres en 6
+                      minutes, vous divisez votre distance parcourue par 100 et vous obtenez votre VMA (1560/100 = 15,6
+                      km/h).</p>
                   </div>
                 </div>
                 <div class="form">
                   <div class="form-box">
                     <!-- Name input -->
                     <div class="form-outline">
-                      <label class="form-label" for="form5Example1">Palier</label>
+                      <label class="form-label" for="form5Example1">distance(m)</label>
                       <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input"
                         required />
                       <small class="msg" style="color: red;"
@@ -68,7 +63,7 @@
                     </div>
                     <!-- Submit button -->
                     <div class="btn-calc">
-                      <button class="btn btn-warning" (click)="calculVameval(input)">Clalculer</button>
+                      <button class="btn btn-warning" (click)="calculDemiCooper(input)">Clalculer</button>
                     </div>
                   </div>
 
@@ -87,7 +82,60 @@
 
     <div class="card">
       <div class="card-header">
-        <a class="collapsed card-link" data-toggle="collapse" href="#navette" (click)="resetVal()">
+        <a class="collapsed card-link" data-toggle="collapse" href="#cooper" (click)="resetVal(); hiddTogle()">
+          Test de COOPER </a>
+      </div>
+      <div id="cooper" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <div class="test">
+         
+              <div class="grid-card">
+                <div class="description">
+                  <h3>Test de COOPER</h3>
+                  <p class="description-text">Ce test permet notamment d'estimer le
+                    VO2Max d'une personne. Il s'agit de parcourir la plus grande distance
+                    possible en 12 minutes à intensité stable en course à pied.
+                  </p>
+                  <div class="dero">
+                    <p class="dero-titre h6">Déroulement du test :</p>
+                    <p class="dero-text">vous avez parcouru 2,6km en 12min. selon la formule suivante
+                      VO2max = (22,35 X Distance en km) – 11,288 alors votre VO2max = 22,35 X 2,6 = 58,11 – 11,288 =
+                      46,8
+                      ml/mn/kg.</p>
+                  </div>
+                </div>
+
+                <div class="form">
+                  <div class="form-box">
+                    <!-- Name input -->
+                    <div class="form-outline">
+                      <label class="form-label" for="form5Example1">distance(m)</label>
+                      <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input"
+                        required />
+                      <small class="msg" style="color: red;"
+                        *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
+                    </div>
+                    <!-- Submit button -->
+                    <div class="btn-calc">
+                      <button class="btn btn-warning" (click)="calculCooper(input)">Clalculer</button>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="result">
+                  <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
+                  <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
+                </div>
+
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#navette" (click)="resetVal(); hiddTogle()">
           Test Navette de Luc Léger </a>
       </div>
       <div id="navette" class="collapse" data-parent="#accordion">
@@ -142,7 +190,62 @@
 
     <div class="card">
       <div class="card-header">
-        <a class="collapsed card-link" data-toggle="collapse" href="#astrand" (click)="resetVal()">
+        <a class="card-link" data-toggle="collapse" href="#vameval" (click)="resetVal(); hiddTogle()">
+          Test VAMEVA (cazorla) </a>
+      </div>
+      <div id="vameval" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <div class="test">
+
+              <div class="grid-card">
+                <div class="description">
+                  <h3>Test VAMEVA (cazorla)</h3>
+                  <p class="description-text">Ce Test se déroule sur une intensité progressive. Des
+                    plots sont installés tous les 20 mètres autour de la piste, on doit atteindre chacun d’eux au moment
+                    où l’on
+                    entend un signal sonore.</p>
+                  <div class="dero">
+                    <p class="dero-titre h6">Déroulement du test :</p>
+                    <p class="dero-text">Déroulement du test : vous commencez à une vitesse de 8 km/h et
+                      au fur et à mesure que vous courez, la vitesse va s’accélérer de 0,5 km/h toutes les minutes.
+                      Votre VMA
+                      est déterminée dès que vous entendez le signal sonore et que vous avez un retard d’au moins deux
+                      mètres
+                      par rapport au plot que vous devriez avoir atteint.</p>
+                  </div>
+                </div>
+                <div class="form">
+                  <div class="form-box">
+                    <!-- Name input -->
+                    <div class="form-outline">
+                      <label class="form-label" for="form5Example1">Palier</label>
+                      <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input"
+                        required />
+                      <small class="msg" style="color: red;"
+                        *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
+                    </div>
+                    <!-- Submit button -->
+                    <div class="btn-calc">
+                      <button class="btn btn-warning" (click)="calculVameval(input)">Clalculer</button>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="result">
+                  <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
+                  <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
+                </div>
+
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#astrand" (click)="resetVal(); hiddTogle()">
           Test d'ASTRAND </a>
       </div>
       <div id="astrand" class="collapse" data-parent="#accordion">
@@ -177,111 +280,6 @@
                     <!-- Submit button -->
                     <div class="btn-calc">
                       <button class="btn btn-warning" (click)="calculAstrand(input)">Clalculer</button>
-                    </div>
-                  </div>
-
-                </div>
-                <div class="result">
-                  <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
-                  <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
-                </div>
-
-              </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <a class="collapsed card-link" data-toggle="collapse" href="#demicooper" (click)="resetVal()">
-          Test de demi-COOPER </a>
-      </div>
-      <div id="demicooper" class="collapse" data-parent="#accordion">
-        <div class="card-body">
-          <div class="test">
-           
-              <div class="grid-card">
-                <div class="description">
-                  <h3>Test de demi-COOPER</h3>
-                  <p class="description-text">Ce test se déroule sur une intensité progressive. Après un échauffement,
-                    on doit
-                    parcourir la plus grande distance possible en 6 minutes.</p>
-                  <div class="dero">
-                    <p class="dero-titre h6">Déroulement du test :</p>
-                    <p class="dero-text">Déroulement du test : vous avez parcouru 1560 mètres en 6
-                      minutes, vous divisez votre distance parcourue par 100 et vous obtenez votre VMA (1560/100 = 15,6
-                      km/h).</p>
-                  </div>
-                </div>
-                <div class="form">
-                  <div class="form-box">
-                    <!-- Name input -->
-                    <div class="form-outline">
-                      <label class="form-label" for="form5Example1">distance(m)</label>
-                      <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input"
-                        required />
-                      <small class="msg" style="color: red;"
-                        *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
-                    </div>
-                    <!-- Submit button -->
-                    <div class="btn-calc">
-                      <button class="btn btn-warning" (click)="calculDemiCooper(input)">Clalculer</button>
-                    </div>
-                  </div>
-
-                </div>
-                <div class="result">
-                  <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
-                  <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
-                </div>
-
-              </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <a class="collapsed card-link" data-toggle="collapse" href="#cooper" (click)="resetVal()">
-          Test de COOPER </a>
-      </div>
-      <div id="cooper" class="collapse" data-parent="#accordion">
-        <div class="card-body">
-          <div class="test">
-         
-              <div class="grid-card">
-                <div class="description">
-                  <h3>Test de COOPER</h3>
-                  <p class="description-text">Ce test permet notamment d'estimer le
-                    VO2Max d'une personne. Il s'agit de parcourir la plus grande distance
-                    possible en 12 minutes à intensité stable en course à pied.
-                  </p>
-                  <div class="dero">
-                    <p class="dero-titre h6">Déroulement du test :</p>
-                    <p class="dero-text">vous avez parcouru 2,6km en 12min. selon la formule suivante
-                      VO2max = (22,35 X Distance en km) – 11,288 alors votre VO2max = 22,35 X 2,6 = 58,11 – 11,288 =
-                      46,8
-                      ml/mn/kg.</p>
-                  </div>
-                </div>
-
-                <div class="form">
-                  <div class="form-box">
-                    <!-- Name input -->
-                    <div class="form-outline">
-                      <label class="form-label" for="form5Example1">distance(m)</label>
-                      <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input"
-                        required />
-                      <small class="msg" style="color: red;"
-                        *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
-                    </div>
-                    <!-- Submit button -->
-                    <div class="btn-calc">
-                      <button class="btn btn-warning" (click)="calculCooper(input)">Clalculer</button>
                     </div>
                   </div>
 

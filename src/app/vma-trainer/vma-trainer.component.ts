@@ -13,7 +13,7 @@ import 'jspdf-autotable';
 })
 export class VmaTrainerComponent implements OnInit {
 
-  vma = new FormControl('', [Validators.required, Validators.min(0)])
+  vma = new FormControl('', [Validators.required, Validators.min(1)])
   getErrorMessage() {
     if (this.vma.hasError('required')) {
       return 'vous devez saisir une valeur';
