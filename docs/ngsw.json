@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1611017754593,
+  "timestamp": 1611018634350,
   "index": "https://ahmedmab.github.io/vma/index.html",
   "assetGroups": [
     {
@@ -35,11 +35,11 @@
         "https://ahmedmab.github.io/vma/assets/icons/icon-vma128x128.png",
         "https://ahmedmab.github.io/vma/assets/icons/icon-vma144x144.png",
         "https://ahmedmab.github.io/vma/assets/icons/icon-vma152x152.png",
+        "https://ahmedmab.github.io/vma/assets/icons/icon-vma192x192.png",
+        "https://ahmedmab.github.io/vma/assets/icons/icon-vma384x384.png",
         "https://ahmedmab.github.io/vma/assets/icons/icon-vma512x512.png",
         "https://ahmedmab.github.io/vma/assets/icons/icon-vma72x72.png",
         "https://ahmedmab.github.io/vma/assets/icons/icon-vma96x96.png",
-        "https://ahmedmab.github.io/vma/assets/icons/icon-vma_192x192.png",
-        "https://ahmedmab.github.io/vma/assets/icons/icon-vma_384x384.png",
         "https://ahmedmab.github.io/vma/assets/images/bg.jpg",
         "https://ahmedmab.github.io/vma/assets/images/start.jpg"
       ],
@@ -54,11 +54,11 @@
     "https://ahmedmab.github.io/vma/assets/icons/icon-vma128x128.png": "5546d7cd0045ea0e9018aae8c24a7c9fffe51651",
     "https://ahmedmab.github.io/vma/assets/icons/icon-vma144x144.png": "42434131150c8228ea9a51e53d4b394326d7957f",
     "https://ahmedmab.github.io/vma/assets/icons/icon-vma152x152.png": "669a12c5f4c8d062ad667689abef2c6bd606b056",
+    "https://ahmedmab.github.io/vma/assets/icons/icon-vma192x192.png": "b9ea1cb418ba48129cc945c8dd3e7e5361231d84",
+    "https://ahmedmab.github.io/vma/assets/icons/icon-vma384x384.png": "2dbb4ed328059e4193fea066f54c71a1af8045cb",
     "https://ahmedmab.github.io/vma/assets/icons/icon-vma512x512.png": "51365f88266fac9208693086b1f7041285a6041e",
     "https://ahmedmab.github.io/vma/assets/icons/icon-vma72x72.png": "bd0c969620df4371c9dd38426c7b5c430b4e763c",
     "https://ahmedmab.github.io/vma/assets/icons/icon-vma96x96.png": "4906267fc3efbd341a8f57954c3a949627717e82",
-    "https://ahmedmab.github.io/vma/assets/icons/icon-vma_192x192.png": "b9ea1cb418ba48129cc945c8dd3e7e5361231d84",
-    "https://ahmedmab.github.io/vma/assets/icons/icon-vma_384x384.png": "2dbb4ed328059e4193fea066f54c71a1af8045cb",
     "https://ahmedmab.github.io/vma/assets/images/bg.jpg": "6f51474b2f1aa49f413ccfacbd2596e8533d1131",
     "https://ahmedmab.github.io/vma/assets/images/start.jpg": "d084689db21d569f74c155865b6b484ed609ee4b",
     "https://ahmedmab.github.io/vma/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
