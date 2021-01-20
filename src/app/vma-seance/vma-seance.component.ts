@@ -27,7 +27,6 @@ export class VmaSeanceComponent implements OnInit {
     name: '',
     color: ''
   }
-  volumeTotale
   plan = []
   longue = [4000, 4600, 5200, 5800, 7000]
   courte = [3000, 3500, 4000, 4500, 5000]
@@ -164,7 +163,7 @@ export class VmaSeanceComponent implements OnInit {
               (n == 4) ? seance.serie = 2 :
                 seance.serie = 3
       } else if (t < 110) {
-        (n == 1) ? seance.serie = 1 :
+        (n == 1) ? seance.serie = 2 :
           (n == 2) ? seance.serie = 2 :
             (n == 3) ? seance.serie = 3 :
               (n == 4) ? seance.serie = 3 :
@@ -183,12 +182,9 @@ export class VmaSeanceComponent implements OnInit {
     //------------
     // Repetition pour chaque serie depend du volume de travail 
     seance.repetition = Math.floor((seance.volume / seance.distance) / seance.serie)
-    let restRepetition: number = Math.floor(seance.volume / seance.distance) % seance.serie
-
-    //-----
-    seance.volume = seance.typeArr[seance.niveau - 1] - (seance.volume % seance.distance)
-    seance.volumeTemps = Math.floor(seance.volume / (((f.vmaVal * f.percent) / 100 * 1000) / 3600))
-
+    //Update volume de travail 
+    seance.volume = seance.serie * (seance.repetition * seance.distance)
+    seance.volumeTemps = seance.serie * (seance.repetition * seance.dure)
     //calculer Recuperation
     if (seance.dure <= 60) {
       seance.recuperation = seance.dure - (seance.dure % 5)
@@ -230,7 +226,6 @@ export class VmaSeanceComponent implements OnInit {
     this.num = 1
   }
   delet(index: number) {
-    this.volumeTotale = this.volumeTotale - parseInt(this.plan[index].volumeSeri, 10)
     this.plan.splice(index, 1)
     this.num--
   }
@@ -272,7 +267,7 @@ export class VmaSeanceComponent implements OnInit {
 
     doc.setFontSize(24);
     doc.setTextColor(7, 70, 139);
-    doc.text(`Plan d'entrainment`, doc.internal.pageSize.getWidth() / 2, 20, { align: "center" });
+    doc.text(`Plan d'entrainment`, doc.internal.pageSize.getWidth() / 2, 30, { align: "center" });
 
     doc.setFontSize(11);
     doc.setTextColor(100);
@@ -280,7 +275,7 @@ export class VmaSeanceComponent implements OnInit {
 
 
       (doc as any).autoTable({
-        margin: { top: 50 },
+        margin: { top: 60 },
 
         theme: 'striped',
         styles: {
@@ -296,33 +291,28 @@ export class VmaSeanceComponent implements OnInit {
           fontSize: 17,
           fontStyle: 'italic',
           padding: 0,
+          margin: [40,0,0,0]
         },
         columnStyles: {
           0: { fontStyle: 'bold' },
           1: { halign: 'center' },
         },
-        head: [['Séance ' + j++, { content: `type : ${element.type}`, styles: { fontSize: 13, halign: 'right', fontStyle: 'none' } }]],
+        head: [['Séance ' + j++,'', { content: `${element.type}`, styles: { fontSize: 13, halign: 'center', fontStyle: 'none' } },'']],
 
         body: [
-          [{ content: `${element.serie} X (  ${element.repetition} X ${element.distance}m ( ${this.MyTime(element.dure)})  )`, colSpan: 2, styles: { halign: 'center', fontSize: 16, fontStyle: 'bold', padding: 2 } }],
-          ['Vitesse :', `${element.vma * element.per / 100}  Km/h ${element.per}% de la VMA ( ${element.vma} km/h )`],
-          ['Récuperation :', this.MyTime(element.recuperation)],
-          ['Volume de Travail :', `${element.volume} m   ( ${this.MyTime(element.volumeTemps)} )`]
+          [`Vitesse :  ${element.vma * element.per / 100}  Km/h` ,'',  `${element.per}% de la VMA ( ${element.vma} km/h )`,''],
+          [{ content: `${element.serie} X (  ${element.repetition} X ${element.distance}m ( ${this.MyTime(element.dure)})  )     Réc : ${this.MyTime(element.recuperation)}`, colSpan: 4, styles: { halign: 'center', fontSize: 16, fontStyle: 'bold', padding: 2 } }],
+          ['Réc/series : 3\'','', `Volume de Travail : ${element.volume} m   ( ${this.MyTime(element.volumeTemps)} )`]
 
         ],
 
       });
     })
 
-    doc.setFontSize(15);
-    doc.setTextColor(20);
-
-    let finalY = (doc as any).lastAutoTable.finalY + 20; // The y position on the page
-    doc.text(`Volume totale : ${this.volumeTotale} m`, doc.internal.pageSize.getWidth() / 2, finalY, { align: "center" })
     //signature
     doc.setTextColor(120);
     doc.line(30, footer - 15, 420, footer - 15); // horizontal line
-    doc.text('vmacalcul.com', 30, footer)
+    doc.text('vma-up.web.app', 30, footer)
     // Open PDF document in new tab
     doc.output('dataurlnewwindow')
     // Download PDF document  

@@ -126,7 +126,7 @@ export class VmaTrainerComponent implements OnInit {
     doc.setFont('sans-serif', 'none')
     doc.setTextColor(120);
     doc.line(30, footer - 15, 600, footer - 15); // horizontal line
-    doc.text('vmacalcul.com', 30, footer)
+    doc.text('vma-up.web.app', 30, footer)
     // Open PDF document in new tab
     doc.output('dataurlnewwindow')
     // Download PDF document  
