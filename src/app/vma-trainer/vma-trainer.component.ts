@@ -1,4 +1,4 @@
-import { element } from 'protractor';
+import { MyTimePipe } from './../my-time.pipe';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatTabChangeEvent } from '@angular/material/tabs';
@@ -82,18 +82,6 @@ export class VmaTrainerComponent implements OnInit {
     this.vma110 = (vma * 110) / 100 + " km/h"
     this.vma115 = (vma * 115) / 100 + " km/h"
     
-  }
-
-  MyTime(STemps) {
-    var result = "";
-    // suppressions des chiffres après la virgule
-    STemps = (Math.round(STemps * 10)) / 10;
-
-    var MyMinut = (STemps - (STemps % 60)) / 60;
-    if (MyMinut > 0) { result = result + MyMinut + ` ' ` };
-    var MySecond = (Math.round((STemps % 60) * 10)) / 10;
-    if (MySecond > 0) { result = result + MySecond.toFixed(0) + ` "` };
-    return result
   }
 
   tabChanged(tabChangeEvent: MatTabChangeEvent): void {

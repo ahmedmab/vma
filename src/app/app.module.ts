@@ -14,6 +14,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { MyTimePipe } from './my-time.pipe';
 
 
 
@@ -24,6 +25,7 @@ import { environment } from '../environments/environment';
     VmaCalculComponent,
     VmaTrainerComponent,
     VmaSeanceComponent,
+    MyTimePipe,
   ],
   imports: [
     BrowserModule,
