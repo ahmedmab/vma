@@ -1,4 +1,4 @@
-*, *::before, *::after{ box-sizing: border-box;}
+@import url('https://fonts.googleapis.com/css2?family=Wallpoet&display=swap');
 .body{
     padding: 0%;
     margin: 0%;
@@ -10,6 +10,23 @@
     grid-template-areas: "head head head"
                           ". main ."
                           "footer footer footer";
+}
+nav .brand{
+    font-family: 'Wallpoet', cursive;
+    font-size: 36px;
+}
+.not{
+    position: absolute;
+    left: 108px;
+    top: 22px;
+    font-family: cursive;
+    font-size: 20px;
+    border-radius: 50%;
+    padding: 2px;
+    background-color: white;
+    color: #4286f5;
+    opacity: .7;
+
 }
 
   header {

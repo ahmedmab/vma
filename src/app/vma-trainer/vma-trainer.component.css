@@ -80,9 +80,10 @@ td{ font-size: .8rem;
     .btns{
         flex-direction: row;
         width: 100%;
+        gap: 2%;
     }
     .btns button{
-        width: 50%;
+        width: 49%;
     }
        
     .table-box{

@@ -155,6 +155,10 @@ min-width: fit-content;
  .box-1, .box-2{
     padding: 0;
  }
+ .add{
+    font-size: 120%;
+
+ }
  
    form{
        width: 320px;

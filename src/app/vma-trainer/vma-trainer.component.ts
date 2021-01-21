@@ -102,7 +102,6 @@ export class VmaTrainerComponent implements OnInit {
   toPdf() {
     var doc = new jsPDF('l', 'px', 'a4');
     let typeTable: string
-    let finalY = (doc as any).autoTable.previous.finalY + 20
     let centerX = doc.internal.pageSize.getWidth() / 2
     let footer = doc.internal.pageSize.getHeight() - 10
 
@@ -115,13 +114,21 @@ export class VmaTrainerComponent implements OnInit {
       keywords: 'eps, vma, sport, runing',
       creator: 'MEEE'
     });
-    //
-    doc.setFontSize(20);
+    doc.setTextColor(50);
+    doc.setFontSize(16);
+    doc.text(`VMA: ${this.vma.value} km/h`, 30, 62);
+    doc.setTextColor(20);
+    doc.setFontSize(25);
     doc.setFont("helvetica", "bold");
-    doc.text(`Allure par ${typeTable}`, centerX, 30, { align: "center" });
+    doc.text(`Allure de course par ${typeTable}`, centerX, 60, { align: "center" });
     (doc as any).autoTable({
       html: this.tab,
-      startY: 50,
+      startY: 80,
+      columnStyles: {
+        0: {
+          fontStyle: 'bold',
+        }},
+
     })
     doc.setFont('sans-serif', 'none')
     doc.setTextColor(120);

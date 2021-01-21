@@ -120,7 +120,6 @@ export class VmaSeanceComponent implements OnInit {
   //
   //seance objet
   generer(f) {
-    console.log(this.seriForm)
     let seance = {
       vma: 0,
       type: '',
@@ -258,13 +257,15 @@ export class VmaSeanceComponent implements OnInit {
       keywords: 'eps, vma, sport, runing',
       creator: 'MEEE'
     });
-
+   
     let j = 1;
     this.plan.forEach(el => {
-      console.log(el)
 
     })
+    doc.setTextColor(30);
+    doc.setFontSize(12);
 
+  
     doc.setFontSize(24);
     doc.setTextColor(7, 70, 139);
     doc.text(`Plan d'entrainment`, doc.internal.pageSize.getWidth() / 2, 30, { align: "center" });
@@ -275,7 +276,7 @@ export class VmaSeanceComponent implements OnInit {
 
 
       (doc as any).autoTable({
-        margin: { top: 60 },
+        margin: { top: 70 },
 
         theme: 'striped',
         styles: {
@@ -283,26 +284,26 @@ export class VmaSeanceComponent implements OnInit {
           font: 'helvetica',
           cellPadding: 2,
           minCellHeight: 2,
+
         },
 
         headStyles: {
           fillColor: [255, 255, 255],
           textColor: [0, 0, 10],
-          fontSize: 17,
+          fontSize: 18,
           fontStyle: 'italic',
-          padding: 0,
-          margin: [40,0,0,0]
+          padding: 2,
         },
         columnStyles: {
           0: { fontStyle: 'bold' },
           1: { halign: 'center' },
         },
-        head: [['Séance ' + j++,'', { content: `${element.type}`, styles: { fontSize: 13, halign: 'center', fontStyle: 'none' } },'']],
+        head: [['Séance ' + j++, '', { content: `${element.type}`, styles: { fontSize: 13, halign: 'center', fontStyle: 'none' } }, '']],
 
         body: [
-          [`Vitesse :  ${element.vma * element.per / 100}  Km/h` ,'',  `${element.per}% de la VMA ( ${element.vma} km/h )`,''],
+          [`Vitesse :  ${element.vma * element.per / 100}  Km/h`, '', `${element.per}% de la VMA ( ${element.vma} km/h )`, ''],
           [{ content: `${element.serie} X (  ${element.repetition} X ${element.distance}m ( ${this.MyTime(element.dure)})  )     Réc : ${this.MyTime(element.recuperation)}`, colSpan: 4, styles: { halign: 'center', fontSize: 16, fontStyle: 'bold', padding: 2 } }],
-          ['Réc/series : 3\'','', `Volume de Travail : ${element.volume} m   ( ${this.MyTime(element.volumeTemps)} )`]
+          ['Réc/series : 3\'', '', `Volume de Travail : ${element.volume} m   ( ${this.MyTime(element.volumeTemps)} )`]
 
         ],
 
