@@ -1,4 +1,4 @@
-import { element } from 'protractor';
+import { MyTimePipe } from './../my-time.pipe';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { jsPDF } from 'jspdf';
@@ -23,18 +23,26 @@ export class VmaSeanceComponent implements OnInit {
     vmaVal: new FormControl('', [Validators.required, Validators.min(1), Validators.max(30)]),
     param: new FormControl('', Validators.required)
   })
+  //--declaration des variables
+  time: boolean = false
+  inputype: string = ' métres'
+  num: number = 1
+  min: number
+  sec: number
+  cardType: string
+  //--
   stype = {
     name: '',
     color: ''
   }
   plan = []
-  longue = [4000, 4600, 5200, 5800, 7000]
-  courte = [3000, 3500, 4000, 4500, 5000]
-  moyenne = [3000, 3500, 4000, 4500, 6000]
+  longue = [3000, 4600, 5200, 5800, 7000]
+  courte = [2000, 3500, 4000, 4500, 5000]
+  moyenne = [2500, 3500, 4000, 4500, 6000]
   cr: boolean = true
   my: boolean = true
   lg: boolean = true
-
+//--------------------------
   seanceCourte() {
     this.stype.name = 'Courte '
     this.stype.color = '#ef4f4f'
@@ -155,21 +163,21 @@ export class VmaSeanceComponent implements OnInit {
 
     //calculer NB de serie
     const serieCalcul = (t, n) => {
-      if (t < 100) {
+      if (t < 95) {
         (n == 1) ? seance.serie = 1 :
           (n == 2) ? seance.serie = 1 :
             (n == 3) ? seance.serie = 2 :
               (n == 4) ? seance.serie = 2 :
                 seance.serie = 3
-      } else if (t < 110) {
-        (n == 1) ? seance.serie = 2 :
-          (n == 2) ? seance.serie = 2 :
+      } else if (t < 105) {
+        (n == 1) ? seance.serie = 4 :
+          (n == 2) ? seance.serie = 3 :
             (n == 3) ? seance.serie = 3 :
-              (n == 4) ? seance.serie = 3 :
+              (n == 4) ? seance.serie = 2 :
                 seance.serie = 4
       }
       else {
-        (n == 1) ? seance.serie = 2 :
+        (n == 1) ? seance.serie = 4 :
           (n == 2) ? seance.serie = 2 :
             (n == 3) ? seance.serie = 3 :
               (n == 4) ? seance.serie = 3 :
@@ -207,14 +215,6 @@ export class VmaSeanceComponent implements OnInit {
 
   //------------------------
 
-  time: boolean = false
-  inputype: string = ' métres'
-  num: number = 1
-  min: number
-  sec: number
-  cardType: string
-
-
   togle() {
     this.time = !this.time
     this.time ? this.inputype = ' seconds' : this.inputype = ' métres'
@@ -227,20 +227,6 @@ export class VmaSeanceComponent implements OnInit {
   delet(index: number) {
     this.plan.splice(index, 1)
     this.num--
-  }
-
-
-  //convertir les seconds en min et sec
-  MyTime(STemps) {
-    var result = "";
-    // suppressions des chiffres après la virgule
-    STemps = (Math.round(STemps * 10)) / 10;
-
-    var MyMinut = (STemps - (STemps % 60)) / 60;
-    if (MyMinut > 0) { result = result + MyMinut + ` ' ` };
-    var MySecond = (Math.round((STemps % 60) * 10)) / 10;
-    if (MySecond > 0) { result = result + MySecond + ` " ` };
-    return result
   }
 
   // data pour le document PDF
@@ -301,9 +287,9 @@ export class VmaSeanceComponent implements OnInit {
         head: [['Séance ' + j++, '', { content: `${element.type}`, styles: { fontSize: 13, halign: 'center', fontStyle: 'none' } }, '']],
 
         body: [
-          [`Vitesse :  ${element.vma * element.per / 100}  Km/h`, '', `${element.per}% de la VMA ( ${element.vma} km/h )`, ''],
-          [{ content: `${element.serie} X (  ${element.repetition} X ${element.distance}m ( ${this.MyTime(element.dure)})  )     Réc : ${this.MyTime(element.recuperation)}`, colSpan: 4, styles: { halign: 'center', fontSize: 16, fontStyle: 'bold', padding: 2 } }],
-          ['Réc/series : 3\'', '', `Volume de Travail : ${element.volume} m   ( ${this.MyTime(element.volumeTemps)} )`]
+          [`Vitesse :  ${element.vma * element.per / 100}  Km/h`, '', {content:`${element.per}% de la VMA ( ${element.vma} km/h )`,styles: { halign: 'center'}},''],
+          [{ content: `${element.serie} X (  ${element.repetition} X ${element.distance}m ( ${MyTimePipe.prototype.transform(element.dure)})  )     Réc : ${MyTimePipe.prototype.transform(element.recuperation)}`, colSpan: 4, styles: { halign: 'center', fontSize: 16, fontStyle: 'bold', padding: 2 } }],
+          ['Réc/series : 3\'', '', {content:`Volume de Travail : ${element.volume} m   ( ${MyTimePipe.prototype.transform(element.volumeTemps)} )`,styles: { halign: 'center' }},'']
 
         ],
 

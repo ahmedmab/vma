@@ -87,12 +87,12 @@
           </tr>
           <tr>
             <th class="seri" colspan="5">{{item.serie}} X ( {{item.repetition}} X {{item.distance}}m (
-              {{MyTime(item.dure)}}) )</th>
-              <td style="text-align: right;">Rec: <strong>{{MyTime(item.recuperation)}}</strong></td>
+              {{item.dure | myTime}}) )</th>
+              <td style="text-align: right;">Rec: <strong>{{item.recuperation | myTime}}</strong></td>
           </tr>
           <tr>
             <td colspan="2">Rec/series : <strong>3'</strong></td>
-            <td colspan="4" style="text-align: right;">volume :<strong>{{' ' +item.volume}}m ( {{MyTime(item.volumeTemps)}})</strong></td>
+            <td colspan="4" style="text-align: right;">volume :<strong>{{' ' +item.volume}}m ( {{item.volumeTemps | myTime}})</strong></td>
           </tr>
         </table>
       </div>
