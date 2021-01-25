@@ -173,7 +173,7 @@ export class VmaSeanceComponent implements OnInit {
         (n == 1) ? seance.serie = 4 :
           (n == 2) ? seance.serie = 3 :
             (n == 3) ? seance.serie = 3 :
-              (n == 4) ? seance.serie = 2 :
+              (n == 4) ? seance.serie = 3 :
                 seance.serie = 4
       }
       else {

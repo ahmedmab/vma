@@ -1,6 +1,6 @@
 {
-  "name": "vma",
-  "short_name": "vma",
+  "name": "vmaup",
+  "short_name": "vma up",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
@@ -53,7 +53,7 @@
       "src": "assets/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "maskable"
     }
   ]
 }
