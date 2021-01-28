@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { MyTimePipe } from './../my-time.pipe';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
@@ -33,37 +34,42 @@ export class VmaSeanceComponent implements OnInit {
   //--
   stype = {
     name: '',
+    type:'',
     color: ''
   }
   plan = []
   longue = [3000, 4600, 5200, 5800, 7000]
   courte = [2000, 3500, 4000, 4500, 5000]
   moyenne = [2500, 3500, 4000, 4500, 6000]
-  cr: boolean = true
-  my: boolean = true
-  lg: boolean = true
+  cr: boolean = false
+  lg: boolean = false
+  cn: boolean = false
 //--------------------------
   seanceCourte() {
-    this.stype.name = 'Courte '
-    this.stype.color = '#ef4f4f'
+    this.stype.name = 'Effort intermittent Court-Court '
+    this.stype.type = 'Court - Court'
+    this.stype.color = 'crimson'
     this.cr = true
-    this.my = false
-    this.lg = false
-  }
-  seanceMoyenne() {
-    this.stype.name = 'Moyenne '
-    this.stype.color = 'Magenta'
-    this.cr = false
-    this.my = true
+    this.cn = false
     this.lg = false
   }
   seanceLongue() {
-    this.stype.name = 'Longue '
+    this.stype.name = 'Effort intermittent Long-Long '
+    this.stype.type = 'Long - Long'
     this.stype.color = '#22bb33'
     this.cr = false
-    this.my = false
+    this.cn = false
     this.lg = true
   }
+  seanceContinue() {
+    this.stype.name = 'Effort Continu '
+    this.stype.type = 'Continu'
+    this.stype.color = 'Magenta'
+    this.cr = false
+    this.cn = true
+    this.lg = false
+  }
+  
 
   vmaErrorMessage() {
     if (this.seriForm.get('vmaVal').hasError('required')) {
@@ -78,7 +84,7 @@ export class VmaSeanceComponent implements OnInit {
     return ''
   }
   percentErrorMessage() {
-    if (this.seriForm.get('percent').hasError('required') && this.seriForm.get('percent').value !== 'allure') {
+    if (this.seriForm.get('percent').hasError('required')) {
       return `vous devez choisir l'intensité de l'effort`;
     }
     return '';
@@ -92,33 +98,35 @@ export class VmaSeanceComponent implements OnInit {
 
   effortControleMessage() {
     if (this.time) {
-      if (this.stype.name == 'Courte ' && (this.seriForm.get('param').value > 76 || this.seriForm.get('param').value < 1)) {
-        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Courte
-         l'effort doit etre entre 15" ( ${Math.floor(15 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 1' 15" ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
+      if (this.cr && (this.seriForm.get('param').value > 75 || this.seriForm.get('param').value < 15)) {
+        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans l'intermittent Court-Court
+         l'effort doit etre entre 15 s ( ${Math.floor(15 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 1 min 15 s ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
       }
-      else if (this.stype.name == 'Moyenne ' && (this.seriForm.get('param').value < 76 || this.seriForm.get('param').value > 150)) {
-        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Moyenne
-         l'effort doit etre entre 1' 15" ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 2' 30" ( ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
+      else if (this.lg && (this.seriForm.get('param').value < 76 || this.seriForm.get('param').value > 240)) {
+        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans l'intermittent Long-Long
+         l'effort doit etre entre 1 min 15 s ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 4 min ( ${Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
       }
-      else if (this.stype.name == 'Longue ' && this.seriForm.get('param').value < 150) {
-        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Longue
-         l'effort doit etre entre 2' 30" ( ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 4' ( ${Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
+      else if (this.cn && this.seriForm.get('param').value < 600 ) {
+        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de type Continu
+         l'effort doit etre supérieur à 10 min ( ${Math.floor(600 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m )`
       }
+      
       return false
     }
     else {
-      if (this.stype.name == 'Courte ' && (this.seriForm.get('param').value > Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600) || this.seriForm.get('param').value < 1)) {
-        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Courte
-         l'effort doit etre entre 15" ( ${Math.floor(15 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 1' 15" ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
+      if (this.cr && (this.seriForm.get('param').value > Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600) || this.seriForm.get('param').value < Math.floor(15 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600))) {
+        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans l'intermittent Court-Court
+         l'effort doit etre entre 15 s ( ${Math.floor(15 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 1' 15" ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
       }
-      else if (this.stype.name == 'Moyenne ' && (this.seriForm.get('param').value < Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600) || this.seriForm.get('param').value > Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600))) {
-        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Moyenne
-        l'effort doit etre entre 1' 15" ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 2' 30" ( ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
+      else if (this.lg && (this.seriForm.get('param').value < Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600) || this.seriForm.get('param').value > Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600))) {
+        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans l'intermittent Long-Long
+        l'effort doit etre entre 1 min 15 s ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 4 min ( ${Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
       }
-      else if (this.stype.name == 'Longue ' && this.seriForm.get('param').value < Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)) {
-        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de VMA Longue
-        l'effort doit etre entre 2' 30" ( ${Math.floor(150 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 4' ( ${Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
+      else if (this.cn && this.seriForm.get('param').value < Math.floor(600 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)) {
+        return `Conseil du Coach : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de type Continu
+        l'effort doit etre supérieur à 10 min ( ${Math.floor(600 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) .`;
       }
+     
       return false
     }
 
@@ -142,7 +150,7 @@ export class VmaSeanceComponent implements OnInit {
       per: 0,
       recuperation: 30
     }
-    seance.type = this.stype.name
+    seance.type = this.stype.type
     seance.vma = f.vmaVal
     seance.per = f.percent
     seance.typeArr = (f.percent < 100) ? this.longue : (f.percent < 110) ? this.moyenne : this.courte;
@@ -245,6 +253,24 @@ export class VmaSeanceComponent implements OnInit {
     });
    
     let j = 1;
+    const head = [];
+    const body = (element)=> {
+      if(element.type !== 'Continu'){
+        return [
+      [`Vitesse :  ${element.vma * element.per / 100}  Km/h`, '', {content:`${element.per}% de la VMA ( ${element.vma} km/h )`,styles: { halign: 'center'}},''],
+      [{ content: `${element.serie} X (  ${element.repetition} X ${element.distance}m ( ${MyTimePipe.prototype.transform(element.dure)})  )     Réc : ${MyTimePipe.prototype.transform(element.recuperation)}`, colSpan: 4, styles: { halign: 'center', fontSize: 16, fontStyle: 'bold', padding: 2 } }],
+      ['Réc/series : 3\'', '', {content:`Volume de Travail : ${element.volume} m   ( ${MyTimePipe.prototype.transform(element.volumeTemps)} )`,styles: { halign: 'center' }},'']
+
+    ]}
+    else if (element.type == 'Continu') {
+      return [
+        [`Vitesse :  ${element.vma * element.per / 100}  Km/h`, '', {content:`${element.per}% de la VMA ( ${element.vma} km/h )`,styles: { halign: 'center'}},''],
+        [{ content: `Footing de ${element.distance}m ( ${MyTimePipe.prototype.transform(element.dure)} )`, colSpan: 4, styles: { halign: 'center', fontSize: 16, fontStyle: 'bold', padding: 2 } 
+      }],
+      ]
+    }
+    return '';
+  };
     this.plan.forEach(el => {
 
     })
@@ -286,12 +312,7 @@ export class VmaSeanceComponent implements OnInit {
         },
         head: [['Séance ' + j++, '', { content: `${element.type}`, styles: { fontSize: 13, halign: 'center', fontStyle: 'none' } }, '']],
 
-        body: [
-          [`Vitesse :  ${element.vma * element.per / 100}  Km/h`, '', {content:`${element.per}% de la VMA ( ${element.vma} km/h )`,styles: { halign: 'center'}},''],
-          [{ content: `${element.serie} X (  ${element.repetition} X ${element.distance}m ( ${MyTimePipe.prototype.transform(element.dure)})  )     Réc : ${MyTimePipe.prototype.transform(element.recuperation)}`, colSpan: 4, styles: { halign: 'center', fontSize: 16, fontStyle: 'bold', padding: 2 } }],
-          ['Réc/series : 3\'', '', {content:`Volume de Travail : ${element.volume} m   ( ${MyTimePipe.prototype.transform(element.volumeTemps)} )`,styles: { halign: 'center' }},'']
-
-        ],
+        body: body(element),
 
       });
     })

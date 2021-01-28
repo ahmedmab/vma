@@ -7,10 +7,10 @@
     justify-content: space-around;
 }
 .s-type{
-    width: 33%;
-    min-width: fit-content;
-    color: #333;
-    font-size: 90%;
+    min-width: 33%;
+}
+.continu{
+    color: magenta;
 }
 .page{
     background-color: white;
@@ -28,6 +28,7 @@
     border-radius: 3px;
 }
 form{
+    min-width: 320px;
     max-width: 500px;
     margin: .5rem auto;
     background-color: whitesmoke;
@@ -138,7 +139,7 @@ min-width: fit-content;
     padding: 5px;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 676px) {
     /* For mobile phones: */
     .seanc{
         width: 100%;
