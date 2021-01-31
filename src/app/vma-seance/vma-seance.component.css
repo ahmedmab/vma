@@ -113,6 +113,9 @@ min-width: fit-content;
 .table{
     background-color: white;
 }
+.table td{
+    text-align: center;
+}
 .close{
     position: relative;
 }
@@ -168,6 +171,14 @@ min-width: fit-content;
    .item5{
     width: 80%;
 
+   }
+   .table{
+       font-size: 88%;
+       padding-left: 0%;
+       padding-right: 0%;
+   }
+   .recp{
+       font-size: 85%;
    }
   
   }

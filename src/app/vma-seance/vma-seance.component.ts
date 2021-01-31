@@ -22,11 +22,13 @@ export class VmaSeanceComponent implements OnInit {
   seriForm = new FormGroup({
     percent: new FormControl('', Validators.required),
     vmaVal: new FormControl('', [Validators.required, Validators.min(1), Validators.max(30)]),
-    param: new FormControl('', Validators.required)
+    param: new FormControl('', Validators.required),
+    paramCn: new FormControl('',Validators.required)
   })
   //--declaration des variables
   time: boolean = false
   inputype: string = ' métres'
+  inputypeCn:string = ' métres'
   num: number = 1
   min: number
   sec: number
@@ -157,11 +159,11 @@ export class VmaSeanceComponent implements OnInit {
 
     //calculer l'effort
     if (this.time) {
-      seance.dure = f.param
+      seance.dure = this.cn? f.paramCn * 60 : f.param
       seance.distance = Math.floor(seance.dure * ((f.vmaVal * f.percent) / 100 * 1000) / 3600)
     }
     else {
-      seance.distance = f.param
+      seance.distance = this.cn? f.paramCn : f.param 
       seance.dure = (Math.floor(seance.distance / (((f.vmaVal * f.percent) / 100 * 1000) / 3600)))
     }
 
@@ -225,7 +227,15 @@ export class VmaSeanceComponent implements OnInit {
 
   togle() {
     this.time = !this.time
-    this.time ? this.inputype = ' seconds' : this.inputype = ' métres'
+    if(this.time) {
+    this.inputype = ' seconds'
+    this.inputypeCn = ' minuts'
+    } 
+    else {
+      this.inputype = ' métres'
+      this.inputypeCn = ' métres'
+    }
+   
   }
 
   renitialiser() {
@@ -235,6 +245,17 @@ export class VmaSeanceComponent implements OnInit {
   delet(index: number) {
     this.plan.splice(index, 1)
     this.num--
+  }
+  hoursMinuts(value: number): string {
+    let result = "";
+    // suppressions des chiffres après la virgule
+    value = (Math.round(value * 10)) / 10;
+
+    let MyHours = (value - (value % 60)) / 60;
+    if (MyHours > 0) { result = result + MyHours + ` h ` };
+    let MyMinuts = (Math.round((value % 60) * 10)) / 10;
+    if (MyMinuts > 0) { result = result + MyMinuts.toFixed(0) + ` min` };
+    return result  
   }
 
   // data pour le document PDF

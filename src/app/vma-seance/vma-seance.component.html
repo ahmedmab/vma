@@ -60,7 +60,8 @@
                 [disabled]="time">durée</button>
             </div>
             <div class="input-param">
-              <input class="inputype form-control mb-1" type="number" [placeholder]="inputype" formControlName="param">
+              <input [hidden]="cn" class="inputype form-control mb-1" type="number" [placeholder]="inputype" formControlName="param">
+              <input [hidden]="!cn" class="inputype form-control mb-1" type="number" [placeholder]="inputypeCn" formControlName="paramCn">
             </div>
             <div *ngIf="seriForm.get('param').touched" class="invalid">{{effortErrorMessage()}}</div>
             <div *ngIf="seriForm.get('param').touched && effortControleMessage()" class="alert alert-info">
@@ -84,26 +85,27 @@
           <table class="table table-sm mb-2">
             <tr class="table-light p-1">
               <th colspan="3"> <em style="font-weight: 900; font-size: 120%;">Séance {{i + 1}}</em> </th>
-              <th colspan="2">{{item.type}}</th>
+              <th colspan="3">{{item.type}}</th>
               <th class="close"><span (click)="delet(i)">
                   <i class="fas fa-times"></i> </span>
               </th>
             </tr>
             <tr>
+              <td  colspan="4">{{item.per}}% de VMA ( <strong>{{item.vma}} km/h</strong> )</td>
               <td colspan="2">vitesse : <strong>{{ ' '+item.vma * item.per / 100}} km/h</strong></td>
-              <td style="text-align: center;" colspan="4">{{item.per}}% de la VMA ( <strong>{{item.vma}} km/h</strong> )
-              </td>
             </tr>
             <tr>
               <th class="seri" colspan="5" [hidden]="plan[i].type == 'Continu'">{{item.serie}} X ( {{item.repetition}} X {{item.distance}}m (
                 {{item.dure | myTime}}) )</th>
                 <th class="seri" colspan="5" [hidden]="plan[i].type !== 'Continu'">Footing de {{item.distance}}m ( 
                   {{item.dure | myTime}} )</th>
-              <td style="text-align: right;" [hidden]="plan[i].type == 'Continu'">Récupération: <strong>{{item.recuperation | myTime}}</strong></td>
             </tr>
             <tr>
-              <td colspan="2" [hidden]="plan[i].type == 'Continu'">volume :<strong>{{' ' +item.volume}}m ( {{item.volumeTemps | myTime}})</strong></td>
-              <td colspan="4" style="text-align: right;" [hidden]="plan[i].type == 'Continu'">Récupération/series : <strong>3'</strong></td>
+              <td colspan="3"  [hidden]="plan[i].type == 'Continu'"><span class="recp">Récupération :</span> {{item.recuperation | myTime}}</td>
+              <td colspan="3" [hidden]="plan[i].type == 'Continu'"><span class="recp">Récupération/series :</span> 3 min</td>
+            </tr>
+            <tr>
+              <td colspan="5" [hidden]="plan[i].type == 'Continu'">volume :<strong>{{' ' +item.volume}}m ( {{item.volumeTemps | myTime}})</strong></td>
             </tr>
           </table>
         </div>
