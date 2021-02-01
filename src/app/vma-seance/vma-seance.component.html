@@ -63,9 +63,11 @@
               <input [hidden]="cn" class="inputype form-control mb-1" type="number" [placeholder]="inputype" formControlName="param">
               <input [hidden]="!cn" class="inputype form-control mb-1" type="number" [placeholder]="inputypeCn" formControlName="paramCn">
             </div>
-            <div *ngIf="seriForm.get('param').touched" class="invalid">{{effortErrorMessage()}}</div>
-            <div *ngIf="seriForm.get('param').touched && effortControleMessage()" class="alert alert-info">
+            <div *ngIf="seriForm.get('param').touched && !cn" class="invalid">{{effortErrorMessage()}}</div>
+            <div *ngIf="seriForm.get('paramCn').touched && cn" class="invalid">{{effortContinuErrorMessage()}}</div>
+            <div *ngIf="(seriForm.get('param').touched || seriForm.get('paramCn').touched) && effortControleMessage()" class="alert alert-info">
               {{effortControleMessage()}}</div>
+
           </div>
 
         </div>
@@ -91,8 +93,8 @@
               </th>
             </tr>
             <tr>
-              <td  colspan="4">{{item.per}}% de VMA ( <strong>{{item.vma}} km/h</strong> )</td>
-              <td colspan="2">vitesse : <strong>{{ ' '+item.vma * item.per / 100}} km/h</strong></td>
+              <td  colspan="4">{{item.per}}% de VMA: <strong>{{item.vma}} km/h</strong></td>
+              <td colspan="2">vitesse: <strong>{{ ' '+item.vma * item.per / 100}} km/h</strong></td>
             </tr>
             <tr>
               <th class="seri" colspan="5" [hidden]="plan[i].type == 'Continu'">{{item.serie}} X ( {{item.repetition}} X {{item.distance}}m (
