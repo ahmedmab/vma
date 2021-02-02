@@ -51,7 +51,9 @@
 
           </div>
 
-          <div class="item3 col-auto mt-3">
+
+
+          <div [hidden]="cn" class="item3 col-auto mt-3">
 
             <div class="btn-togle ">
               <button [ngClass]="!time?'btn btn-success btn-sm':'btn btn-light btn-sm'" (click)="togle()"
@@ -59,14 +61,32 @@
               <button [ngClass]="time?'btn btn-success btn-sm':'btn btn-light btn-sm'" (click)="togle()"
                 [disabled]="time">durée</button>
             </div>
+
             <div class="input-param">
-              <input [hidden]="cn" class="inputype form-control mb-1" type="number" [placeholder]="inputype" formControlName="param">
-              <input [hidden]="!cn" class="inputype form-control mb-1" type="number" [placeholder]="inputypeCn" formControlName="paramCn">
+              <input class="inputype form-control mb-1" type="number" [placeholder]="inputype" formControlName="param">
             </div>
             <div *ngIf="seriForm.get('param').touched && !cn" class="invalid">{{effortErrorMessage()}}</div>
-            <div *ngIf="seriForm.get('paramCn').touched && cn" class="invalid">{{effortContinuErrorMessage()}}</div>
-            <div *ngIf="(seriForm.get('param').touched || seriForm.get('paramCn').touched) && effortControleMessage()" class="alert alert-info">
+            <div *ngIf="seriForm.get('param').touched && effortControleMessage()" class="alert alert-info">
               {{effortControleMessage()}}</div>
+
+          </div>
+
+
+          <div [hidden]="!cn" class="item3 col-auto mt-3">
+
+            <div class="btn-togle ">
+              <button [ngClass]="!timeCn?'btn btn-success btn-sm':'btn btn-light btn-sm'" (click)="togleCn()"
+                [disabled]="!timeCn">distance</button>
+              <button [ngClass]="timeCn?'btn btn-success btn-sm':'btn btn-light btn-sm'" (click)="togleCn()"
+                [disabled]="timeCn">durée</button>
+            </div>
+
+            <div class="input-param">
+              <input class="inputype form-control mb-1" type="number" [placeholder]="inputypeCn" formControlName="paramCn">
+            </div>
+            <div *ngIf="seriForm.get('paramCn').touched && cn" class="invalid">{{effortContinuErrorMessage()}}</div>
+            <div *ngIf="(seriForm.get('param').touched || seriForm.get('paramCn').touched) && effortControleCnMessage()" class="alert alert-info">
+              {{effortControleCnMessage()}}</div>
 
           </div>
 

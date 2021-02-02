@@ -27,8 +27,9 @@ export class VmaSeanceComponent implements OnInit {
   })
   //--declaration des variables
   time: boolean = false
+  timeCn:boolean = true
   inputype: string = ' métres'
-  inputypeCn:string = ' métres'
+  inputypeCn:string = ' minuts'
   num: number = 1
   min: number
   sec: number
@@ -113,12 +114,8 @@ export class VmaSeanceComponent implements OnInit {
         return `NB : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans l'intermittent Long-Long
          l'effort doit etre entre 1 min 15 s ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 4 min ( ${Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
       }
-      else if (this.cn && this.seriForm.get('paramCn').value < 600 ) {
-        return `NB : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de type Continu
-         l'effort doit etre supérieur à 10 min ( ${Math.floor(600 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m )`
-      }
-      
-      return false
+     
+      return ''
     }
     else {
       if (this.cr && (this.seriForm.get('param').value > Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600) || this.seriForm.get('param').value < Math.floor(15 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600))) {
@@ -129,15 +126,26 @@ export class VmaSeanceComponent implements OnInit {
         return `NB : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans l'intermittent Long-Long
         l'effort doit etre entre 1 min 15 s ( ${Math.floor(75 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) et 4 min ( ${Math.floor(240 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) pour chaque répetition`;
       }
-      else if (this.cn && this.seriForm.get('paramCn').value < Math.floor(600 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)) {
+     
+      return ''
+    }
+
+  }
+  effortControleCnMessage() {
+   
+      if (this.timeCn && this.seriForm.get('paramCn').value < 10 ) {
+        return `NB : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de type Continu
+         l'effort doit etre supérieur à 10 min ( ${Math.floor(600 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m )`
+      }
+      
+      else if (!this.timeCn && this.seriForm.get('paramCn').value < Math.floor(600 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)) {
         return `NB : pour votre VMA ${this.seriForm.get('vmaVal').value}km/h dans la séance de type Continu
         l'effort doit etre supérieur à 10 min ( ${Math.floor(600 * ((this.seriForm.get('vmaVal').value * this.seriForm.get('percent').value) / 100 * 1000) / 3600)} m ) .`;
       }
      
-      return false
-    }
-
+      return ''
   }
+
 
 
   //
@@ -163,12 +171,20 @@ export class VmaSeanceComponent implements OnInit {
     seance.typeArr = (f.percent < 100) ? this.longue : (f.percent < 110) ? this.moyenne : this.courte;
 
     //calculer l'effort
-    if (this.time) {
+    if (this.time && !this.cn) {
       seance.dure = this.cn? f.paramCn * 60 : f.param
       seance.distance = Math.floor(seance.dure * ((f.vmaVal * f.percent) / 100 * 1000) / 3600)
     }
-    else {
+    else if(!this.time && !this.cn) {
       seance.distance = this.cn? f.paramCn : f.param 
+      seance.dure = (Math.floor(seance.distance / (((f.vmaVal * f.percent) / 100 * 1000) / 3600)))
+    }
+    if (this.timeCn && this.cn) {
+      seance.dure = f.paramCn * 60
+      seance.distance = Math.floor(seance.dure * ((f.vmaVal * f.percent) / 100 * 1000) / 3600)
+    }
+    else if(!this.timeCn && this.cn){
+      seance.distance = f.paramCn
       seance.dure = (Math.floor(seance.distance / (((f.vmaVal * f.percent) / 100 * 1000) / 3600)))
     }
 
@@ -234,13 +250,21 @@ export class VmaSeanceComponent implements OnInit {
     this.time = !this.time
     if(this.time) {
     this.inputype = ' seconds'
-    this.inputypeCn = ' minuts'
     } 
     else {
       this.inputype = ' métres'
-      this.inputypeCn = ' métres'
     }
    
+  }
+  togleCn(){
+    this.timeCn = !this.timeCn
+    if(this.timeCn) {
+    this.inputypeCn = ' minuts'
+    } 
+    else {
+      this.inputypeCn = ' métres'
+    }
+
   }
 
   renitialiser() {
