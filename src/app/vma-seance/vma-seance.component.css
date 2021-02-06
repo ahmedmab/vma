@@ -65,7 +65,7 @@ button:disabled{
 }
 
 .box-2{
-min-width: 300px;
+min-width: 350px;
 display: grid;
 grid-template-columns: 1fr;
 grid-template-rows: minmax(200px, auto) 80px;

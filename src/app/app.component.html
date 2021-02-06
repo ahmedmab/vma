@@ -75,29 +75,27 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form style="width: 80%; margin: 0 auto;" action="mailto:ahmedmab87@gmail.com" method="post" enctype="text/plain" >
+        <form style="width: 80%; margin: 0 auto;" enctype="text/plain" [formGroup]="msgForm">
           <!-- Name input -->
           <div class="form-outline mb-2">
-            <input type="text" id="form4Example1" class="form-control" />
+            <input type="text" id="form4Example1" class="form-control" formControlName="name"/>
             <label class="form-label" for="form4Example1">Nom et Prènom</label>
           </div>
         
           <!-- Email input -->
           <div class="form-outline mb-2">
-            <input type="email" id="form4Example2" class="form-control" />
+            <input type="email" id="form4Example2" class="form-control" formControlName="email"/>
             <label class="form-label" for="form4Example2">Email</label>
           </div>
         
           <!-- Message input -->
           <div class="form-outline mb-2">
-            <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+            <textarea class="form-control" id="form4Example3" rows="4" formControlName="msg"></textarea>
             <label class="form-label" for="form4Example3">Message</label>
           </div>
           <!-- Submit button -->
-          <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+          <button type="submit" class="btn btn-primary btn-block mb-4"(click)="onSubmit(msgForm.value) ; msgForm.reset()">Envoyer</button>
         </form>
-      </div>
-
-    </div>
+     
   </div>
 </div>
