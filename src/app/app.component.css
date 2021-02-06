@@ -48,6 +48,29 @@ main{
 footer{
     grid-area: footer; 
 }
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.copy{
+    align-self:flex-end;
+}
+.titl{
+    padding-left: 40px;
+}
+.liste{
+    list-style: none;
+    margin-bottom: 0;
+}
+.liste-item{
+    font-weight: 300;
+    padding-bottom: 2px;
+    opacity: .8;
+}
+.liste-item:hover{
+    opacity: 1;
+}
 @media only screen and (max-width: 576px) {
     .body{
         width: 100vw;
@@ -64,8 +87,14 @@ footer{
     
     }
     
-   
-   
+   .box{
+       flex-direction: column;
+   }
+   .copy{
+    align-self:flex-start;
+    padding-left: 40px;
+    margin-top: 10px;
+}
    
 
 }

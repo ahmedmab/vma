@@ -30,20 +30,74 @@
     <div class=" containercontenu">
       <router-outlet></router-outlet>
     </div>
+
+    <!-- Button to Open the Modal -->
   </main>
 
-  <!-- Footer -->
-  <footer class="page-footer font-small mdb-color darken-3">
+  <footer class=" page-footer font-small mdb-color darken-3">
+    <!-- Grid container -->
+    <div class="container p-3">
+      <!--Grid row-->
+      <div class="box">
+          <div class="propo">
+            <h5 class="text-uppercase titl">A propos</h5>
+    
+            <ul class="liste">
+              <li class="liste-item"><a data-toggle="modal" data-target="#myModal">Contactez nous</a></li>
+              <li class="liste-item"><a href="../assets/terms-conditions.html">Terms & Conditions</a></li>
+              <li class="liste-item"><a href="../assets/politique-confidentialite.html">politique de confidentialité</a></li>
+            </ul>
+          </div>
+          <div class="copy">
+            © 2021 Copyright: vmaup.com
+            <br>
+            <small style="color: lawngreen; font-size: 65%;" class="text-center py-2">Développé par AHMED MABROUKI</small>
+        </div>
+      </div>
+      <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+  </footer>
+</section>
 
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2021 Copyright : vmaup.com
-      <br>
-      <small style="color: lawngreen; font-size: 65%;" class="text-center py-2">Dévloppé par AHMED MABROUKI</small>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h2 class="modal-title" style="width: 50%; margin-left: 30%;">Contactez nous</h2>
+        <button style="font-weight: 800;" type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form style="width: 80%; margin: 0 auto;" action="mailto:ahmedmab87@gmail.com" method="post" enctype="text/plain" >
+          <!-- Name input -->
+          <div class="form-outline mb-2">
+            <input type="text" id="form4Example1" class="form-control" />
+            <label class="form-label" for="form4Example1">Nom et Prènom</label>
+          </div>
+        
+          <!-- Email input -->
+          <div class="form-outline mb-2">
+            <input type="email" id="form4Example2" class="form-control" />
+            <label class="form-label" for="form4Example2">Email</label>
+          </div>
+        
+          <!-- Message input -->
+          <div class="form-outline mb-2">
+            <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+            <label class="form-label" for="form4Example3">Message</label>
+          </div>
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+        </form>
+      </div>
 
     </div>
-
-    <!-- Copyright -->
-
-  </footer>
-  <!-- Footer -->
-</section>
+  </div>
+</div>
