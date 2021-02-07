@@ -10,15 +10,15 @@ const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: VmaCalculComponent,
   data: {
-      title: 'home'
+      title: 'Home'
   } },
-  {path: 'allure', component: VmaTrainerComponent,
+  {path: 'allure_de_course', component: VmaTrainerComponent,
   data: {
-      title: 'allure de course'
+      title: 'Allure de course'
   } },
-  {path: 'seance', component: VmaSeanceComponent,
+  {path: 'plan_d_entrainment', component: VmaSeanceComponent,
   data: {
-      title: `plan d'entrainement`
+      title: `Plan d'entrainement`
   } },
   {path: 'terms', component: TermsComponent,
   data: {
