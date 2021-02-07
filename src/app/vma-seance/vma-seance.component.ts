@@ -1,4 +1,3 @@
-import { element } from 'protractor';
 import { MyTimePipe } from './../my-time.pipe';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
@@ -14,6 +13,7 @@ import 'jspdf-autotable';
 
 
 export class VmaSeanceComponent implements OnInit {
+  title:string= `plan d'entrainement`
   constructor() { }
 
   ngOnInit(): void {
@@ -194,26 +194,20 @@ export class VmaSeanceComponent implements OnInit {
 
     //calculer NB de serie
     const serieCalcul = (t, n) => {
-      if (t < 95) {
-        (n == 1) ? seance.serie = 1 :
-          (n == 2) ? seance.serie = 1 :
+      if (t <= 100) {
+        (n == 1) ? seance.serie = 2 :
+          (n == 2) ? seance.serie = 2 :
             (n == 3) ? seance.serie = 2 :
               (n == 4) ? seance.serie = 2 :
                 seance.serie = 3
-      } else if (t < 105) {
+      } else {
         (n == 1) ? seance.serie = 4 :
           (n == 2) ? seance.serie = 3 :
             (n == 3) ? seance.serie = 3 :
               (n == 4) ? seance.serie = 3 :
                 seance.serie = 4
       }
-      else {
-        (n == 1) ? seance.serie = 4 :
-          (n == 2) ? seance.serie = 2 :
-            (n == 3) ? seance.serie = 3 :
-              (n == 4) ? seance.serie = 3 :
-                seance.serie = 4
-      }
+     
     }
 
     serieCalcul(seance.per, seance.niveau);

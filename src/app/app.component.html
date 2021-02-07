@@ -39,19 +39,20 @@
     <div class="container p-3">
       <!--Grid row-->
       <div class="box">
-          <div class="propo">
-            <h5 class="text-uppercase titl">A propos</h5>
-    
-            <ul class="liste">
-              <li class="liste-item"><a data-toggle="modal" data-target="#myModal">Contactez nous</a></li>
-              <li class="liste-item"><a href="../assets/terms-conditions.html">Terms & Conditions</a></li>
-              <li class="liste-item"><a href="../assets/politique-confidentialite.html">politique de confidentialité</a></li>
-            </ul>
-          </div>
-          <div class="copy">
-            © 2021 Copyright: vmaup.com
-            <br>
-            <small style="color: lawngreen; font-size: 65%;" class="text-center py-2">Développé par AHMED MABROUKI</small>
+        <div class="propo">
+          <h5 class="text-uppercase titl">A propos</h5>
+
+          <ul class="liste">
+            <li class="liste-item"><a data-toggle="modal" data-target="#myModal" (click)="valid = false">Contactez nous</a></li>
+            <li class="liste-item"><a routerLink='/terms'>Terms & Conditions</a></li>
+            <li class="liste-item"><a routerLink='/politique'>politique de confidentialité</a>
+            </li>
+          </ul>
+        </div>
+        <div class="copy">
+          © 2021 Copyright: vmaup.com
+          <br>
+          <small style="color: lawngreen; font-size: 65%;" class="text-center py-2">Développé par AHMED MABROUKI</small>
         </div>
       </div>
       <!--Grid row-->
@@ -75,27 +76,59 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form style="width: 80%; margin: 0 auto;" enctype="text/plain" [formGroup]="msgForm">
+        <form [class]="valid?'was-validated':''" style="width: 80%; margin: 0 auto;" enctype="text/plain" [formGroup]="msgForm">
           <!-- Name input -->
           <div class="form-outline mb-2">
-            <input type="text" id="form4Example1" class="form-control" formControlName="name"/>
             <label class="form-label" for="form4Example1">Nom et Prènom</label>
+            <input type="text" id="form4Example1" class="form-control" formControlName="name" required />
           </div>
-        
+
           <!-- Email input -->
           <div class="form-outline mb-2">
-            <input type="email" id="form4Example2" class="form-control" formControlName="email"/>
             <label class="form-label" for="form4Example2">Email</label>
+            <input type="email" id="form4Example2" class="form-control" formControlName="email" email="true" required />
           </div>
-        
+
           <!-- Message input -->
           <div class="form-outline mb-2">
-            <textarea class="form-control" id="form4Example3" rows="4" formControlName="msg"></textarea>
             <label class="form-label" for="form4Example3">Message</label>
+            <textarea class="form-control" id="form4Example3" rows="4" formControlName="msg" required></textarea>
           </div>
           <!-- Submit button -->
-          <button type="submit" class="btn btn-primary btn-block mb-4"(click)="onSubmit(msgForm.value) ; msgForm.reset()">Envoyer</button>
+          <button type="submit" class="btn btn-primary btn-block mb-4" data-toggle="modal" data-target="#smModal"
+            (click)="onSubmit(msgForm.value)">Envoyer</button>
         </form>
-     
-  </div>
-</div>
+
+      </div>
+    </div>
+    <!-- succée message -->
+
+    <div *ngIf="msgForm.valid && msgSucce" class="container">
+
+      <!-- The Modal -->
+      <div class="modal fade" id="smModal">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body h4 text-center" style="color: green;">
+              votre message a été envoyé avec succès
+              <br>
+              <i class="fa fa-check" style="text-align: center; font-size:48px;color:green"></i>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-sm btn-info" data-dismiss="modal">OK</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>

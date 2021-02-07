@@ -71,6 +71,9 @@ footer{
 .liste-item:hover{
     opacity: 1;
 }
+.modal, .container{
+    max-width: 100vw;
+}
 @media only screen and (max-width: 800px){
     .body{
         grid-template-columns:5vw 1fr 5vw;

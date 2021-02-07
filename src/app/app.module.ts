@@ -15,6 +15,8 @@ import { MatIconModule } from "@angular/material/icon";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MyTimePipe } from './my-time.pipe';
+import { PoliticComponent } from './footer/politic.component';
+import { TermsComponent } from './footer/terms.component';
 
 
 
@@ -26,6 +28,8 @@ import { MyTimePipe } from './my-time.pipe';
     VmaTrainerComponent,
     VmaSeanceComponent,
     MyTimePipe,
+    PoliticComponent,
+    TermsComponent,
   ],
   imports: [
     BrowserModule,

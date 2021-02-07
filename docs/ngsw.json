@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1612619040297,
+  "timestamp": 1612726666601,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -16,7 +16,7 @@
         "/6.64992a9fb42d37a613bb.js",
         "/favicon.ico",
         "/index.html",
-        "/main.efa7a5b94a72668c6948.js",
+        "/main.189edc2d4364caf1ecf8.js",
         "/manifest.webmanifest",
         "/polyfills.9bf4dad123bd95dda86e.js",
         "/runtime.7ac2db21f5a5fa3f1a0a.js",
@@ -42,9 +42,8 @@
         "/assets/icons/icon-96x96.png",
         "/assets/images/running-1245640.jpg",
         "/assets/images/woman-498257_1280.jpg",
-        "/assets/politique-confidentialite.html",
         "/assets/smtp.js",
-        "/assets/terms-conditions.html",
+        "/assets/woman-498257_640.jpg",
         "/running-1245640.455794e0a3af7ec556b0.jpg"
       ],
       "patterns": []
@@ -65,12 +64,11 @@
     "/assets/icons/icon-96x96.png": "4906267fc3efbd341a8f57954c3a949627717e82",
     "/assets/images/running-1245640.jpg": "d6f4154b249baa1486609c5ffb0686baa768caec",
     "/assets/images/woman-498257_1280.jpg": "3b7e5d2ca2cba20dc01bb72b90d8e88024c10c75",
-    "/assets/politique-confidentialite.html": "4f1badb71e6d8e99643b24be62c8224bc23ef1e5",
     "/assets/smtp.js": "437df45dbf59c3a3414236f44e3bcd5045bfe314",
-    "/assets/terms-conditions.html": "51258469bacb463853caff99c073576e76b5e4e0",
+    "/assets/woman-498257_640.jpg": "37d38ad54c956d7a7d212df9d3a450406a01a2cc",
     "/favicon.ico": "b7fdb9e3ca81b048129a50e0ad095d9d95a68d05",
-    "/index.html": "18730988035c2a9a2b6e283d14485901f44e5d30",
-    "/main.efa7a5b94a72668c6948.js": "931075c28cf0e282a31d3004b8c8391efd4b4ae3",
+    "/index.html": "b234d648e47d39df093b936db5f0476707cabcc5",
+    "/main.189edc2d4364caf1ecf8.js": "4f1cb3ac68fb6463a18dc2dfc7266224a5e86d49",
     "/manifest.webmanifest": "1494d73a3d9f0dafb27bbd452dc0fd2018bb3038",
     "/polyfills.9bf4dad123bd95dda86e.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
     "/running-1245640.455794e0a3af7ec556b0.jpg": "d6f4154b249baa1486609c5ffb0686baa768caec",
