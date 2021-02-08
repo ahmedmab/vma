@@ -1,11 +1,11 @@
 import { FormControl, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 @Component({
   selector: 'app-vma-calcul',
   templateUrl: './vma-calcul.component.html',
   styleUrls: ['./vma-calcul.component.css']
 })
-export class VmaCalculComponent implements OnInit {
+export class VmaCalculComponent implements OnInit ,OnDestroy {
   input = new FormControl('', [Validators.required, Validators.min(0)])
   errorMessage(){
     if (this.input.hasError('required')) {
@@ -23,7 +23,13 @@ export class VmaCalculComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
+  ngOnDestroy(): void {
+    localStorage.clear()
+  }
+
+
  hiddTogle(){
    this.hidd = false
  }

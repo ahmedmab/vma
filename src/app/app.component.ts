@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map } from "rxjs/operators";
@@ -11,7 +11,7 @@ declare let Email: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
   constructor (private router: Router, private activatedRoute:    ActivatedRoute, private titleService: Title) {
     this.router.events.pipe(
         filter(event => event instanceof NavigationEnd),
@@ -36,7 +36,9 @@ export class AppComponent {
 }
   
 ngOnInit() {
-
+}
+ngOnDestroy(): void {
+  localStorage.clear()
 }
   //--------------
   title = 'vma up';

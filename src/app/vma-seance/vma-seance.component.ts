@@ -1,5 +1,5 @@
 import { MyTimePipe } from './../my-time.pipe';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
@@ -12,12 +12,15 @@ import 'jspdf-autotable';
 })
 
 
-export class VmaSeanceComponent implements OnInit {
+export class VmaSeanceComponent implements OnInit, OnDestroy {
   title:string= `plan d'entrainement`
   constructor() { }
 
   ngOnInit(): void {
 
+  }
+  ngOnDestroy(): void {
+    localStorage.clear()
   }
   seriForm = new FormGroup({
     percent: new FormControl('', Validators.required),

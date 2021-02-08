@@ -1,5 +1,4 @@
-import { MyTimePipe } from './../my-time.pipe';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { jsPDF } from 'jspdf';
@@ -11,7 +10,16 @@ import 'jspdf-autotable';
   templateUrl: './vma-trainer.component.html',
   styleUrls: ['./vma-trainer.component.css']
 })
-export class VmaTrainerComponent implements OnInit {
+export class VmaTrainerComponent implements OnInit, OnDestroy {
+  
+  constructor() {
+
+  }
+  ngOnInit(): void {
+  }
+  ngOnDestroy(): void {
+    localStorage.clear()
+  }
 
   vma = new FormControl('', [Validators.required, Validators.min(1)])
   getErrorMessage() {
@@ -47,13 +55,6 @@ export class VmaTrainerComponent implements OnInit {
   tab: string = '#tab1'
 
 
-  constructor() {
-
-  }
-
-  ngOnInit(): void {
-
-  }
   clear() {
     return this.vma.reset()
   }
