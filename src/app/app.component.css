@@ -53,6 +53,11 @@ footer{
     flex-direction: row;
     justify-content: space-around;
 }
+.social{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: .7rem;
+}
 .copy{
     align-self:flex-end;
 }
@@ -93,16 +98,20 @@ footer{
     main{
         padding: 1rem .5rem;
         grid-area: main;
-    
     }
     
    .box{
        flex-direction: column;
    }
+   .propo{
+    margin-left: 10%;
+
+   }
    .copy{
     align-self:flex-start;
-    padding-left: 40px;
-    margin-top: 10px;
+    padding: 15px;
+    margin: 0 auto;
+
 }
    
 

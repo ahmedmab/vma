@@ -69,11 +69,20 @@ article{
 .result span{
     font-size: 70%;
 }
+.box-ytb{
+<<<<<<< HEAD
+    background-color: white;
+}
 
 .youtube{
     width: 100% ;
     height: 280px;
-    margin: 0rem auto;
+=======
+background-color: white;    }
+.youtube{
+    width: 100% ;
+    height: 300px;
+>>>>>>> 983110220e03b18c404d922e4821a6771e8abc7e
 }
 
 
@@ -112,6 +121,10 @@ article{
     .result p{
         margin: 0 auto 20px 5px;
     }
-
+  
+        .youtube{
+            width: 100% ;
+            height: 250px;
+        }
     
 }
