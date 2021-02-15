@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1612919874872,
+  "timestamp": 1613401031787,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,15 +11,15 @@
         "ignoreVary": true
       },
       "urls": [
-        "/4.88186cdfed16c68fe475.js",
-        "/5.042a6c7785d37dcc381c.js",
-        "/6.64992a9fb42d37a613bb.js",
+        "/4.33db6c6e6f7a3ed75630.js",
+        "/5.2d29b00465aca0ba20ca.js",
+        "/6.abb27eae1a86aa565703.js",
         "/favicon.ico",
         "/index.html",
-        "/main.9ff613efb8cb10980d47.js",
+        "/main.9392aecac52739262e2b.js",
         "/manifest.webmanifest",
-        "/polyfills.9bf4dad123bd95dda86e.js",
-        "/runtime.7ac2db21f5a5fa3f1a0a.js",
+        "/polyfills.70ffb02a82cc06d3b0cb.js",
+        "/runtime.222a09f6ed1349401f75.js",
         "/styles.7f31a25343932ff8ba93.css"
       ],
       "patterns": []
@@ -43,18 +43,16 @@
         "/assets/images/running-1245640.jpg",
         "/assets/images/woman-498257_1280.jpg",
         "/assets/smtp.js",
-        "/running-1245640.455794e0a3af7ec556b0.jpg",
-        "assets/sitemap.xml",
-        "assets/robots.txt"
+        "/running-1245640.455794e0a3af7ec556b0.jpg"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/4.88186cdfed16c68fe475.js": "9e877488de66401a7dce12a6c86a1a12147fb351",
-    "/5.042a6c7785d37dcc381c.js": "1990066a4db285d3681cf408cab018f064457782",
-    "/6.64992a9fb42d37a613bb.js": "92a28e257376530edda2c2fc7c33a9026b7514eb",
+    "/4.33db6c6e6f7a3ed75630.js": "9e877488de66401a7dce12a6c86a1a12147fb351",
+    "/5.2d29b00465aca0ba20ca.js": "1990066a4db285d3681cf408cab018f064457782",
+    "/6.abb27eae1a86aa565703.js": "92a28e257376530edda2c2fc7c33a9026b7514eb",
     "/assets/icons/icon-128x128.png": "5546d7cd0045ea0e9018aae8c24a7c9fffe51651",
     "/assets/icons/icon-144x144.png": "42434131150c8228ea9a51e53d4b394326d7957f",
     "/assets/icons/icon-152x152.png": "669a12c5f4c8d062ad667689abef2c6bd606b056",
@@ -67,12 +65,12 @@
     "/assets/images/woman-498257_1280.jpg": "3b7e5d2ca2cba20dc01bb72b90d8e88024c10c75",
     "/assets/smtp.js": "437df45dbf59c3a3414236f44e3bcd5045bfe314",
     "/favicon.ico": "b7fdb9e3ca81b048129a50e0ad095d9d95a68d05",
-    "/index.html": "d73b9c1631bc3c854dbe540c0cbcf3573e9301f1",
-    "/main.9ff613efb8cb10980d47.js": "e9c390788dd1b324f8b681374f741616cacc84f0",
-    "/manifest.webmanifest": "1494d73a3d9f0dafb27bbd452dc0fd2018bb3038",
-    "/polyfills.9bf4dad123bd95dda86e.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
+    "/index.html": "2fc193a53ac547ccaf88bc6f749ed1c0929bddad",
+    "/main.9392aecac52739262e2b.js": "55ecfa4597a43f2ca5a0cdd059e5cdc9394690b8",
+    "/manifest.webmanifest": "9ad6da8333015a2413f174c37ff03a3312da2198",
+    "/polyfills.70ffb02a82cc06d3b0cb.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
     "/running-1245640.455794e0a3af7ec556b0.jpg": "d6f4154b249baa1486609c5ffb0686baa768caec",
-    "/runtime.7ac2db21f5a5fa3f1a0a.js": "73d54660c6fafe3a072c7391511f26187796f244",
+    "/runtime.222a09f6ed1349401f75.js": "eedbd7f382843d0ec7070cd59c1ca4e6d4bc6788",
     "/styles.7f31a25343932ff8ba93.css": "1ce06ccd23ad7b7d67e2dc66efe84c42c87b66aa"
   },
   "navigationUrls": [
@@ -92,5 +90,6 @@
       "positive": false,
       "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
     }
-  ]
+  ],
+  "navigationRequestStrategy": "performance"
 }
