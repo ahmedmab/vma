@@ -3,11 +3,19 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "public": "docs",
+    "public": "dist/vma/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "ssr"
+      }
     ]
   }
+  
 }
+

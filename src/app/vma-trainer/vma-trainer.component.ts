@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { jsPDF } from 'jspdf';
@@ -10,17 +10,14 @@ import 'jspdf-autotable';
   templateUrl: './vma-trainer.component.html',
   styleUrls: ['./vma-trainer.component.css']
 })
-export class VmaTrainerComponent implements OnInit, OnDestroy {
+export class VmaTrainerComponent implements OnInit {
   
   constructor() {
 
   }
   ngOnInit(): void {
   }
-  ngOnDestroy(): void {
-    localStorage.clear()
-  }
-
+  
   vma = new FormControl('', [Validators.required, Validators.min(1)])
   getErrorMessage() {
     if (this.vma.hasError('required')) {

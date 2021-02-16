@@ -32,7 +32,7 @@ import { TermsComponent } from './footer/terms.component';
     TermsComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
