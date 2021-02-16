@@ -15,12 +15,6 @@
         "function": "ssr"
       }
     ]
-  },
-  "functions": {
-    "predeploy": [
-      "npm --prefix ./functions run lint",
-      "npm --prefix ./functions run build"
-    ]
   }
 }
 
