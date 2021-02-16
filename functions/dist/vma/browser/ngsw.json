@@ -1,7 +1,7 @@
 {
   "configVersion": 1,
-  "timestamp": 1613422786850,
-  "index": "/index.html",
+  "timestamp": 1613511702198,
+  "index": "/dist/vma/browser/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -15,7 +15,6 @@
         "/5.2d29b00465aca0ba20ca.js",
         "/6.abb27eae1a86aa565703.js",
         "/favicon.ico",
-        "/index.html",
         "/main.f095891c31df73452bf8.js",
         "/manifest.webmanifest",
         "/polyfills.70ffb02a82cc06d3b0cb.js",
@@ -65,7 +64,6 @@
     "/assets/images/woman-498257_1280.jpg": "3b7e5d2ca2cba20dc01bb72b90d8e88024c10c75",
     "/assets/smtp.js": "437df45dbf59c3a3414236f44e3bcd5045bfe314",
     "/favicon.ico": "b7fdb9e3ca81b048129a50e0ad095d9d95a68d05",
-    "/index.html": "d3a2c8fb17baeb7f7f76e82dbc691cdb131634c6",
     "/main.f095891c31df73452bf8.js": "af0b0ae7a36e2a3e170a3492944f532c802a10e0",
     "/manifest.webmanifest": "9ad6da8333015a2413f174c37ff03a3312da2198",
     "/polyfills.70ffb02a82cc06d3b0cb.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",

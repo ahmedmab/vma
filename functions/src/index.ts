@@ -1,11 +1,9 @@
 import * as functions from 'firebase-functions';
-const universal = require(`${process.cwd()}/dist/vma/server/main`).app();
+//const universal = require(`${process.cwd()}/dist/vma/server/main.js`).app;
+//export const ssr = functions.https.onRequest(universal);
+import * as path from 'path';
 
-export const ssr = functions.https.onRequest(universal);
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+
+const universal = require(path.resolve(__dirname, '../dist/vma/server/main')).app;
+
+export const ssr = functions.runWith({ memory: "2GB", timeoutSeconds: 120 }).https.onRequest(universal());
