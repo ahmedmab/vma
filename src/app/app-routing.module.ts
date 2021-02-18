@@ -7,8 +7,11 @@ import { TermsComponent } from './footer/terms.component';
 import { PoliticComponent } from './footer/politic.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: VmaCalculComponent,
+  {path: '**', component: VmaCalculComponent,
+  data: {
+      title: 'Home'
+  } },
+  {path: '', component: VmaCalculComponent,
   data: {
       title: 'Home'
   } },

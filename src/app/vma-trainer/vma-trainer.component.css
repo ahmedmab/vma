@@ -3,7 +3,12 @@
     margin: 0;
     background-color: #fff;
 }
-
+.head{
+    padding: 1rem;
+    margin: 0%;
+    font-weight: 500;
+     color:#00587a;
+}
 .head-input{
     width: 100%;
     padding: 0 2rem;
