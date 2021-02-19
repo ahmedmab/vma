@@ -7,7 +7,15 @@ import { TermsComponent } from './footer/terms.component';
 import { PoliticComponent } from './footer/politic.component';
 
 const routes: Routes = [
-  {path: '', component: VmaCalculComponent,
+    {path: '', component: VmaCalculComponent,
+data: {
+    title: 'Home'
+} },
+{path: '/', component: VmaCalculComponent,
+data: {
+    title: 'Home'
+} },
+  {path: 'home', component: VmaCalculComponent,
   data: {
       title: 'Home'
   } },
