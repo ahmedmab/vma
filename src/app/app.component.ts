@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
         })
     ).subscribe( (data: any) => {
         if (data) {
-            this.titleService.setTitle(data + ' - VMA UP');
+            this.titleService.setTitle('VMA UP - ' + data);
         }
     });
 }

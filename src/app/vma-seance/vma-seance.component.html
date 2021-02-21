@@ -1,5 +1,78 @@
 <div class="page">
   <h1 class="text-center head">Plan d'entrainement</h1>
+  <article class="container">
+    <p>Maintenant que vous avez votre VMA, vos tableaux d’allures (par temps et par
+    distance), il vous reste à choisir le mode d’entrainement selon l’objectif
+    d’amélioration de la VMA que vous avez planifié.</p>
+    <p>Mais il faut prendre en considération que le plan ou séance d’entrainement est
+    dépendante d’un individu, ou un groupe de niveau de VMA, et qu’il existe un
+    travail spécifique pour chaque objectif dont vous voulez développer.</p><a href="#suite">Lire la suite...</a>
+    <div id="suite">
+    <p>Par rapport au travail intermittent est destiné à améliorer la puissance aérobie
+    d’une part, et la capacité aérobie d’autre part, alors que le type de travail continu
+    sert à améliorer l’endurance « fondamentale ».</p>
+    <h2>Pour la puissance aérobie :</h2>
+    Elle concerne un effort vigoureux pendant de 5 à 6 minutes au maximum et se
+    caractérise par une consommation maximale d'oxygène et une accumulation
+    ultérieure d'acide lactique. Le travail s’effectue à fréquence cardiaque proche du
+    maximum (si le temps d’exercice est suffisamment long) et autour de VMA, et
+    cette puissance est importance lors des moments d’accélération en courses de
+    durée, ou pendant les efforts intenses et rapides en d’autres sports.
+    <h3>➢ Caractéristiques des entrainements :</h3>
+    <ul>
+      <li>Intensité de l’effort : de 90% à 110% de la VMA
+      </li>
+      <li>Durée de l’effort : 15 secondes à 3 minutes.
+      </li>
+      <li>Répétitions : 5 à 12 répétitions. 1 à 3 séries.
+      </li>
+      <li>Récupération : vers 50% et le temps de l’effort.
+      </li>
+      <li>Conversation impossible.
+      </li>
+    </ul>
+    <h2>Pour la capacité aérobie :</h2>
+   <p>Elle concerne une intensité moindre, qualifiée néanmoins de soutenue,
+    correspondant à un travail qui s’effectue autour du seuil anaérobie, soit environ
+    85% de VMA (selon le niveau de coureur), et elle permet à titre d’exemple de
+    développer la résistance à la fatigue.</p> 
+    <h3>➢ Caractéristiques des entrainements :</h3>
+    <ul>
+      <li>Intensité de l’effort : de 75% à 90 % de la VMA
+      </li>
+      <li>Durée de l’effort : 4 à 14minutes. Jusqu’à 30 min d’effort.
+      </li>
+      <li>Répétitions : 2 à 3 répétitions. 1 à 3 séries.
+      </li>
+      <li>Récupération : de 30% à 50% du temps de l’effort.
+      </li>
+      <li>Conversation difficile.
+      </li>
+    </ul>
+    <h2>Pour l’endurance fondamentale</h2>
+    <p>Elle correspond à une allure ou une intensité modérée pour laquelle nous
+    constatons un état d’équilibre entre la production de lactates(2mmol/l) et son
+    élimination. Le travail s’effectue en aisance respiratoire autour du seuil aérobie,
+    soit 60% à 70 % de VMA permettant ainsi un effort durable.</p>
+    <p>L’effort continu sans récupération est privilégié, elle permet de développer une
+    capacité à fournir un effort le plus longtemps possible comme la finition de course
+    de 10 km.</p>
+    <h3>➢ Caractéristiques des entrainements :</h3>
+    <ul>
+      <li>Intensité de l’effort : de 60% à 70 % de la VMA
+      </li>
+      <li>Durée de l’effort : il est Presque illimité.</li>
+      <li>Répétitions : En cas de grosses difficultés. Vous privilégiez un travail continu avec des changements d’allures.
+  
+      </li>
+      <li>Récupération : travail continu donc pas de récupération.
+      </li>
+      <li>Conversation aisée.
+      </li>
+    </ul>
+  </div>
+  </article>
+
   <div class="seanc">
     <div class="box-1">
       <form class="border p-3 mx-auto" [formGroup]="seriForm">
@@ -11,7 +84,7 @@
             (click)="seanceCourte()">Court-Court</a>
           <a mat-flat-button color="basic" class="s-type mr-2" style="color: rgb(16, 202, 16);"
             (click)="seanceLongue()">Long-Long</a>
-          <a mat-flat-button color="basic" class="continu" (click)="seanceContinue()">Continue</a>
+          <a mat-flat-button color="basic" class="continu" (click)="seanceContinue()">Continu</a>
 
         </div>
 
@@ -142,4 +215,5 @@
       </div>
     </div>
   </div>
+
 </div>

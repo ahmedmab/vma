@@ -24,6 +24,14 @@ article{
     position: relative;
 
 }
+h3{
+    font-weight: 900;
+    font-size: 28px;
+    font-family: 'Archivo', sans-serif;
+    margin-bottom: 5px;
+    color: #fd3a69;
+     
+}
 
 .msg{
     top:45%;

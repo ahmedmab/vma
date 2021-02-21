@@ -7,17 +7,17 @@ import { TermsComponent } from './footer/terms.component';
 import { PoliticComponent } from './footer/politic.component';
 
 const routes: Routes = [
-    {path: '', redirectTo: 'home', pathMatch: 'full',
+    {path: '', redirectTo: 'tests_et_calculs', pathMatch: 'full',
 data: {
-    title: 'Home'
+    title: 'Tests et Calculs'
 } },
-{path: '/', redirectTo: 'home', pathMatch: 'full',
+{path: '/', redirectTo: 'tests_et_calculs', pathMatch: 'full',
 data: {
-    title: 'Home'
+    title: 'Tests et Calculs'
 } },
-  {path: 'home', component: VmaCalculComponent,
+  {path: 'tests_et_calculs', component: VmaCalculComponent,
   data: {
-      title: 'Home'
+      title: 'Tests et Calculs'
   } },
   {path: 'allure_de_course', component: VmaTrainerComponent,
   data: {

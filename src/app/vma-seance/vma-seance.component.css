@@ -73,6 +73,16 @@ grid-template-areas: "plan"
                     "btns";
 place-items: center;
 }
+article{
+    width: 100%;
+}
+#suite{
+    display: none;
+  }
+  
+  #suite:target {
+    display: block;
+  }
 .head{
     padding: 1rem;
     margin: 0%;

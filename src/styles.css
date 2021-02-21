@@ -7,21 +7,15 @@ body { margin: 0;
      background-image: url(./assets/images/running-1245640.jpg);
      background-size: cover;
      background-position: center;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
 
     }
 
 button{
     font-family: 'Martel Sans', sans-serif;
 }
-.mat-typography h3{
-    font-weight: 900;
-    font-size: 28px;
-    font-family: 'Archivo', sans-serif;
-    margin-bottom: 5px;
-    color: #fd3a69;
-     
-  
-}
+
 .mat-typography h1{
     font-family: 'Roboto', serif;
     font-size: 36px;
