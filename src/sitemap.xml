@@ -6,35 +6,34 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
 <url>
-  <loc>https://vmaup.com/home</loc>
-  <lastmod>2021-02-19T19:51:15+00:00</lastmod>
+  <loc>https://vmaup.com</loc>
+  <lastmod>2021-02-22T00:11:32+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://vmaup.com/</loc>
-  <lastmod>2021-02-19T19:13:53+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://vmaup.com/tests_et_calculs</loc>
+  <lastmod>2021-02-22T00:11:32+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
   <loc>https://vmaup.com/allure_de_course</loc>
-  <lastmod>2021-02-19T19:51:15+00:00</lastmod>
+  <lastmod>2021-02-22T00:11:32+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://vmaup.com/plan_d_entrainment</loc>
-  <lastmod>2021-02-19T19:51:15+00:00</lastmod>
+  <lastmod>2021-02-22T00:11:32+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://vmaup.com/terms</loc>
-  <lastmod>2021-02-19T19:51:15+00:00</lastmod>
+  <lastmod>2021-02-22T00:11:32+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://vmaup.com/politique</loc>
-  <lastmod>2021-02-19T19:51:15+00:00</lastmod>
+  <lastmod>2021-02-22T00:11:32+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 

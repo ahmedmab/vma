@@ -11,11 +11,12 @@ import 'jspdf-autotable';
   styleUrls: ['./vma-trainer.component.css']
 })
 export class VmaTrainerComponent implements OnInit {
-  
+  suite:string = 'none'
   constructor() {
 
   }
   ngOnInit(): void {
+
   }
   
   vma = new FormControl('', [Validators.required, Validators.min(1)])

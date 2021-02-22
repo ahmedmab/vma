@@ -13,6 +13,7 @@ import 'jspdf-autotable';
 
 
 export class VmaSeanceComponent implements OnInit {
+  suite:string = 'none'
   constructor() { }
   ngOnInit(): void {
 
