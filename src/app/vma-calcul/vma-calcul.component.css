@@ -1,0 +1,139 @@
+
+article{
+    padding: 1rem;
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+}
+.grid-card{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    grid-template-areas: "desc desc"
+                         "form result";
+}
+
+.form{
+    grid-area: form;
+    padding:1rem;
+}
+.form-box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+
+}
+h3{
+    font-weight: 900;
+    font-size: 28px;
+    font-family: 'Archivo', sans-serif;
+    margin-bottom: 5px;
+    color: #fd3a69;
+     
+}
+
+.msg{
+    top:45%;
+    font-size: 80%;
+    position: absolute;
+
+}
+
+.description{
+    grid-area: desc;
+}
+.description-text{
+    padding: .5rem;
+}
+.dero p{
+    display: inline-block;
+}
+.dero{
+    display: block;
+    padding: 1rem;
+    background-color: beige;
+    border-radius: 15px;
+}
+.result{
+    grid-area: result;
+    padding: 2.5rem;
+}
+
+.result .vma{
+    min-width: 200px;
+    color : rgb(14, 250, 14);
+    font-weight: bolder;
+    font-size: x-large;
+    margin-bottom: 0;
+}
+.result .vo{
+    min-width: 200px;
+    color: rgb(33, 94, 31);
+    font-weight: bold;
+    font-size: large;
+    margin-left: 2px;
+}
+.result span{
+    font-size: 70%;
+}
+.box-ytb{
+    background-color: white;
+}
+
+.youtube{
+    width: 100% ;
+    height: 280px;
+
+}
+.list-links{
+    list-style: none;
+    margin: 1rem 0;
+    font-weight: bold;
+}
+.list-links i{
+    margin-right: 10px;
+}
+
+@media only screen and (max-width: 576px) {
+    .container{
+        padding: 0;
+    }
+    .grid-card{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr 100px;
+        grid-template-areas: "desc"
+                             "form" 
+                             "result";
+    }
+    input{
+        height: 40px;
+    }
+    button{
+        margin-top: 0;
+        height: 40px;
+        padding-top: 10px;
+    }
+    .form-box{
+        flex-direction: row;
+        gap: 5px;
+    }
+    .btn-calc{
+        align-self: flex-end;
+    }
+    .msg{
+        top:97%;
+    }
+    .result{
+        padding: 0 2rem;
+    }
+    .result p{
+        margin: 0 auto 20px 5px;
+    }
+  
+        .youtube{
+            width: 100% ;
+            height: 250px;
+        }
+    
+}

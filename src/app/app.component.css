@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Wallpoet&display=swap');
+.body{
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns:13vw 1fr 13vw;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "head head head"
+                          ". main ."
+                          "footer footer footer";
+}
+nav .brand{
+    font-family: 'Wallpoet', cursive;
+    font-size: 36px;
+}
+.not{
+    position: absolute;
+    left: 108px;
+    top: 22px;
+    font-family: cursive;
+    font-size: 20px;
+    border-radius: 50%;
+    padding: 2px;
+    background-color: white;
+    color: #4286f5;
+    opacity: .7;
+
+}
+
+  header {
+    grid-area: head;
+   
+  }
+ .lang{
+     margin-left: auto;
+ }
+  
+main{
+    padding: 1rem;
+    grid-area: main;
+}
+.containercontenu{
+    height: 100%;
+    margin: 0 auto;
+}
+footer{
+    grid-area: footer; 
+}
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.social{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: .7rem;
+}
+.copy{
+    align-self:flex-end;
+}
+.titl{
+    padding-left: 40px;
+}
+.liste{
+    list-style: none;
+    margin-bottom: 0;
+}
+.liste-item{
+    font-weight: 300;
+    padding-bottom: 2px;
+    opacity: .8;
+}
+.liste-item:hover{
+    opacity: 1;
+}
+.modal, .container{
+    max-width: 100vw;
+}
+@media only screen and (max-width: 800px){
+    .body{
+        grid-template-columns:5vw 1fr 5vw;
+    }
+
+}
+@media only screen and (max-width: 576px) {
+    .body{
+        width: 100vw;
+        min-height: 100vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas: "head"
+                              "main"
+                              "footer";
+    }
+    main{
+        padding: 1rem .5rem;
+        grid-area: main;
+    }
+    
+   .box{
+       flex-direction: column;
+   }
+   .propo{
+    margin-left: 10%;
+
+   }
+   .copy{
+    align-self:flex-start;
+    padding: 15px;
+    margin: 0 auto;
+
+}
+   
+
+}
+

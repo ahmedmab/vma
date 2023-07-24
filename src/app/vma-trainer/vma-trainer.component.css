@@ -1,0 +1,128 @@
+.box{ width: 100%;
+    padding: 1rem;
+    margin: 0;
+    background-color: #fff;
+}
+article{
+    width: 100%;
+}
+#suite{
+    display: none;
+  }
+  
+  #suite:target {
+    display: block;
+  }
+.head{
+    padding-bottom: 1.5rem;
+    margin: 0%;
+    font-weight: 500;
+     color:#00587a;
+}
+.head-input{
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+}
+.form{
+    text-align: center;
+    width: 25%;
+
+}
+
+.btns{
+    display: flex;
+    gap: 10px;
+    width: 25%;
+    flex-direction: column;
+
+}
+
+table{
+    background-color: #fff;
+
+}
+  .table{
+      text-align: center;
+      margin-top: 1rem;
+  }
+ 
+
+th{ font-size: 1rem;
+    font-weight: 900;
+    color: #333;
+}
+td{ font-size: .8rem;
+    font-size: 90%;
+    font-weight: 400;
+
+}
+.consign{
+    width: 100%;
+    font-size: .8rem;
+    font-weight: 300;
+    display: flex;
+    justify-content: space-evenly;
+}
+.colore{
+    background-color: #bedcfa;
+}
+.bleu{
+    color: rgb(32, 54, 253);
+}
+.vert{
+    color: rgb(13, 189, 13);
+}
+.rec{
+    background-color: rgb(184, 250, 184);
+}
+@media only screen and (max-width: 576px) {
+    .box{ 
+        padding: 0;
+        
+    }
+    .head-input{
+        width: 100%;
+        padding: 0 1rem;
+        flex-direction: column;
+     }
+    .form{
+        width: 100%;
+
+     }
+    .btns{
+        flex-direction: row;
+        width: 100%;
+        gap: 2%;
+    }
+    .btns button{
+        width: 49%;
+    }
+       
+    .table-box{
+        width: 96vw;
+        margin: 0 auto;
+    }
+    
+    
+     th,td,.consign{
+         font-size: 80%;
+     }
+     
+    th[scope="row"],thead tr .fix{
+        background-color: #fcf8e8;
+        position: sticky;
+        left: -2px;
+        top:auto;
+    }
+    .consign{
+    flex-direction: column;       
+        text-align: center;
+    }
+    .consign p{
+        margin: 0;
+    }
+
+}

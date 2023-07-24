@@ -1,0 +1,310 @@
+<div class="container">
+  <div id="accordion">
+    <div class="box-ytb">
+      <mat-tab-group id="tabsChild" disablePagination="true" mat-align-tabs="left">
+        <mat-tab label="Francais">
+    <iframe class="youtube" src="https://www.youtube.com/embed/u_EByViYkk8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </mat-tab>
+        <mat-tab label="العربية">
+          <iframe class="youtube" src="https://www.youtube.com/embed/ur8eo7A_ADc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </mat-tab>
+      </mat-tab-group>
+  </div>
+  <div id="accordion">
+
+    <div class="card">
+      <div [hidden]="hidd" class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#article" (click)="hidd = true">
+          Qu'est-ce que la VMA ? </a>
+      </div>
+
+      <div id="article" class="collapse show" data-parent="#accordion">
+        <article>
+          <h1>Qu'est-ce que la VMA ?</h1>
+          <p>La Vitesse Maximale Aérobie (VMA) correspond à la vitesse de course à partir
+            de laquelle nous arrivons à la consommation de 100% de sa réserve en oxygène (VO2max).</p>
+          <ul>
+            <li>La VMA représente un facteur de performance qui dépend d’une part à des facteurs génétiques
+              et d’autre part au niveau d’entrainement de l’individu, et elle est mesurée en km/h. </li>
+            <li>
+              Elle est généralement comprise en 8 et 24 km/h.
+            </li>
+            <li>
+              D’après des études, la course avec 100% de sa VMA peut être maintenu jusqu'à 6 min, selon
+              l’individu.
+            </li>
+          </ul>
+          <p>C’est un facteur de performance essentiel qui sert de base à la construction des <a
+              routerLink='/plan_d_entrainment'>plan d’entraînement</a> en se basant sur les tableaux <a
+              routerLink='/allure_de_course'>d'allures de course</a>,
+            non seulement pour les course de durée, mais aussi utile pour la préparation physique des différents sports
+            collectifs comme le Football,
+            le Handball, le Basketball et le Rugby…ou bien les sports de combats et plus spécialement le taekwondo. </p>
+          <p>Mais avant tout ça, la VMA doit être mesurée correctement pour profiter des séances d’entrainements
+            adéquats, et pour cela voici les différents <strong>tests</strong> qui sert à l’obtention de la VMA :</p>
+        </article>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#demicooper" (click)="resetVal(); hiddTogle()">
+          Test de demi-COOPER </a>
+      </div>
+      <div id="demicooper" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <div class="test">
+
+            <div class="grid-card">
+              <div class="description">
+                <h3>Test de demi-COOPER</h3>
+                <p class="description-text">Le test est réalisé avec une intensité progressive. Après l'échauffement,
+                  nous devons parcourir la distance maximale en 6 minutes.</p>
+                <div class="dero">
+                  <p class="dero-titre h6">Procédure  du test :</p>
+                  <p class="dero-text">vous avez parcouru 1560 mètres en 6 minutes par exemple,
+                    vous divisez votre distance parcourue par 100 et vous obtenez votre VMA (1560/100 = 15,6 km/h).</p>
+                </div>
+              </div>
+              <div class="form">
+                <div class="form-box">
+                  <!-- Name input -->
+                  <div class="form-outline">
+                    <label class="form-label" for="form5Example1">distance(m)</label>
+                    <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required />
+                    <small class="msg" style="color: red;"
+                      *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
+                  </div>
+                  <!-- Submit button -->
+                  <div class="btn-calc">
+                    <button class="btn btn-warning" (click)="calculDemiCooper(input)">Clalculer</button>
+                  </div>
+                </div>
+
+              </div>
+              <div class="result">
+                <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
+                <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#cooper" (click)="resetVal(); hiddTogle()">
+          Test de COOPER </a>
+      </div>
+      <div id="cooper" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <div class="test">
+
+            <div class="grid-card">
+              <div class="description">
+                <h3>Test de COOPER</h3>
+                <p class="description-text">Ce test permet notamment d'estimer le VO2Max et la VMA de la personne en
+                  course à pied.
+                  L'objectif est de parcourir la distance maximale en 12 minutes à une intensité constante pendant la
+                  course.
+                </p>
+                <div class="dero">
+                  <p class="dero-titre h6">Procédure  du test :</p>
+                  <p class="dero-text">vous avez parcouru 2,6 kilomètres en 12 minutes. Selon la formule suivante
+                    VO2max = (22,35 X distance en kilomètres) -11,288, alors votre VO2max = 22,35 X 2,6 = 58,11-11,288 =
+                    46,8 ml / min / kg.</p>
+                </div>
+              </div>
+
+              <div class="form">
+                <div class="form-box">
+                  <!-- Name input -->
+                  <div class="form-outline">
+                    <label class="form-label" for="form5Example1">distance(m)</label>
+                    <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required />
+                    <small class="msg" style="color: red;"
+                      *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
+                  </div>
+                  <!-- Submit button -->
+                  <div class="btn-calc">
+                    <button class="btn btn-warning" (click)="calculCooper(input)">Clalculer</button>
+                  </div>
+                </div>
+
+              </div>
+              <div class="result">
+                <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
+                <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#navette" (click)="resetVal(); hiddTogle()">
+          Test Navette de Luc Léger </a>
+      </div>
+      <div id="navette" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <div class="test">
+
+            <div class="grid-card">
+              <div class="description">
+                <h3>Test navette de Luc Léger</h3>
+                <p class="description-text">Ce test est réalisé avec une intensité progressive, et entre deux lignes
+                  distantes de 20 m
+                  que vous devez courir en navettes le plus longtemps avec la prise de considération que le rythme
+                  augmente à 0,5 km / h par minute. </p>
+                  <ul class="list-links">
+                    <li><a download target="_blank" [href]="tableauUrl"><i class="far fa-file-pdf"></i> tableau-corresp.-paliers-VO2max.pdf</a>
+                    </li>
+                    <li><a download target="_blank" [href]="navetUrl"><i class="far fa-play-circle"></i> test-navette-Bips.mp3</a>
+                    </li>
+                  </ul>
+                <div class="dero">
+                  <p class="dero-titre h6">Procédure  du test :</p>
+                  <p class="dero-text">tout comme le test Vameval, votre VMA sera déterminé immédiatement après avoir
+                    entendu le bip,
+                    et vous êtes en retard d’une des deux lignes avec au moins deux mètres. </p>
+                </div>
+
+                <!-- stocker des fichier a firebase storage -->
+
+                 <!-- <input type="file" (change)="upload($event)">
+                <button (click)="uploadFile()">upload</button> -->
+
+              </div>
+              <div class="form">
+                <div class="form-box">
+                  <!-- Name input -->
+                  <div class="form-outline">
+                    <label class="form-label" for="form5Example1">Palier</label>
+                    <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required />
+                    <small class="msg" style="color: red;"
+                      *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
+                  </div>
+                  <!-- Submit button -->
+                  <div class="btn-calc">
+                    <button class="btn btn-warning" (click)="calculNavette(input)">Clalculer</button>
+                  </div>
+                </div>
+
+              </div>
+              <div class="result">
+                <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
+                <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#vameval" (click)="resetVal(); hiddTogle()">
+          Test VAMEVA (cazorla) </a>
+      </div>
+      <div id="vameval" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <div class="test">
+
+            <div class="grid-card">
+              <div class="description">
+                <h3>Test VAMEVAL (cazorla)</h3>
+                <p class="description-text">Le test est réalisé avec une intensité progressive. Installez un con ou plot tous les 20 mètres autour de la piste,
+                   et chaque plot doit être atteinte lorsqu'un signal sonore est entendu. </p>
+                   <ul class="list-links">
+                    <li style="color: purple;"><a download target="_blank" [href]="vamEvalUrl"><i class="far fa-play-circle"></i>VAMEVAL-Bips.mp3</a>
+                   </ul>
+                <div class="dero">
+                  <p class="dero-titre h6">Procédure  du test :</p>
+                  <p class="dero-text">Vous démarrez à une vitesse de 8 km / h, et en courant, la vitesse accélère de 0,5 km / h par minute. 
+                    Une fois que vous entendez le bip et que vous êtes à au moins deux mètres du poteau, votre VMA alors sera déterminé.</p>
+                </div>
+              </div>
+              <div class="form">
+                <div class="form-box">
+                  <!-- Name input -->
+                  <div class="form-outline">
+                    <label class="form-label" for="form5Example1">Palier</label>
+                    <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required />
+                    <small class="msg" style="color: red;"
+                      *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
+                  </div>
+                  <!-- Submit button -->
+                  <div class="btn-calc">
+                    <button class="btn btn-warning" (click)="calculVameval(input)">Clalculer</button>
+                  </div>
+                </div>
+
+              </div>
+              <div class="result">
+                <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
+                <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#astrand" (click)="resetVal(); hiddTogle()">
+          Test d'ASTRAND </a>
+      </div>
+      <div id="astrand" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <div class="test">
+
+            <div class="grid-card">
+              <div class="description">
+                <h3>Test d'ASTRAND</h3>
+                <p class="description-text">Ce test est effectué à une intensité stable. La distance maximale possible doit être
+                   parcourue dans les 3 minutes afin que des calculs approximatifs puissent être effectués en fonction de la distance atteinte dans les 3 minutes et 30 minutes.</p>
+                <div class="dero">
+                  <p class="dero-titre h6">Procédure du test :</p>
+                  <p class="dero-text">Vous parvenez à parcourir une distance de 500 mètres en 3 minutes 30, donc votre VMA est de 500/210 (3 minutes 30) X 3600 (1 heure) = 8,4 km / h.</p>
+                </div>
+              </div>
+              <div class="form">
+                <div class="form-box">
+                  <!-- Name input -->
+                  <div class="form-outline">
+                    <label class="form-label" for="form5Example1">distance(m)</label>
+                    <input type="number" id="form5Example1" class="form-control mb-1" [formControl]="input" required />
+                    <small class="msg" style="color: red;"
+                      *ngIf="input.touched && input.invalid">{{errorMessage()}}</small>
+                  </div>
+                  <!-- Submit button -->
+                  <div class="btn-calc">
+                    <button class="btn btn-warning" (click)="calculAstrand(input)">Clalculer</button>
+                  </div>
+                </div>
+
+              </div>
+              <div class="result">
+                <p class="vma mb-3">VMA : {{vma |number:'1.0-2'}}<span *ngIf="vma!=null"> Km/h</span></p>
+                <p class="vo">VO2max : {{vo2max |number:'1.0-2'}}<span *ngIf="vo2max!=null"> ml/kg/min</span></p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

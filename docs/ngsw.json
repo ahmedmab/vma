@@ -1,0 +1,95 @@
+{
+  "configVersion": 1,
+  "timestamp": 1613401031787,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/4.33db6c6e6f7a3ed75630.js",
+        "/5.2d29b00465aca0ba20ca.js",
+        "/6.abb27eae1a86aa565703.js",
+        "/favicon.ico",
+        "/index.html",
+        "/main.9392aecac52739262e2b.js",
+        "/manifest.webmanifest",
+        "/polyfills.70ffb02a82cc06d3b0cb.js",
+        "/runtime.222a09f6ed1349401f75.js",
+        "/styles.7f31a25343932ff8ba93.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/images/running-1245640.jpg",
+        "/assets/images/woman-498257_1280.jpg",
+        "/assets/smtp.js",
+        "/running-1245640.455794e0a3af7ec556b0.jpg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/4.33db6c6e6f7a3ed75630.js": "9e877488de66401a7dce12a6c86a1a12147fb351",
+    "/5.2d29b00465aca0ba20ca.js": "1990066a4db285d3681cf408cab018f064457782",
+    "/6.abb27eae1a86aa565703.js": "92a28e257376530edda2c2fc7c33a9026b7514eb",
+    "/assets/icons/icon-128x128.png": "5546d7cd0045ea0e9018aae8c24a7c9fffe51651",
+    "/assets/icons/icon-144x144.png": "42434131150c8228ea9a51e53d4b394326d7957f",
+    "/assets/icons/icon-152x152.png": "669a12c5f4c8d062ad667689abef2c6bd606b056",
+    "/assets/icons/icon-192x192.png": "04dda2bc411332b406df3735fd9aecdd3e7eea56",
+    "/assets/icons/icon-384x384.png": "8f8b6911fdc446f058353b239857497c97cd8929",
+    "/assets/icons/icon-512x512.png": "1e78ad23a009f21d53f467161c8e0777d39006f9",
+    "/assets/icons/icon-72x72.png": "bd0c969620df4371c9dd38426c7b5c430b4e763c",
+    "/assets/icons/icon-96x96.png": "4906267fc3efbd341a8f57954c3a949627717e82",
+    "/assets/images/running-1245640.jpg": "d6f4154b249baa1486609c5ffb0686baa768caec",
+    "/assets/images/woman-498257_1280.jpg": "3b7e5d2ca2cba20dc01bb72b90d8e88024c10c75",
+    "/assets/smtp.js": "437df45dbf59c3a3414236f44e3bcd5045bfe314",
+    "/favicon.ico": "b7fdb9e3ca81b048129a50e0ad095d9d95a68d05",
+    "/index.html": "2fc193a53ac547ccaf88bc6f749ed1c0929bddad",
+    "/main.9392aecac52739262e2b.js": "55ecfa4597a43f2ca5a0cdd059e5cdc9394690b8",
+    "/manifest.webmanifest": "9ad6da8333015a2413f174c37ff03a3312da2198",
+    "/polyfills.70ffb02a82cc06d3b0cb.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
+    "/running-1245640.455794e0a3af7ec556b0.jpg": "d6f4154b249baa1486609c5ffb0686baa768caec",
+    "/runtime.222a09f6ed1349401f75.js": "eedbd7f382843d0ec7070cd59c1ca4e6d4bc6788",
+    "/styles.7f31a25343932ff8ba93.css": "1ce06ccd23ad7b7d67e2dc66efe84c42c87b66aa"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

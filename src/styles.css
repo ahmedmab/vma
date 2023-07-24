@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+*{box-sizing: border-box;
+}
+html, body { height: 100%; }
+body { margin: 0;
+     font-family: "Helvetica Neue", sans-serif;
+     background-image: url(./assets/images/running-1245640.jpg);
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+
+    }
+
+button{
+    font-family: 'Martel Sans', sans-serif;
+}
+
+.mat-typography h1{
+    font-family: 'Roboto', serif;
+    font-size: 36px;
+}
+.mat-typography p{
+    font-family: 'Archivo', sans-serif;
+
+}
+
+@media only screen and (max-width: 600px) {
+body {
+    background-image: none;
+   
+    }
+.mat-typography h1{
+        font-size: 30px;
+    }
+.mat-typography h3{
+        font-size: 26px;
+    }
+.mat-tab-label{
+    font-size: 13px !important;
+ } 
+
+}
+

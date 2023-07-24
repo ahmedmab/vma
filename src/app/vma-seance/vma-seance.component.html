@@ -1,0 +1,219 @@
+<div class="page">
+  <h1 class="text-center head">Plan d'entrainement</h1>
+  <article class="container">
+    <p>Maintenant que vous avez votre VMA, vos tableaux d’allures (par temps et par
+    distance), il vous reste à choisir le mode d’entrainement selon l’objectif
+    d’amélioration de la VMA que vous avez planifié.</p><a style="font-size: 110%; font-weight: bold; color: rgb(81, 97, 241);" (click)="suite = 'block'">Lire la suite...</a>
+    <div [style.display]="suite">
+    <p>Mais il faut prendre en considération que le plan ou séance d’entrainement est
+    dépendante d’un individu, ou un groupe de niveau de VMA, et qu’il existe un
+    travail spécifique pour chaque objectif dont vous voulez développer.</p>
+    <p>Par rapport au travail intermittent est destiné à améliorer la puissance aérobie
+    d’une part, et la capacité aérobie d’autre part, alors que le type de travail continu
+    sert à améliorer l’endurance « fondamentale ».</p>
+    <h2>Pour la puissance aérobie :</h2>
+    Elle concerne un effort vigoureux pendant de 5 à 6 minutes au maximum et se
+    caractérise par une consommation maximale d'oxygène et une accumulation
+    ultérieure d'acide lactique. Le travail s’effectue à fréquence cardiaque proche du
+    maximum (si le temps d’exercice est suffisamment long) et autour de VMA, et
+    cette puissance est importance lors des moments d’accélération en courses de
+    durée, ou pendant les efforts intenses et rapides en d’autres sports.
+    <h4>➢ Caractéristiques des entrainements :</h4>
+    <ul>
+      <li>Intensité de l’effort : de 90% à 110% de la VMA
+      </li>
+      <li>Durée de l’effort : 15 secondes à 3 minutes.
+      </li>
+      <li>Répétitions : 5 à 12 répétitions. 1 à 3 séries.
+      </li>
+      <li>Récupération : vers 50% et le temps de l’effort.
+      </li>
+      <li>Conversation impossible.
+      </li>
+    </ul>
+    <h2>Pour la capacité aérobie :</h2>
+   <p>Elle concerne une intensité moindre, qualifiée néanmoins de soutenue,
+    correspondant à un travail qui s’effectue autour du seuil anaérobie, soit environ
+    85% de VMA (selon le niveau de coureur), et elle permet à titre d’exemple de
+    développer la résistance à la fatigue.</p> 
+    <h4>➢ Caractéristiques des entrainements :</h4>
+    <ul>
+      <li>Intensité de l’effort : de 75% à 90 % de la VMA
+      </li>
+      <li>Durée de l’effort : 4 à 14minutes. Jusqu’à 30 min d’effort.
+      </li>
+      <li>Répétitions : 2 à 3 répétitions. 1 à 3 séries.
+      </li>
+      <li>Récupération : de 30% à 50% du temps de l’effort.
+      </li>
+      <li>Conversation difficile.
+      </li>
+    </ul>
+    <h2>Pour l’endurance fondamentale</h2>
+    <p>Elle correspond à une allure ou une intensité modérée pour laquelle nous
+    constatons un état d’équilibre entre la production de lactates(2mmol/l) et son
+    élimination. Le travail s’effectue en aisance respiratoire autour du seuil aérobie,
+    soit 60% à 70 % de VMA permettant ainsi un effort durable.</p>
+    <p>L’effort continu sans récupération est privilégié, elle permet de développer une
+    capacité à fournir un effort le plus longtemps possible comme la finition de course
+    de 10 km.</p>
+    <h4>➢ Caractéristiques des entrainements :</h4>
+    <ul>
+      <li>Intensité de l’effort : de 60% à 70 % de la VMA
+      </li>
+      <li>Durée de l’effort : il est Presque illimité.</li>
+      <li>Répétitions : En cas de grosses difficultés. Vous privilégiez un travail continu avec des changements d’allures.
+  
+      </li>
+      <li>Récupération : travail continu donc pas de récupération.
+      </li>
+      <li>Conversation aisée.
+      </li>
+    </ul>
+  </div>
+  </article>
+
+  <div class="seanc">
+    <div class="box-1">
+      <form class="border p-3 mx-auto" [formGroup]="seriForm">
+        <p class="text-center h3 mb-4">Séance {{' '+num}}</p>
+        <p class="mb-0 " style="font-weight: bold; color: #333; margin-left: 21%; letter-spacing: 3px;">Intermittent</p>
+
+        <div class="type-se mb-3">
+          <a mat-flat-button color="basic" class="s-type mr-1" style="color: crimson;"
+            (click)="seanceCourte()">Court-Court</a>
+          <a mat-flat-button color="basic" class="s-type mr-2" style="color: rgb(16, 202, 16);"
+            (click)="seanceLongue()">Long-Long</a>
+          <a mat-flat-button color="basic" class="continu" (click)="seanceContinue()">Continu</a>
+
+        </div>
+
+        <p class="mb-2 ml-3" [ngStyle]="{'color':stype.color}">{{stype.name}}
+        </p>
+        <div class="box">
+          <div class="item2 col-auto">
+            <input type="number" class="form-control" placeholder="VMA" formControlName="vmaVal">
+            <div class="msg-box mb-2">
+              <div *ngIf="seriForm.get('vmaVal').invalid && seriForm.get('vmaVal').touched" class="invalid">
+                {{vmaErrorMessage()}}</div>
+            </div>
+          </div>
+          <div class="item2 col-auto">
+            <div>
+              <select class="browser-default custom-select" formControlName="percent">
+                <option value="" selected>allure</option>
+                <option *ngIf="cn" value="65">65 %</option>
+                <option *ngIf="cn" value="70">70 %</option>
+                <option *ngIf="cn" value="75">75 %</option>
+                <option *ngIf="cn" value="80">80 %</option>
+                <option *ngIf="lg" value="85">85 %</option>
+                <option *ngIf="lg" value="90">90 %</option>
+                <option *ngIf="lg" value="95">95 %</option>
+                <option *ngIf="lg" value="100">100 %</option>
+                <option *ngIf="cr" value="105">105 %</option>
+                <option *ngIf="cr" value="110">110 %</option>
+                <option *ngIf="cr" value="115">115 %</option>
+                <option *ngIf="cr" value="120">120 %</option>
+
+              </select>
+              <div class="msg-box mb-2">
+                <div *ngIf="seriForm.get('percent').touched && seriForm.get('percent').pristine" class="invalid">
+                  {{percentErrorMessage()}}</div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+          <div [hidden]="cn" class="item3 col-auto mt-3">
+
+            <div class="btn-togle ">
+              <button [ngClass]="!time?'btn btn-success btn-sm':'btn btn-light btn-sm'" (click)="togle()"
+                [disabled]="!time">distance</button>
+              <button [ngClass]="time?'btn btn-success btn-sm':'btn btn-light btn-sm'" (click)="togle()"
+                [disabled]="time">durée</button>
+            </div>
+
+            <div class="input-param">
+              <input class="inputype form-control mb-1" type="number" [placeholder]="inputype" formControlName="param">
+            </div>
+            <div *ngIf="seriForm.get('param').touched && !cn" class="invalid">{{effortErrorMessage()}}</div>
+            <div *ngIf="seriForm.get('param').touched && effortControleMessage()" class="alert alert-info">
+              {{effortControleMessage()}}</div>
+
+          </div>
+
+
+          <div [hidden]="!cn" class="item3 col-auto mt-3">
+
+            <div class="btn-togle ">
+              <button [ngClass]="!timeCn?'btn btn-success btn-sm':'btn btn-light btn-sm'" (click)="togleCn()"
+                [disabled]="!timeCn">distance</button>
+              <button [ngClass]="timeCn?'btn btn-success btn-sm':'btn btn-light btn-sm'" (click)="togleCn()"
+                [disabled]="timeCn">durée</button>
+            </div>
+
+            <div class="input-param">
+              <input class="inputype form-control mb-1" type="number" [placeholder]="inputypeCn" formControlName="paramCn">
+            </div>
+            <div *ngIf="seriForm.get('paramCn').touched && cn" class="invalid">{{effortContinuErrorMessage()}}</div>
+            <div *ngIf="(seriForm.get('param').touched || seriForm.get('paramCn').touched) && effortControleCnMessage()" class="alert alert-info">
+              {{effortControleCnMessage()}}</div>
+
+          </div>
+
+        </div>
+        <div class="item5 p-2 col-auto">
+          <button class="add" mat-stroked-button color="primary" (click)="generer(seriForm.value)"><i
+              class="fas fa-plus"></i> Ajouter </button>
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="box-2">
+      <div class="section2">
+        <div *ngFor="let item of plan index as i">
+          <!--court long-->
+          <table class="table table-sm mb-2">
+            <tr class="table-light p-1">
+              <th colspan="3"> <em style="font-weight: 900; font-size: 120%;">Séance {{i + 1}}</em> </th>
+              <th colspan="3">{{item.type}}</th>
+              <th class="close"><span (click)="delet(i)">
+                  <i class="fas fa-times"></i> </span>
+              </th>
+            </tr>
+            <tr>
+              <td  colspan="4">{{item.per}}% de VMA: <strong>{{item.vma}} km/h</strong></td>
+              <td colspan="2">vitesse: <strong>{{ ' '+item.vma * item.per / 100}} km/h</strong></td>
+            </tr>
+            <tr>
+              <th class="seri" colspan="5" [hidden]="plan[i].type == 'Continu'">{{item.serie}} X ( {{item.repetition}} X {{item.distance}}m (
+                {{item.dure | myTime}}) )</th>
+                <th class="seri" colspan="5" [hidden]="plan[i].type !== 'Continu'">Footing de {{item.distance}}m ( 
+                  {{item.dure | myTime}} )</th>
+            </tr>
+            <tr>
+              <td colspan="3"  [hidden]="plan[i].type == 'Continu'"><span class="recp">Récupération :</span> {{item.recuperation | myTime}}</td>
+              <td colspan="3" [hidden]="plan[i].type == 'Continu'"><span class="recp">Récupération/series :</span> 3 min</td>
+            </tr>
+            <tr>
+              <td colspan="5" [hidden]="plan[i].type == 'Continu'">volume :<strong>{{' ' +item.volume}}m ( {{item.volumeTemps | myTime}})</strong></td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+      <div class="btns">
+        <button class="reset" mat-stroked-button color="basic" (click)="renitialiser()">Rénitialiser<i
+            class="fas fa-sync-alt"></i></button>
+
+        <button class="pdf" mat-stroked-button color="warn" (click)="convertoPdf()">PDF <i
+            class="fas fa-cloud-download-alt"></i></button>
+      </div>
+    </div>
+  </div>
+
+</div>

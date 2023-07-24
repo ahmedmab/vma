@@ -1,0 +1,195 @@
+*, *::after,*::before{
+    box-sizing: border-box;
+    margin: 0%;
+}
+.type-se{
+    display: flex;
+    justify-content: space-around;
+}
+.s-type{
+    min-width: 33%;
+}
+.continu{
+    color: magenta;
+}
+.page{
+    background-color: white;
+    margin: 0%;
+    padding: 0%;
+}
+
+.seanc{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
+    padding: .5rem;
+    border-radius: 3px;
+}
+form{
+    min-width: 320px;
+    max-width: 500px;
+    margin: .5rem auto;
+    background-color: whitesmoke;
+}
+.box {
+    width: 100%;
+}
+
+
+button:disabled{
+    background-color: rgb(28, 240, 56);
+    font-weight: bolder;
+    color: white;
+}
+
+.btn-togle, .item5{
+    display: flex;
+    flex-direction: row;
+}
+.btn-togle button{
+    width: 50%;
+    }
+
+.item2 p{
+    text-align: center;
+}
+.item5{
+    width: 100%;
+    text-align: center;
+}
+.add{
+    margin-left: auto;
+    width: 10rem;
+}
+
+.box-2{
+min-width: 350px;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: minmax(200px, auto) 80px;
+grid-template-areas: "plan"
+                    "btns";
+place-items: center;
+}
+article{
+    width: 100%;
+}
+#suite{
+    display: none;
+  }
+  
+  #suite:target {
+    display: block;
+  }
+.head{
+    padding: 1rem;
+    margin: 0%;
+    font-weight: 500;
+     color:#00587a;
+}
+.section2{
+    grid-area: plan;
+    width: 100%;
+    background-color: #fcf8ec;
+}
+
+.btns{
+    grid-area: btns;
+  place-self: start;
+   margin: 13px auto 0;
+
+}
+.pdf{
+    width: 8rem;
+    margin-left: 5px;
+}
+.reset i{
+    margin-left: 3px;
+
+}
+
+th,td{
+line-height: 80%;
+min-width: fit-content;
+}
+.seri{
+    text-align: center;
+    font-weight: 500;
+    font-size: 120%;
+    word-spacing: 120%;
+}
+.table{
+    background-color: white;
+}
+.table td{
+    text-align: center;
+}
+.close{
+    position: relative;
+}
+.close span i {
+    position: absolute;
+    top: 0%;
+    right: 5px;
+}
+.msg-box{
+    height: 8px;
+}
+.invalid{
+    color: red;
+    font-size: 85%;
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+}
+.control{
+    color: rgb(96, 59, 97);
+    font-size: 90%;
+    font-weight: 500;
+    margin: 0;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 676px) {
+    /* For mobile phones: */
+    .seanc{
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+        place-items: center;
+
+ }
+ .box-2{
+     width: 100%;
+     grid-template-rows: minmax(30px, auto) 80px;
+ }
+
+ .box-1, .box-2{
+    padding: 0;
+ }
+ .add{
+    font-size: 120%;
+
+ }
+ 
+   form{
+       width: 320px;
+       font-size: 90%;
+   }
+   .item5{
+    width: 80%;
+
+   }
+   .table td{
+       font-size: 88%;
+       padding-left: 0%;
+       padding-right: 0%;
+   }
+   .recp{
+       font-size: 85%;
+   }
+  
+  }
+ 
