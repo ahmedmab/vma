@@ -36,9 +36,13 @@ export class AppComponent implements OnInit {
 }
   
 ngOnInit() {
+  this.currentYear = new Date().getFullYear()
 }
 
   title = 'vma up';
+  url = 'vma-up.web.app'
+  currentYear: number
+
   valid:boolean = false
   msgSucce:boolean = true
   

@@ -42,7 +42,9 @@ const routes: Routes = [
         data: {
             title: 'politique de confidentialité'
         }
-    }];
+    },
+    { path: '**', component: VmaCalculComponent }
+];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy', initialNavigation: 'enabled' })],

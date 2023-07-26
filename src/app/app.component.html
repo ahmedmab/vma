@@ -1,7 +1,7 @@
 <section class="body">
   <header>
     <nav class="navbar navbar-expand-lg  navbar-dark primary-color">
-      <a class="navbar-brand brand" href="https://vmaup.com">VMA</a><span class="not">up!</span>
+      <a class="navbar-brand brand" routerLink="./">VMA</a><span class="not">up!</span>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -42,7 +42,8 @@
           <h5 class="text-uppercase titl">A propos</h5>
 
           <ul class="liste">
-            <li class="liste-item"><a data-toggle="modal" data-target="#myModal" (click)="valid = false">Contactez nous</a></li>
+            <li class="liste-item"><a data-toggle="modal" data-target="#myModal" (click)="valid = false">Contactez
+                nous</a></li>
             <li class="liste-item"><a routerLink='/terms'>Terms & Conditions</a></li>
             <li class="liste-item"><a routerLink='/politique'>politique de confidentialité</a>
             </li>
@@ -51,28 +52,28 @@
         <div class="copy">
           <div class="social">
             <!-- Facebook -->
-<a style="color: #3b5998; font-size: large;" href="https://www.facebook.com/vmaup1" target="_blank" role="button"
-><i class="fab fa-facebook-f fa-lg"></i
-></a>
+            <a style="color: #3b5998; font-size: large;" href="https://www.facebook.com/vmaup1" target="_blank"
+              role="button"><i class="fab fa-facebook-f fa-lg"></i></a>
 
-<!-- Twitter -->
-<a style="color: #55acee; font-size: large;" href="https://www.twitter.com/vmaup1" target="_blank" role="button"
-><i class="fab fa-twitter fa-lg"></i
-></a>
+            <!-- Twitter -->
+            <a style="color: #55acee; font-size: large;" href="https://www.twitter.com/vmaup1" target="_blank"
+              role="button"><i class="fab fa-twitter fa-lg"></i></a>
 
-<!-- Google -->
-<a style="color: #dd4b39; font-size: large;" href="https://www.youtube.com/channel/UCwbO9VI3lGuuBJnaPL02aAg" target="_blank" role="button"
-><i class="fab fa-youtube fa-lg"></i
-></a>
+            <!-- Google -->
+            <a style="color: #dd4b39; font-size: large;" href="https://www.youtube.com/channel/UCwbO9VI3lGuuBJnaPL02aAg"
+              target="_blank" role="button"><i class="fab fa-youtube fa-lg"></i></a>
 
-<!-- Instagram -->
-<a style="color: #ac2bac; font-size: large;" href="https://www.instagram.com/vma_up" target="_blank" role="button"
-><i class="fab fa-instagram fa-lg"></i
-></a>
+            <!-- Instagram -->
+            <a style="color: #ac2bac; font-size: large;" href="https://www.instagram.com/vma_up" target="_blank"
+              role="button"><i class="fab fa-instagram fa-lg"></i></a>
           </div>
-          © 2021 Copyright: vmaup.com
-          <br>
-          <small style="color: rgb(162, 165, 167); font-size: 65%;" class="text-center py-2 pl-3">Développé par AHMED MABROUKI</small>
+          <div>
+            © {{currentYear}} Copyright: {{url}}
+          </div>
+          <div class="text-center">
+            <small style="color: rgb(162, 165, 167);"
+              class="text-center py-2">Développé par AHMED MABROUKI</small>
+          </div>
         </div>
       </div>
       <!--Grid row-->
@@ -96,7 +97,8 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form [class]="valid?'was-validated':''" style="width: 80%; margin: 0 auto;" enctype="text/plain" [formGroup]="msgForm">
+        <form [class]="valid?'was-validated':''" style="width: 80%; margin: 0 auto;" enctype="text/plain"
+          [formGroup]="msgForm">
           <!-- Name input -->
           <div class="form-outline mb-2">
             <label class="form-label" for="form4Example1">Nom et Prènom</label>
